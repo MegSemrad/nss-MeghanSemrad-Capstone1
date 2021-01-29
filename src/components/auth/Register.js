@@ -21,7 +21,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:8088/users", {
+                    fetch("http://localhost:8090/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
