@@ -3,8 +3,7 @@ import { useHistory } from "react-router-dom"
 import "./Login.css"
 
 export const Register = (props) => {
-    const firstName = useRef()
-    const lastName = useRef()
+    const username = useRef()
     const email = useRef()
     const conflictDialog = useRef()
     const history = useHistory()
@@ -29,7 +28,7 @@ export const Register = (props) => {
                         },
                         body: JSON.stringify({
                             email: email.current.value,
-                            name: `${firstName.current.value} ${lastName.current.value}`
+                            name: `${username.current.value}`
                         })
                     })
                         .then(res => res.json())
@@ -56,23 +55,15 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for NSS Kennels</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Meghan's Yet-To-Be-Named App</h1>
                 <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input ref={firstName} type="text" 
-                        name="firstName" 
+                    <label htmlFor="username"> Username </label>
+                    <input ref={username} type="text" 
+                        name="Name" 
                         className="form-control" 
-                        placeholder="First name" 
+                        placeholder="username" 
                         required 
                         autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input ref={lastName} type="text" 
-                        name="lastName" 
-                        className="form-control" 
-                        placeholder="Last name" 
-                        required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>

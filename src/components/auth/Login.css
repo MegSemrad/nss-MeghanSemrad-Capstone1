@@ -45,10 +45,9 @@ fieldset {
 .container--login {
     text-align: center;
 }
-
-/* .form--login {
+/* 
+.form--login {
     background-position-x: right;
-    background-image: url(logo.png);
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
