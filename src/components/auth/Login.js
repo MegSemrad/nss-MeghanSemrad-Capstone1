@@ -5,12 +5,12 @@ import "./Login.css";
 
 
 export const Login = props => {
-    const email = useRef()
+    const username = useRef()
     const existDialog = useRef()
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8090/users?email=${email.current.value}`)
+        return fetch(`http://localhost:8090/users?username=${username.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -39,13 +39,12 @@ export const Login = props => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>Meghan's Yet-To-Be-Named App</h1>
-                    <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input ref={email} type="email"
-                            id="email"
+                        <label htmlFor="inputEmail"> Username </label>
+                        <input ref={username} type="text"
+                            id="username"
                             className="form-control"
-                            placeholder="Email address"
+                            placeholder="username"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
