@@ -38,7 +38,7 @@ export const Login = props => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Meghan's Yet-To-Be-Named App</h1>
+                    <h1>Yet-To-Be-Named App</h1>
                     <fieldset>
                         <label htmlFor="inputEmail"> Username </label>
                         <input ref={username} type="text"
