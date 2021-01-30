@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { NavBar } from "./nav/NavBar";
-// import { ApplicationViews } from "./ApplicationViews";
+import { ApplicationViews } from "./ApplicationViews";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./PatientApp.css";
@@ -14,7 +14,7 @@ export const PatientApp = () => (
           return (
             <>
               <NavBar />
-              {/* <ApplicationViews /> */}
+              <ApplicationViews />
             </>
           );
         } else {
