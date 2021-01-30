@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { ApplicationViews } from "./ApplicationViews";
-import { NavBar } from "./nav/NavBar";
+import { NavBar } from "./components/nav/NavBar";
+import { ApplicationViews } from "./components/ApplicationViews";
 import "./PatientApp.css";
 
 export const PatientApp = () => (
@@ -12,3 +12,4 @@ export const PatientApp = () => (
         </Route>
     </>
 );
+
