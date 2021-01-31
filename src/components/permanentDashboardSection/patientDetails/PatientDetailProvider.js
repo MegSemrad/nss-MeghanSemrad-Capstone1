@@ -6,7 +6,7 @@ export const PatientDetailProvider = (props) => {
     const [patientDetails, setPatientDetails] = useState([])
 
     const getPatientDetails = () => {
-        return fetch("http://localhost:8090/baseUserDetails")   //expand or embed if either??
+        return fetch("http://localhost:8090/basePatientDetails")
         .then(response => response.json())
         .then(setPatientDetails)
     };
