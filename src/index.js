@@ -5,7 +5,7 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
-import { PatientApp } from "./PatientApp";   {/*Remember to change later to my app name!!! */}
+import { PatientApp } from "./components/PatientApp";   {/*Remember to change later to my app name!!! */}
 
 
 ReactDOM.render(

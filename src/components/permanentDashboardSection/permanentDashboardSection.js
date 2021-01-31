@@ -7,7 +7,7 @@ export const PermanentDashboardSection = (props) => {
         <>
             <Container>
                 <Col>
-                    <Row>Patient Info function will be invoked here</Row>
+                    <Row>Patient Detail function will be invoked here</Row>
                     <Row>Alert function will be invoked here</Row>
                     <Row>Preferred Pharmacy function will be invoked here</Row>
                 </Col>
