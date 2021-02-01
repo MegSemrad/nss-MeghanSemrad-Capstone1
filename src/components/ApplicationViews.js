@@ -29,30 +29,3 @@ export const ApplicationViews = () => {
           </>
      )
 };
-
-
-{/* <index.js>
-     <AppName.js>
-          <NavBar>
-          <ApplicationViews.js>
-               <Route exact path="/">
-                    <PermanentDashboardSection>
-                         <PatientInfoList>
-                         <AlertList>
-                         <PharmacyList>
-                    <where changeable side would be invoked>
-               </Route>
-               <Route exact path="/appointmentBySpecialist">
-                    <PermanentDashboardSection>
-                         <PatientInfoList>
-                         <AlertList>
-                         <PharmacyList>
-                    <where changeable side would be invoked>
-               </Route>
-               <Route exact path="/familyHistory">
-                    <PermanentDashboardSection>
-                         <PatientInfoList>
-                         <AlertList>
-                         <PharmacyList>
-                    <where changeable side would be invoked>
-               </Route> */}
