@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { Link, useHistory} from "react-router-dom";
-import "./login.css"
+import { useHistory} from "react-router-dom";
+import "./login.css";
 
 
 export const Login = props => {
@@ -37,8 +37,7 @@ export const Login = props => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Health In One</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="h3 mb-3 font-weight-normal">Login</h1>
                     <fieldset>
                         <label htmlFor="inputUsername"> Username </label>
                         <input ref={username} type="text"
@@ -54,47 +53,6 @@ export const Login = props => {
                     </fieldset>
                 </form>
             </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section>
         </main>
     )
-}
-
-
-
-
-
-
-
-
-
-
-
-    // import React, { useRef } from "react";
-    // import { useHistory } from "react-router-dom";
-    // import { Form, Button } from "react-bootstrap";
-    // // will need css
-    
-    // export const LoginOrRegister = () => {
-    
-    //     return (
-    //         <Form>
-    //             <Form.Group controlId="formBasicEmail">
-    //                 <Form.Label>Username</Form.Label>
-    //                 <Form.Control type="text" placeholder="Username" />
-    //                 {/* <Form.Text className="text-muted">
-    //       We'll never share your email with anyone else.
-    //     </Form.Text> */}
-    //             </Form.Group>
-    
-    //             <Form.Group controlId="formBasicEmail">
-    //                 <Form.Label>Email</Form.Label>
-    //                 <Form.Control type="email" placeholder="Email" />
-    //             </Form.Group>
-    //             <Button variant="primary" type="submit">
-    //                 Register
-    //             </Button>
-    //         </Form>
-    //     )
-    // };
+};

@@ -15,14 +15,14 @@ export const ApplicationViews = () => {
 
 
                <BasePatientDetailsProvider>
-                    <Route exact path="/appointmentbyspeciality">
+                    <Route exact path="/AppointmentBySpeciality">
                          <PermanentDashboardSection />
                     </Route>
                </BasePatientDetailsProvider>
 
 
                <BasePatientDetailsProvider>
-                    <Route exact path="/familyhistory">
+                    <Route exact path="/FamilyHistory">
                          <PermanentDashboardSection />
                     </Route>
                </BasePatientDetailsProvider>
