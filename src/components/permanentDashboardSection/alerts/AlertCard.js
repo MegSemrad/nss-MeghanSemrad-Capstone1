@@ -6,9 +6,10 @@ export const AlertCard = ({ basePatientDetail }) => {
         <>
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                    <Card.Title>Alerts</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                    <Card.Title></Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">Conditions</Card.Subtitle>
                     <Card.Text>{basePatientDetail.conditions}</Card.Text>
+                    <Card.Subtitle className="mb-2 text-muted">Allergies</Card.Subtitle>
                     <Card.Text>{basePatientDetail.allergies}</Card.Text>
                     {/* <Card.Link href="#">Card Link</Card.Link>
                     <Card.Link href="#">Another Link</Card.Link> */}
