@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
 import { PatientDetailContext } from "./PatientDetailProvider"
-import { PermanentDashboardSection } from "../permanentDashboardSection"
+import { PatientDetailCard } from "./PatientDetailCard"
 
 
 export const PatientDetailList = () => {
@@ -22,7 +22,7 @@ export const PatientDetailList = () => {
             </button> */}
         {patientDetails.map(patientDetail => {
         
-            return <PermanentDashboardSection key={patientDetail.id} //argument
+            return <PatientDetailCard key={patientDetail.id} //argument
                         patientDetail={patientDetail} /> //argument
         })
         }
