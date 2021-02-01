@@ -10,14 +10,12 @@ export const NavBar = (props) => {
                     <Nav.Link href="/">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/appointmentbyspeciality" eventKey="link-1">Appointments by Speciality</Nav.Link>
+                    <Nav.Link href="/AppointmentBySpeciality" eventKey="link-1">Appointments by Speciality</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/familyhistory" eventKey="link-2">Family History</Nav.Link>
+                    <Nav.Link href="/FamilyHistory" eventKey="link-2">Family History</Nav.Link>
                 </Nav.Item>
             </Nav>
         </>
     )
 };
-
-

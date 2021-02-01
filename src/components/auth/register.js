@@ -55,7 +55,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Health In One</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Register</h1>
                 <fieldset>
                     <label htmlFor="username"> Username </label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required autoFocus />
@@ -65,10 +65,9 @@ export const Register = (props) => {
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Sign in </button>
+                    <button type="submit"> Register </button>
                 </fieldset>
             </form>
         </main>
     )
-}
-
+};
