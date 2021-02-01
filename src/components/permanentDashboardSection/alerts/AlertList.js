@@ -1,29 +1,23 @@
 import React, { useContext, useEffect } from "react";
-// import { useHistory } from "react-router-dom";
-import { AlertContext } from "./PatientDetailProvider"
-import { AlertCard } from "./AlertCard"
+import { basePatientDetailsContext } from "../permanentDashboardProvider"
+import { AlertCard } from "./AlertCard";
 
 
 export const AlertList = () => {
-  const { alerts, getAlerts } = useContext(AlertContext)
-//   const history = useHistory()
+  const { basePatientDetails, getBasePatientDetails } = useContext(basePatientDetailsContext)
 
 
   useEffect(() => {
-    getAlerts()
+    getBasePatientDetails()
     }, [])
 
 
   return (
     <div className="alerts">
-        <h2 className="titleWord">Alerts</h2>
-		    {/* <button onClick={() => {history.push("/alerts/create")}}>
-                Add Alert
-            </button> */}
-        {alerts.map(alert => {
+        {basePatientDetails.map(basePatientDetail => {
         
-            return <AlertCard key={alert.id} //argument
-                        alert={alert} /> //argument
+            return <AlertCard key={basePatientDetail.id} //argument
+            basePatientDetail={basePatientDetail} /> //argument
         })
         }
     </div>

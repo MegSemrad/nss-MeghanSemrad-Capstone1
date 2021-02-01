@@ -1,29 +1,23 @@
 import React, { useContext, useEffect } from "react";
-// import { useHistory } from "react-router-dom";
-import { PatientDetailContext } from "./PatientDetailProvider"
-import { PatientDetailCard } from "./PatientDetailCard"
+import { basePatientDetailsContext } from "../permanentDashboardProvider"
+import { PatientDetailCard } from "./PatientDetailCard";
 
 
 export const PatientDetailList = () => {
-  const { patientDetails, getPatientDetails } = useContext(PatientDetailContext)
-//   const history = useHistory()
+  const { basePatientDetails, getBasePatientDetails } = useContext(basePatientDetailsContext)
 
 
   useEffect(() => {
-    getPatientDetails()
+    getBasePatientDetails()
     }, [])
 
 
   return (
     <div className="patientDetails">
-        <h2 className="titleWord">Patient Details</h2>
-		    {/* <button onClick={() => {history.push("/patientDetails/create")}}>
-                Add Patient Details
-            </button> */}
-        {patientDetails.map(patientDetail => {
+        {basePatientDetails.map(basePatientDetail => {
         
-            return <PatientDetailCard key={patientDetail.id} //argument
-                        patientDetail={patientDetail} /> //argument
+            return <PatientDetailCard key={basePatientDetail.id} //argument
+                        basePatientDetail={basePatientDetail} /> //argument
         })
         }
     </div>
