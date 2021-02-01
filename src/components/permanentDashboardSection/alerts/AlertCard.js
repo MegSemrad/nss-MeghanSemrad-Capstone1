@@ -1,0 +1,13 @@
+import React from "react";
+
+export const AlertCard = ({alert}) => {
+    return (
+        <>
+            <section className="alerts permanentDashboardSection">
+                <h3 className="alerts__card__title">Alerts</h3>
+                <div className="alerts__conditions">{alert.conditions}</div>
+                <div className="alerts__allergies">{alert.allergies}</div>
+            </section>
+        </>
+    )
+    };
