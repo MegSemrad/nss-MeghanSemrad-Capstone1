@@ -1,9 +1,10 @@
 import React from "react";
+import "./permanentDashboardSection.css"
 
 export const PermanentDashboardSection = ({ patientDetail }) => {
     return (
         <>
-            <section className="patientDetails">
+            <section className="patientDetails, permanentDashboardSection">
                 <h3 className="patientDetails__card__title">Patient Details</h3>
                 <div className="patientDetails__name">Meghan</div>
                 <div className="patientDetails__name">09/08/1992</div>
@@ -13,8 +14,8 @@ export const PermanentDashboardSection = ({ patientDetail }) => {
                     <div className="emergency__contact__phone__number">000-000-0000</div>
                 </h5>
             </section>
-            <section>Alert function will be invoked here</section>
-            <section>Preferred Pharmacy function will be invoked here</section>
+            <section className="permanentDashboardSection">Alert function will be invoked here</section>
+            <section className="permanentDashboardSection">Preferred Pharmacy function will be invoked here</section>
         </>
     )
 };
