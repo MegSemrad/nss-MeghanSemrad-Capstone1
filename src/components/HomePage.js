@@ -6,7 +6,7 @@ import { Register } from "./auth/register";
 export const HomePage = () => {
     return (
         <>
-            <Route exact path="/HomePage">
+            <Route exact path="/">
                 <Login />
                 <Register />
             </Route>

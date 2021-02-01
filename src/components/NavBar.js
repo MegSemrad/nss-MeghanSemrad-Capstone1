@@ -7,7 +7,7 @@ export const NavBar = (props) => {
         <>
             <Nav variant="tabs" defaultActiveKey="/home">
                 <Nav.Item>
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/landingpage">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/AppointmentBySpeciality" eventKey="link-1">Appointments by Speciality</Nav.Link>

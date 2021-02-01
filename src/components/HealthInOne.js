@@ -18,12 +18,12 @@ export const HealthInOne = (props) => (
                         </>
                     );
                 } else {
-                    return <Redirect to="/HomePage" />;
+                    return <Redirect to="/" />;
                 }
             }}
         />
 
-        <Route path="/HomePage">
+        <Route path="/">
             <HomePage />
         </Route>
     </>

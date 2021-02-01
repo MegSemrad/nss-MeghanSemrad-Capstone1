@@ -8,7 +8,7 @@ export const ApplicationViews = () => {
      return (
           <>
                <BasePatientDetailsProvider>
-                    <Route exact path="/">
+                    <Route exact path="/landingpage">
                          <PermanentDashboardSection />
                     </Route>
                </BasePatientDetailsProvider>
