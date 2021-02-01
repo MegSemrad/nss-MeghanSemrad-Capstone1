@@ -1,20 +1,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { PatientDetailProvider } from "./permanentDashboardSection/patientDetails/PatientDetailProvider";
-import { AlertProvider } from "./permanentDashboardSection/alerts/AlertProvider";
+import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 
 
 export const ApplicationViews = () => {
      return (
           <>
-               <PatientDetailProvider>
-               <AlertProvider>
+               <BasePatientDetailsProvider>
                     <Route exact path="/">
                          <PermanentDashboardSection />
                     </Route>
-               </AlertProvider>
-               </PatientDetailProvider>
+               </BasePatientDetailsProvider>
           </>
      )
 };
