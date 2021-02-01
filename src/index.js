@@ -1,6 +1,6 @@
 // json-server -p 8090 -w database.json
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';

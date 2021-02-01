@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection"
 import { PatientDetailProvider } from "./permanentDashboardSection/patientDetails/PatientDetailProvider";
-import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 
 
 export const ApplicationViews = () => {
