@@ -12,6 +12,20 @@ export const ApplicationViews = () => {
                          <PermanentDashboardSection />
                     </Route>
                </BasePatientDetailsProvider>
+
+
+               <BasePatientDetailsProvider>
+                    <Route exact path="/appointmentbyspeciality">
+                         <PermanentDashboardSection />
+                    </Route>
+               </BasePatientDetailsProvider>
+
+
+               <BasePatientDetailsProvider>
+                    <Route exact path="/familyhistory">
+                         <PermanentDashboardSection />
+                    </Route>
+               </BasePatientDetailsProvider>
           </>
      )
 };

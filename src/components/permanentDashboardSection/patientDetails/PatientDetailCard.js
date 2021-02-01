@@ -1,19 +1,22 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 
-export const PatientDetailCard = ({basePatientDetail}) => {
+export const PatientDetailCard = ({ basePatientDetail }) => {
     return (
         <>
-        <section>
-            <section className="patientDetails, permanentDashboardSection">
-                <h3 className="patientDetails__card__title">Patient Details</h3>
-                <div className="patientDetails__name">{basePatientDetail.name}</div>
-                <div className="patientDetails__name">{basePatientDetail.birthday}</div>
-                <h5 className="patientDetails__emergency__contact">Emergency Contact</h5>
-                    <div className="emergency__contact__name">{basePatientDetail.emergencyContactName}</div>
-                    <div className="emergency__contact__relation">{basePatientDetail.emergencyContactRelation}</div>
-                    <div className="emergency__contact__phone__number">{basePatientDetail.emergencyContactPhoneNumber}</div>
-            </section>
-        </section>
+            <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                    <Card.Title>Patient Details</Card.Title>
+                    <Card.Text>{basePatientDetail.name}</Card.Text>
+                    <Card.Text>{basePatientDetail.birthday}</Card.Text>
+                    <Card.Subtitle className="mb-2 text-muted">Emergency Contact</Card.Subtitle>
+                    <Card.Text>{basePatientDetail.emergencyContactName}</Card.Text>
+                    <Card.Text>{basePatientDetail.emergencyContactRelation}</Card.Text>
+                    <Card.Text>{basePatientDetail.emergencyContactPhoneNumber}</Card.Text>
+                    {/* <Card.Link href="#">Card Link</Card.Link>
+                    <Card.Link href="#">Another Link</Card.Link> */}
+                </Card.Body>
+            </Card>
         </>
     )
 };
