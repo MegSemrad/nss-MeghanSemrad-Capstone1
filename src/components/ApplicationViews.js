@@ -1,15 +1,15 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { PatientDetailProvider } from "./permanentDashboardSection/patientDetails/PatientDetailProvider";
-import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
-
+// import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection"
+import { PatientDetailList } from "./permanentDashboardSection/patientDetails/PatientDetailList";
 
 export const ApplicationViews = () => {
      return (
           <>
                <PatientDetailProvider>
                     <Route exact path="/">
-                         <PermanentDashboardSection />
+                         <PatientDetailList />
                     </Route>
                </PatientDetailProvider>
           </>
