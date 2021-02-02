@@ -21,7 +21,7 @@ export const Login = props => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("app_user", exists.id)
-                    history.push("/")
+                    history.push("/landingpage")
                 } else {
                     existDialog.current.showModal()
                 }
