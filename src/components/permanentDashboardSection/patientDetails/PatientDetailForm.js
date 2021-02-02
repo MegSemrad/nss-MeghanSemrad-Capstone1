@@ -58,6 +58,25 @@ export const PatientDetailForm = () => {
                   <input type="text" id="birthday" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Birthday" value={basePatientDetails.birthday}/>
               </div>
           </fieldset>
+          <h4 className="patientDetailsForm__emergencyContact__title">Emergency Contact</h4>
+          <fieldset>
+              <div className="form-group">
+                  <label htmlFor="emergencyContactNameId">Name: </label>
+                  <input type="text" id="emergencyContactName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name" value={basePatientDetails.emergencyContactName}/>
+              </div>
+          </fieldset>
+          <fieldset>
+              <div className="form-group">
+                  <label htmlFor="emergencyContactRelationId">Relation: </label>
+                  <input type="text" id="emergencyContactRelation" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Relation" value={basePatientDetails.emergencyContactRelation}/>
+              </div>
+          </fieldset>
+          <fieldset>
+              <div className="form-group">
+                  <label htmlFor="emergencyContactPhoneNumberId">Phone Number: </label>
+                  <input type="text" id="emergencyContactPhoneNumber" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Phone Number" value={basePatientDetails.emergencyContactPhoneNumber}/>
+              </div>
+          </fieldset>
           <button className="btn btn-primary"
             onClick={handleClickSavePatientDetails}>
             Save
