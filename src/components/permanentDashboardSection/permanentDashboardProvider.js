@@ -7,7 +7,7 @@ export const BasePatientDetailsProvider = (props) => {
 
     const getBasePatientDetails = () => {
         return fetch("http://localhost:8090/basePatientDetails")
-        .then(res => res.json())
+        .then(response => response.json())
         .then(setBasePatientDetails)
     };
 
@@ -23,9 +23,33 @@ export const BasePatientDetailsProvider = (props) => {
         .then(getBasePatientDetails)
     };
 
+    const getBasePatientDetailsById = (id) => {
+        return fetch("http://localhost:8090/basePatientDetails/${id}")
+        .then(response => response.json())
+    }
+    
+    
+    const deleteBasePatientDetailsById = (id) => {
+        return fetch("http://localhost:8090/basePatientDetails/${id}", {
+            method: "DELETE"
+        })
+            .then(getBasePatientDetails)
+    }
+
+
+    const updateBasePatientDetails = (basePatientDetails) => {
+        return fetch(`http://localhost:8090/basePatientDetails/${basePatientDetails.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(basePatientDetails)
+        })
+          .then(getBasePatientDetails)
+      };
     return (
         <basePatientDetailsContext.Provider value={{
-            basePatientDetails, getBasePatientDetails, addBasePatientDetails
+            basePatientDetails, getBasePatientDetails, addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
         }}>
             {props.children}
         </basePatientDetailsContext.Provider>
