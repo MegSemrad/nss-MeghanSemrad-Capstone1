@@ -9,17 +9,20 @@ export const AlertList = () => {
 
   useEffect(() => {
     getBasePatientDetails()
-    }, [])
+  }, [])
+
+
+  const userId = parseInt(localStorage.getItem("app_user"))
 
 
   return (
     <div className="alerts">
-        {basePatientDetails.map(basePatientDetail => {
-        
-            return <AlertCard key={basePatientDetail.id} //argument
+      {basePatientDetails.map(basePatientDetail => {
+        if (userId === basePatientDetail.id) {
+          return <AlertCard key={basePatientDetail.id} //argument
             basePatientDetail={basePatientDetail} /> //argument
-        })
         }
+      })}
     </div>
   )
 };

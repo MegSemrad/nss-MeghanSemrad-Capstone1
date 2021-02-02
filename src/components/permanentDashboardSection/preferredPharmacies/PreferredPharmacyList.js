@@ -12,14 +12,18 @@ export const PreferredPharmacyList = () => {
     }, [])
 
 
-  return (
-    <div className="preferredPharmacy">
-        {basePatientDetails.map(basePatientDetail => {
-        
-            return <PreferredPharmacyCard key={basePatientDetail.id} //argument
-            basePatientDetail={basePatientDetail} /> //argument
-        })
-        }
-    </div>
-  )
+
+const userId = parseInt(localStorage.getItem("app_user"))
+
+
+return (
+  <div className="preferredPharmacy">
+    {basePatientDetails.map(basePatientDetail => {
+      if (userId === basePatientDetail.id) {
+        return <PreferredPharmacyCard key={basePatientDetail.id} //argument
+          basePatientDetail={basePatientDetail} /> //argument
+      }
+    })}
+  </div>
+)
 };
