@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
-
+import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/PatientDetailForm";
 
 export const ApplicationViews = () => {
      return (
@@ -10,6 +10,14 @@ export const ApplicationViews = () => {
                <BasePatientDetailsProvider>
                     <Route exact path="/landingpage">
                          <PermanentDashboardSection />
+                    </Route>
+               </BasePatientDetailsProvider>
+               
+               
+               <BasePatientDetailsProvider>
+                    <Route exact path="/patientDetailsAdd">
+                         <PermanentDashboardSection />
+                         <PatientDetailForm />
                     </Route>
                </BasePatientDetailsProvider>
 
