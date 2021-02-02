@@ -11,9 +11,21 @@ export const BasePatientDetailsProvider = (props) => {
         .then(setBasePatientDetails)
     };
 
+
+    const addBasePatientDetails = patientDetailsObj => {
+        return fetch("http://localhost:8090/basePatientDetails", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(patientDetailsObj)
+        })
+        .then(getBasePatientDetails)
+    };
+
     return (
         <basePatientDetailsContext.Provider value={{
-            basePatientDetails, getBasePatientDetails
+            basePatientDetails, getBasePatientDetails, addBasePatientDetails
         }}>
             {props.children}
         </basePatientDetailsContext.Provider>
