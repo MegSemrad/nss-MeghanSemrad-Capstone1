@@ -1,11 +1,13 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
+import { useHistory } from "react-router-dom"
+import { Nav, Button } from "react-bootstrap";
 
 
 export const NavBar = (props) => {
+    const history = useHistory()
     return (
         <>
-            <Nav variant="tabs" defaultActiveKey="/home">
+            <Nav variant="tabs" defaultActiveKey="/landingpage">
                 <Nav.Item>
                     <Nav.Link href="/landingpage">Home</Nav.Link>
                 </Nav.Item>
@@ -15,6 +17,16 @@ export const NavBar = (props) => {
                 <Nav.Item>
                     <Nav.Link href="/FamilyHistory" eventKey="link-2">Family History</Nav.Link>
                 </Nav.Item>
+                <Button id="logout_button" onClick={(e) => {
+                        if(e.target.id === "logout_button"){
+                            localStorage.removeItem("app_user");
+                            return history.push("/")
+                        } else {
+                            return false;
+                        }
+                    }
+                }>Logout
+                </Button>
             </Nav>
         </>
     )
