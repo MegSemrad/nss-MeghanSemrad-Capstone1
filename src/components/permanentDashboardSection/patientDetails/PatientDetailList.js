@@ -12,14 +12,18 @@ export const PatientDetailList = () => {
     }, [])
 
 
+
+  const userId = parseInt(localStorage.getItem("app_user"))
+
+
   return (
     <div className="patientDetails">
         {basePatientDetails.map(basePatientDetail => {
-        
-            return <PatientDetailCard key={basePatientDetail.id} //argument
-                        basePatientDetail={basePatientDetail} /> //argument
-        })
-        }
+            if(userId === basePatientDetail.id) {
+              return <PatientDetailCard key={basePatientDetail.id} //argument
+                          basePatientDetail={basePatientDetail} /> //argument
+              }
+        })}
     </div>
   )
 };
