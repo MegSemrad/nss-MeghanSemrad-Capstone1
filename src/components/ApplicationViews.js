@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/PatientDetailForm";
-import { PatientDetailCard } from "./permanentDashboardSection/patientDetails/PatientDetailCard"
+import { PatientDetailList } from "./permanentDashboardSection/patientDetails/PatientDetailList"
 
 
 export const ApplicationViews = () => {
@@ -34,7 +34,7 @@ export const ApplicationViews = () => {
                <BasePatientDetailsProvider>
                     <Route exact path="/patientDetails/details/:basePatientDetailsId(\d+)">
                          <PermanentDashboardSection />
-                         <PatientDetailCard />
+                         <PatientDetailList />
                     </Route>
                </BasePatientDetailsProvider>
               
