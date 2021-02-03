@@ -4,19 +4,11 @@ import { basePatientDetailsContext } from "../permanentDashboardProvider";
 import { useHistory, useParams } from 'react-router-dom';
 
 export const PatientDetailForm = () => {
-    const { addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
-
-    const [basePatientDetails, setBasePatientDetails] = useState({
-        name: "",
-        birthday: "",
-        emergencyContactName: "",
-        emergencyContactRelation: "",
-        emergencyContactPhoneNumber: ""
-    });
+    const { basePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
+    const userId = parseInt(localStorage.getItem("app_user"))
 
     const [isLoading, setIsLoading] = useState(true);
-
-    const { basePatientDetailsId } = useParams();
+    const { basePatientDetailsId } = useParams();  //collected from URL the id of the exact basePatientDetails object
     const history = useHistory();
 
  
@@ -45,6 +37,7 @@ export const PatientDetailForm = () => {
                 .then(() => history.push(`/patientDetails/details/:basePatientDetailsId/${basePatientDetails.id}`))
         } else {
             addBasePatientDetails({
+                userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
                 name: basePatientDetails.name,
                 birthday: basePatientDetails.birthday,
                 emergencyContactName: basePatientDetails.emergencyContactName,
@@ -57,14 +50,15 @@ export const PatientDetailForm = () => {
 
 
 
+
+
+
     useEffect(() => {
         getBasePatientDetails().then(() => {
             if (basePatientDetailsId) {
-                getBasePatientDetailsById(basePatientDetailsId)
-                    .then(basePatientDetails => {
-                        setBasePatientDetails(basePatientDetails)
-                        setIsLoading(false)
-                    })
+                getBasePatientDetailsById(basePatientDetailsId).then(() => {
+                    setIsLoading(false)
+                })
             } else {
                 setIsLoading(false)
             }

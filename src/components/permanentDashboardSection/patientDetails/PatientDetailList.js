@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
 
@@ -47,7 +47,3 @@ export const PatientDetailList = () => {
     </div>
   )
 };
-
-// Possibly rewrite if statement -- if basePatientDetails id exists redirect to PatientDetailCard -- if 
-// not (will have to create new module) go to place were there is card and add details button that
-// will redirect to the form 

@@ -4,7 +4,7 @@ import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanen
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/PatientDetailForm";
 import { PatientDetailList } from "./permanentDashboardSection/patientDetails/PatientDetailList"
-
+// import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm"
 
 export const ApplicationViews = () => {
      return (
@@ -37,6 +37,13 @@ export const ApplicationViews = () => {
                          <PatientDetailList />
                     </Route>
                </BasePatientDetailsProvider>
+{/* 
+               <BasePatientDetailsProvider>
+                    <Route exact path="/alertsForm">
+                         <PermanentDashboardSection />
+                         <AlertForm />
+                    </Route>
+               </BasePatientDetailsProvider> */}
               
 
                <BasePatientDetailsProvider>
