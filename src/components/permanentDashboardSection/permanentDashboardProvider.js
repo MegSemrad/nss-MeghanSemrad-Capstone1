@@ -6,9 +6,14 @@ export const BasePatientDetailsProvider = (props) => {
     const [basePatientDetails, setBasePatientDetails] = useState({
         name: "",
         birthday: "",
+        conditions: "",
+        allergies: "",
         emergencyContactName: "",
         emergencyContactRelation: "",
-        emergencyContactPhoneNumber: ""
+        emergencyContactPhoneNumber: "",
+        preferredPharmacyName: "",
+        preferredPharmacyAddress: "",
+        preferredPharmacyPhoneNumber: "",
     }) // if need only basePatientDetails specific to single user
     const [basePatientDetailList, setBasePatientDetailList] = useState([]) //if ever need all basePatientDetails of all users
 

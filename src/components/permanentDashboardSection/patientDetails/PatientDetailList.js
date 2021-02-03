@@ -32,7 +32,7 @@ export const PatientDetailList = () => {
             <Card.Text>Phone Number: {basePatientDetails.emergencyContactPhoneNumber}</Card.Text>
             <Button onClick={() => { history.push(`/patientDetails/edit/${basePatientDetails.id}`) }}>
               Edit
-                    </Button>
+            </Button>
           </Card.Body>
         </Card>
         :
@@ -40,10 +40,10 @@ export const PatientDetailList = () => {
           <Card.Body>
             <Button onClick={() => { history.push("/patientDetailsForm") }}>
               Add
-                    </Button>
+            </Button>
           </Card.Body>
         </Card>
-  }
+      }
     </div>
   )
 };
