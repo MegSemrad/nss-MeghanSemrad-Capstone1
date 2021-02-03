@@ -3,8 +3,9 @@ import { Route } from "react-router-dom";
 import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/PatientDetailForm";
-import { PatientDetailList } from "./permanentDashboardSection/patientDetails/PatientDetailList"
-// import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm"
+import { PatientDetailList } from "./permanentDashboardSection/patientDetails/PatientDetailList";
+import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
+import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
 
 export const ApplicationViews = () => {
      return (
@@ -23,7 +24,6 @@ export const ApplicationViews = () => {
                     </Route>
                </BasePatientDetailsProvider>
                
-               
                <BasePatientDetailsProvider>
                     <Route exact path="/patientDetails/edit/:basePatientDetailsId(\d+)">
                          <PermanentDashboardSection />
@@ -37,14 +37,31 @@ export const ApplicationViews = () => {
                          <PatientDetailList />
                     </Route>
                </BasePatientDetailsProvider>
-{/* 
+
                <BasePatientDetailsProvider>
                     <Route exact path="/alertsForm">
                          <PermanentDashboardSection />
                          <AlertForm />
                     </Route>
-               </BasePatientDetailsProvider> */}
+               </BasePatientDetailsProvider>
+
+               <BasePatientDetailsProvider>
+                    <Route exact path="/alerts/edit/:basePatientDetailsId(\d+)">
+                         <PermanentDashboardSection />
+                         <AlertForm />
+                    </Route>
+               </BasePatientDetailsProvider>
+
+               <BasePatientDetailsProvider>
+                    <Route exact path="/alerts/details/:basePatientDetailsId(\d+)">
+                         <PermanentDashboardSection />
+                         <AlertList />
+                    </Route>
+               </BasePatientDetailsProvider>
               
+
+
+
 
                <BasePatientDetailsProvider>
                     <Route exact path="/AppointmentBySpeciality">
