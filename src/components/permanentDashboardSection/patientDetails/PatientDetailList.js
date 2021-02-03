@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { basePatientDetailsContext } from "../permanentDashboardProvider"
+import { basePatientDetailsContext } from "../permanentDashboardProvider";
 import { PatientDetailCard } from "./PatientDetailCard";
 
 

@@ -11,7 +11,7 @@ export const PatientDetailCard = ({ basePatientDetail }) => {
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                     <Card.Title>Patient Details</Card.Title>
-                    <Card.Text>{basePatientDetail.name}</Card.Text>
+                    <Card.Text>Name: {basePatientDetail.name}</Card.Text>
                     <Card.Text>DOB: {basePatientDetail.birthday}</Card.Text>
                     <Card.Subtitle className="mb-2 text-muted">Emergency Contact</Card.Subtitle>
                     <Card.Text>Name: {basePatientDetail.emergencyContactName}</Card.Text>
@@ -20,8 +20,6 @@ export const PatientDetailCard = ({ basePatientDetail }) => {
                     <Button onClick={() => {history.push("/patientDetailsForm")}}>
                             Add Patient Details
                     </Button>
-                    {/* <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link> */}
                 </Card.Body>
             </Card>
         </>
