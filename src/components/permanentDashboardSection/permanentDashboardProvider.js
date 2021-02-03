@@ -3,8 +3,14 @@ import React, { useState, createContext } from "react";
 export const basePatientDetailsContext = createContext();
 
 export const BasePatientDetailsProvider = (props) => {
-    const [basePatientDetails, setBasePatientDetails] = useState([])
-    const [basePatientDetailList, setBasePatientDetailList] = useState([])
+    const [basePatientDetails, setBasePatientDetails] = useState({
+        name: "",
+        birthday: "",
+        emergencyContactName: "",
+        emergencyContactRelation: "",
+        emergencyContactPhoneNumber: ""
+    }) // if need only basePatientDetails specific to single user
+    const [basePatientDetailList, setBasePatientDetailList] = useState([]) //if ever need all basePatientDetails of all users
 
     const getBasePatientDetails = () => {
         return fetch("http://localhost:8090/basePatientDetails")
@@ -54,7 +60,7 @@ export const BasePatientDetailsProvider = (props) => {
       };
     return (
         <basePatientDetailsContext.Provider value={{
-            basePatientDetails, basePatientDetailList, getBasePatientDetails, addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
+            basePatientDetails, basePatientDetailList, getBasePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
         }}>
             {props.children}
         </basePatientDetailsContext.Provider>
