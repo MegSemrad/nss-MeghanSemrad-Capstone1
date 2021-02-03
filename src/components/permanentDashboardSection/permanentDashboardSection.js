@@ -7,8 +7,8 @@ export const PermanentDashboardSection = (props) => {
     return (
         <>
         <PatientDetailList />
-        <AlertList />
-        <PreferredPharmacyList />
+        {/* <AlertList />
+        <PreferredPharmacyList /> */}
         </>
     )
 }; 

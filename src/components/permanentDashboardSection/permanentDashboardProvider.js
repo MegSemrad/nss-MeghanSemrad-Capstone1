@@ -4,11 +4,12 @@ export const basePatientDetailsContext = createContext();
 
 export const BasePatientDetailsProvider = (props) => {
     const [basePatientDetails, setBasePatientDetails] = useState([])
+    const [basePatientDetailList, setBasePatientDetailList] = useState([])
 
     const getBasePatientDetails = () => {
         return fetch("http://localhost:8090/basePatientDetails")
         .then(response => response.json())
-        .then(setBasePatientDetails)
+        .then(setBasePatientDetailList)
     };
 
 
@@ -26,6 +27,10 @@ export const BasePatientDetailsProvider = (props) => {
     const getBasePatientDetailsById = (id) => {
         return fetch(`http://localhost:8090/basePatientDetails/${id}`)
         .then(response => response.json())
+        .then((patient) => {
+            console.log("patient?", patient)
+            setBasePatientDetails(patient)
+        })
     }
     
     
@@ -49,7 +54,7 @@ export const BasePatientDetailsProvider = (props) => {
       };
     return (
         <basePatientDetailsContext.Provider value={{
-            basePatientDetails, getBasePatientDetails, addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
+            basePatientDetails, basePatientDetailList, getBasePatientDetails, addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
         }}>
             {props.children}
         </basePatientDetailsContext.Provider>
