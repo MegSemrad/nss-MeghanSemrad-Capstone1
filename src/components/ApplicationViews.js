@@ -6,6 +6,10 @@ import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/Pa
 import { PatientDetailList } from "./permanentDashboardSection/patientDetails/PatientDetailList";
 import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
 import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
+import { PreferredPharmacyForm } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyForm";
+import { PreferredPharmacyList } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyList";
+
+
 
 export const ApplicationViews = () => {
      return (
@@ -17,6 +21,9 @@ export const ApplicationViews = () => {
                </BasePatientDetailsProvider>
                
                
+
+
+
                <BasePatientDetailsProvider>
                     <Route exact path="/patientDetailsForm">
                          <PermanentDashboardSection />
@@ -38,6 +45,10 @@ export const ApplicationViews = () => {
                     </Route>
                </BasePatientDetailsProvider>
 
+
+
+
+
                <BasePatientDetailsProvider>
                     <Route exact path="/alertsForm">
                          <PermanentDashboardSection />
@@ -56,6 +67,31 @@ export const ApplicationViews = () => {
                     <Route exact path="/alerts/details/:basePatientDetailsId(\d+)">
                          <PermanentDashboardSection />
                          <AlertList />
+                    </Route>
+               </BasePatientDetailsProvider>
+               
+               
+               
+               
+               
+               <BasePatientDetailsProvider>
+                    <Route exact path="/preferredPharmaciesForm">
+                         <PermanentDashboardSection />
+                         <PreferredPharmacyForm />
+                    </Route>
+               </BasePatientDetailsProvider>
+
+               <BasePatientDetailsProvider>
+                    <Route exact path="/preferredPharmacies/edit/:basePatientDetailsId(\d+)">
+                         <PermanentDashboardSection />
+                         <PreferredPharmacyForm />
+                    </Route>
+               </BasePatientDetailsProvider>
+
+               <BasePatientDetailsProvider>
+                    <Route exact path="/preferredPharmacies/details/:basePatientDetailsId(\d+)">
+                         <PermanentDashboardSection />
+                         <PreferredPharmacyList />
                     </Route>
                </BasePatientDetailsProvider>
               
