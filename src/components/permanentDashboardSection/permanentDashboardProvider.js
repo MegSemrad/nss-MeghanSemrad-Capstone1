@@ -24,13 +24,13 @@ export const BasePatientDetailsProvider = (props) => {
     };
 
     const getBasePatientDetailsById = (id) => {
-        return fetch("http://localhost:8090/basePatientDetails/${id}")
+        return fetch(`http://localhost:8090/basePatientDetails/${id}`)
         .then(response => response.json())
     }
     
     
     const deleteBasePatientDetailsById = (id) => {
-        return fetch("http://localhost:8090/basePatientDetails/${id}", {
+        return fetch(`http://localhost:8090/basePatientDetails/${id}`, {
             method: "DELETE"
         })
             .then(getBasePatientDetails)
