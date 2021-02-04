@@ -8,6 +8,7 @@ export const BasePatientDetailsProvider = (props) => {
         birthday: "",
         conditions: "",
         allergies: "",
+        other: "",
         emergencyContactName: "",
         emergencyContactRelation: "",
         emergencyContactPhoneNumber: "",
