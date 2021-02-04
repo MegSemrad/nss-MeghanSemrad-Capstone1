@@ -8,6 +8,11 @@ import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
 import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
 import { PreferredPharmacyForm } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyForm";
 import { PreferredPharmacyList } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyList";
+import { AppointmentBySpecialistList } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistList";
+import { AppointmentBySpecialistProvider } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistProvider";
+import { AppointmentBySpecialistForm} from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistForm";
+import { AppointmentBySpecialistDetail } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistDetail";
+
 import "./permanentDashboardSection/permanentDashboardSection.css"
 
 
@@ -100,10 +105,31 @@ export const ApplicationViews = () => {
 
 
                <BasePatientDetailsProvider>
-                    <Route exact path="/AppointmentBySpeciality">
+               <AppointmentBySpecialistProvider>
+                    <Route exact path="/AppointmentBySpecialist">
                          <PermanentDashboardSection className="leftSideParentCSS" />
+                         <AppointmentBySpecialistList />
                     </Route>
+                    
+                    <Route exact path="/AppointmentBySpecialist/create">
+                         <PermanentDashboardSection className="leftSideParentCSS" />
+                         <AppointmentBySpecialistForm />
+                    </Route>
+                    
+                    <Route exact path="/AppointmentBySpecialist/edit/:appointmentBySpecialistId(\d+)">
+                         <PermanentDashboardSection className="leftSideParentCSS" />
+                         <AppointmentBySpecialistForm />
+                    </Route>
+                   
+                    <Route exact path="/AppointmentBySpecialist/detail/:appointmentBySpecialistId(\d+)">
+                         <PermanentDashboardSection className="leftSideParentCSS" />
+                         <AppointmentBySpecialistDetail />
+                    </Route>
+               </AppointmentBySpecialistProvider>
                </BasePatientDetailsProvider>
+
+
+
 
 
                <BasePatientDetailsProvider>
