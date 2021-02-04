@@ -1,3 +1,12 @@
-.permanentDashboardSection {
-    border: 1px black solid;
+.leftSideParentCSS {
+    float: left;
+}
+
+
+/* .leftSideChildCSS {
+    width: 70px;
+} */
+
+.rightSideChildCSS {
+    float: right;
 }

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
 // import "./??.css";
 import { useHistory, useParams } from 'react-router-dom';
+import "../permanentDashboardSection.css"
 
 export const PatientDetailForm = () => {
     const { basePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
@@ -29,22 +30,31 @@ export const PatientDetailForm = () => {
                 id: basePatientDetails.id,
                 name: basePatientDetails.name,
                 birthday: basePatientDetails.birthday,
+                conditions: basePatientDetails.conditions,
+                allergies: basePatientDetails.allergies,
                 emergencyContactName: basePatientDetails.emergencyContactName,
                 emergencyContactRelation: basePatientDetails.emergencyContactRelation,
                 emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
- 
+                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
+                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
+                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push(`/patientDetails/details/:basePatientDetailsId/${basePatientDetails.id}`))
+                .then(() => history.push("/home"))
         } else {
             addBasePatientDetails({
                 userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
                 name: basePatientDetails.name,
                 birthday: basePatientDetails.birthday,
+                conditions: basePatientDetails.conditions,
+                allergies: basePatientDetails.allergies,
                 emergencyContactName: basePatientDetails.emergencyContactName,
                 emergencyContactRelation: basePatientDetails.emergencyContactRelation,
-                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber
+                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
+                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
+                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
+                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push("/landingpage"))
+                .then(() => history.push("/home"))
         }
     }
 
@@ -73,7 +83,7 @@ export const PatientDetailForm = () => {
 
 
     return (
-        <form className="patientDetailsForm">
+        <form className="patientDetailsForm rightSideChildCSS">
             <h2 className="patientDetailsForm__title">Patient Information</h2>
             <fieldset>
                 <div className="form-group">
@@ -88,7 +98,7 @@ export const PatientDetailForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="locationId">Birthday: </label>
+                    <label htmlFor="birthday">Birthday: </label>
                     <input type="text" id="birthday"
                         onChange={handleControlledInputChange}
                         required autoFocus

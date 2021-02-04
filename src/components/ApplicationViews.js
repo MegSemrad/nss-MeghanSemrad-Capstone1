@@ -8,15 +8,15 @@ import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
 import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
 import { PreferredPharmacyForm } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyForm";
 import { PreferredPharmacyList } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyList";
-
+import "./permanentDashboardSection/permanentDashboardSection.css"
 
 
 export const ApplicationViews = () => {
      return (
           <>
                <BasePatientDetailsProvider>
-                    <Route exact path="/landingpage">
-                         <PermanentDashboardSection />
+                    <Route exact path="/home">
+                         <PermanentDashboardSection className="leftSideParentCSS"  />
                     </Route>
                </BasePatientDetailsProvider>
                
@@ -26,21 +26,21 @@ export const ApplicationViews = () => {
 
                <BasePatientDetailsProvider>
                     <Route exact path="/patientDetailsForm">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <PatientDetailForm />
                     </Route>
                </BasePatientDetailsProvider>
                
                <BasePatientDetailsProvider>
                     <Route exact path="/patientDetails/edit/:basePatientDetailsId(\d+)">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <PatientDetailForm />
                     </Route>
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
                     <Route exact path="/patientDetails/details/:basePatientDetailsId(\d+)">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <PatientDetailList />
                     </Route>
                </BasePatientDetailsProvider>
@@ -51,21 +51,21 @@ export const ApplicationViews = () => {
 
                <BasePatientDetailsProvider>
                     <Route exact path="/alertsForm">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <AlertForm />
                     </Route>
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
                     <Route exact path="/alerts/edit/:basePatientDetailsId(\d+)">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <AlertForm />
                     </Route>
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
                     <Route exact path="/alerts/details/:basePatientDetailsId(\d+)">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <AlertList />
                     </Route>
                </BasePatientDetailsProvider>
@@ -76,21 +76,21 @@ export const ApplicationViews = () => {
                
                <BasePatientDetailsProvider>
                     <Route exact path="/preferredPharmaciesForm">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <PreferredPharmacyForm />
                     </Route>
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
                     <Route exact path="/preferredPharmacies/edit/:basePatientDetailsId(\d+)">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <PreferredPharmacyForm />
                     </Route>
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
                     <Route exact path="/preferredPharmacies/details/:basePatientDetailsId(\d+)">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                          <PreferredPharmacyList />
                     </Route>
                </BasePatientDetailsProvider>
@@ -101,14 +101,14 @@ export const ApplicationViews = () => {
 
                <BasePatientDetailsProvider>
                     <Route exact path="/AppointmentBySpeciality">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                     </Route>
                </BasePatientDetailsProvider>
 
 
                <BasePatientDetailsProvider>
                     <Route exact path="/FamilyHistory">
-                         <PermanentDashboardSection />
+                         <PermanentDashboardSection className="leftSideParentCSS" />
                     </Route>
                </BasePatientDetailsProvider>
           </>

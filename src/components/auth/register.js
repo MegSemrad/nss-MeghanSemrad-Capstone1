@@ -35,7 +35,7 @@ export const Register = (props) => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("app_user", createdUser.id)
-                                history.push("/landingpage")
+                                history.push("/home")
                             }
                         })
                 }

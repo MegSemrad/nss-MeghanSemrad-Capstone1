@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
 // import "./??.css";
 import { useHistory, useParams } from 'react-router-dom';
+import "../permanentDashboardSection.css"
 
 export const PreferredPharmacyForm = () => {
     const { basePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
@@ -27,19 +28,33 @@ export const PreferredPharmacyForm = () => {
         if (basePatientDetailsId) {
             updateBasePatientDetails({
                 id: basePatientDetails.id,
+                name: basePatientDetails.name,
+                birthday: basePatientDetails.birthday,
+                conditions: basePatientDetails.conditions,
+                allergies: basePatientDetails.allergies,
+                emergencyContactName: basePatientDetails.emergencyContactName,
+                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
+                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
                 preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
+                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
                 preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push(`/preferredPharmacies/details/:basePatientDetailsId/${basePatientDetails.id}`))
+                .then(() => history.push("/home"))
         } else {
             addBasePatientDetails({
                 userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
-                 preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
+                name: basePatientDetails.name,
+                birthday: basePatientDetails.birthday,
+                conditions: basePatientDetails.conditions,
+                allergies: basePatientDetails.allergies,
+                emergencyContactName: basePatientDetails.emergencyContactName,
+                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
+                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
+                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
+                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
                 preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push("/landingpage"))
+                .then(() => history.push("/home"))
         }
     }
 
@@ -68,7 +83,7 @@ export const PreferredPharmacyForm = () => {
 
 
     return (
-        <form className="preferredPharmaciesForm">
+        <form className="preferredPharmaciesForm rightSideChildCSS">
             <h2 className="preferredPharmaciesForm__title">Preferred Pharmacy</h2>
             <fieldset>
                 <div className="form-group">
@@ -95,7 +110,7 @@ export const PreferredPharmacyForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="phoneNumber">Phone Number: </label>
-                    <input type="text" id="phoneNu,ber"
+                    <input type="text" id="phoneNumber"
                         onChange={handleControlledInputChange}
                         required autoFocus
                         className="form-control"

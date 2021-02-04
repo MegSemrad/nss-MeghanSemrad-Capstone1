@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
 // import "./??.css";
 import { useHistory, useParams } from 'react-router-dom';
+import "../permanentDashboardSection.css"
 
 export const AlertForm = () => {
     const { basePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
@@ -27,17 +28,33 @@ export const AlertForm = () => {
         if (basePatientDetailsId) {
             updateBasePatientDetails({
                 id: basePatientDetails.id,
+                name: basePatientDetails.name,
+                birthday: basePatientDetails.birthday,
                 conditions: basePatientDetails.conditions,
                 allergies: basePatientDetails.allergies,
+                emergencyContactName: basePatientDetails.emergencyContactName,
+                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
+                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
+                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
+                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
+                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push(`/alerts/details/:basePatientDetailsId/${basePatientDetails.id}`))
+                .then(() => history.push("/home"))
         } else {
             addBasePatientDetails({
                 userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
+                name: basePatientDetails.name,
+                birthday: basePatientDetails.birthday,
                 conditions: basePatientDetails.conditions,
                 allergies: basePatientDetails.allergies,
+                emergencyContactName: basePatientDetails.emergencyContactName,
+                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
+                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
+                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
+                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
+                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push("/landingpage"))
+                .then(() => history.push("/home"))
         }
     }
 
@@ -66,7 +83,7 @@ export const AlertForm = () => {
 
 
     return (
-        <form className="AlertsForm">
+        <form className="AlertsForm rightSideChildCSS">
             <h2 className="AlertsForm__title">Alerts</h2>
             <fieldset>
                 <div className="form-group">

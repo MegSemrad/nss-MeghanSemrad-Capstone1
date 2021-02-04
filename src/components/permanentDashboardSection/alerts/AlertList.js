@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider"
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
+import "../permanentDashboardSection.css"
 
 
 export const AlertList = () => {
@@ -16,7 +17,7 @@ export const AlertList = () => {
 
 
   return (
-    <div className="alerts">
+    <div className="alerts leftSideChildCSS">
       {basePatientDetails.hasOwnProperty("id") ?
         <Card style={{ width: '18rem' }}>
           <Card.Body>
