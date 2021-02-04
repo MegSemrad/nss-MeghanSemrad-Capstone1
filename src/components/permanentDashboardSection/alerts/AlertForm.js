@@ -112,7 +112,7 @@ export const AlertForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="other">Other: </label>
-                    <input type="textbox" id="other"
+                    <input type="textarea" id="other"
                         onChange={handleControlledInputChange}
                         required autoFocus
                         className="form-control"
