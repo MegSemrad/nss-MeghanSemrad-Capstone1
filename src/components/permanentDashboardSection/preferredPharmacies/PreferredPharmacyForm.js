@@ -109,7 +109,7 @@ export const PreferredPharmacyForm = () => {
                     event.preventDefault()
                     handleClickSavePreferredPharmacy()
                 }}>
-                {basePatientDetailsId ? "Save" : "Save Changes"}
+                {basePatientDetails.id ? "Save Changes" : "Save"}
             </button>
         </form>
     )

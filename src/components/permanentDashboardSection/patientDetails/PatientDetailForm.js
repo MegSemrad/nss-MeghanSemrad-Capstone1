@@ -137,7 +137,7 @@ export const PatientDetailForm = () => {
                     event.preventDefault()
                     handleClickSavePatientDetails()
                 }}>
-                {basePatientDetailsId ? "Save" : "Save Changes"}
+                {basePatientDetails.id ? "Save Changes" : "Save"}
             </button>
         </form>
     )

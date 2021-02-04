@@ -96,7 +96,7 @@ export const AlertForm = () => {
                     event.preventDefault()
                     handleClickSaveAlerts()
                 }}>
-                {basePatientDetailsId ? "Save" : "Save Changes"}
+                {basePatientDetails.id ? "Save Changes" : "Save"}
             </button>
         </form>
     )

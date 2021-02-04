@@ -20,7 +20,7 @@ export const AlertList = () => {
       {basePatientDetails.hasOwnProperty("id") ?
         <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title>Alerts</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">Conditions</Card.Subtitle>
             <Card.Text>{basePatientDetails.conditions}</Card.Text>
             <Card.Subtitle className="mb-2 text-muted">Allergies</Card.Subtitle>
