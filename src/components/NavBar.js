@@ -7,9 +7,9 @@ export const NavBar = (props) => {
     const history = useHistory()
     return (
         <>
-            <Nav variant="tabs" defaultActiveKey="/landingpage">
+            <Nav variant="tabs" defaultActiveKey="/home">
                 <Nav.Item>
-                    <Nav.Link href="/landingpage">Home</Nav.Link>
+                    <Nav.Link href="/home">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/AppointmentBySpeciality" eventKey="link-1">Appointments by Speciality</Nav.Link>

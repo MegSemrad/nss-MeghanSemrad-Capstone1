@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { NavBar } from "./NavBar";
 import { ApplicationViews } from "./ApplicationViews";
-import { HomePage } from "./HomePage";
+import { LoginOrRegister } from "./LoginOrRegister";
 import "./HealthInOne.css";
 
 
@@ -24,7 +24,7 @@ export const HealthInOne = (props) => (
         />
 
         <Route path="/">
-            <HomePage />
+            <LoginOrRegister />
         </Route>
     </>
 );

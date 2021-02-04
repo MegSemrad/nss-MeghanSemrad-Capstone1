@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
+import "../permanentDashboardSection.css"
 
 
 export const PreferredPharmacyList = () => {
@@ -16,7 +17,7 @@ export const PreferredPharmacyList = () => {
 
 
 return (
-  <div className="preferredPharmacy">
+  <div className="preferredPharmacy leftSideChildCSS">
     {basePatientDetails.hasOwnProperty("id") ?
   <Card style={{ width: '18rem' }}>
   <Card.Body>
