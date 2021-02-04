@@ -3,11 +3,12 @@ import { useHistory } from "react-router-dom" // import from libraries before yo
 import { AppointmentBySpecialistContext } from "./AppointmentBySpecialistProvider";
 import { AppointmentBySpecialistCard } from "./AppointmentBySpecialistCard";
 
-export const AnimalList = () => {
+export const AppointmentBySpecialistList= () => {
   const { appointmentsBySpecialist, getAppointmentsBySpecialist } = useContext(AppointmentBySpecialistContext)
   const history = useHistory()
 
   useEffect(() => {
+      debugger
     getAppointmentsBySpecialist()
     }, []);
 

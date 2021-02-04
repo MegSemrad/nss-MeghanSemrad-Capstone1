@@ -6,21 +6,21 @@ export const AppointmentBySpecialistContext = createContext();
 export const AppointmentBySpecialistProvider = (props) => {
     const [appointmentsBySpecialist, setAppointmentsBySpecialist] = useState([])
 
-    const getappointmentsBySpecialist = () => {
+    const getAppointmentsBySpecialist = () => {
         return fetch ("http://localhost:8090/appointmentsBySpecialist?_expand=specialistType")
         .then(res => res.json())
         .then(setAppointmentsBySpecialist)
     }
 
     const addAppointmentBySpecialist = appointmentBySpeicalistObj => {
-        return fetch("http://localhost:8090/appointmentsBySpecialist", {
+        return fetch("http://localhost:8090/appointmentsBySpecialist?_expand=specialistType", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(appointmentBySpeicalistObj)
         })
-        .then(getappointmentsBySpecialist)
+        .then(getAppointmentsBySpecialist)
     };
 
 
@@ -29,9 +29,29 @@ export const AppointmentBySpecialistProvider = (props) => {
             .then(res => res.json())
     };
 
+
+    const deleteAppointmentBySpecialistById = appointmentBySpecialistId => {
+        return fetch(`http://localhost:8090/appointmentsBySpecialist/${appointmentBySpecialistId}?_expand=specialistType`, {
+            method: "DELETE"
+        })
+            .then(getAppointmentsBySpecialist)
+    };
+  
+    const updateAppointmentBySpecialist = appointmentBySpecialist => {
+      return fetch(`http://localhost:8090/appointmentsBySpecialist/${appointmentBySpecialist.id}?_expand=specialistType`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(appointmentBySpecialist)
+      })
+      .then(getAppointmentsBySpecialist)
+    };
     return (
         <AppointmentBySpecialistContext.Provider value={{
-            appointmentsBySpecialist, getappointmentsBySpecialist, setAppointmentsBySpecialist, addAppointmentBySpecialist, getAppointmentBySpecialistById
+            appointmentsBySpecialist, getAppointmentsBySpecialist, setAppointmentsBySpecialist, 
+            addAppointmentBySpecialist, getAppointmentBySpecialistById, deleteAppointmentBySpecialistById, 
+            updateAppointmentBySpecialist
         }}>
          {props.children}
         </AppointmentBySpecialistContext.Provider>

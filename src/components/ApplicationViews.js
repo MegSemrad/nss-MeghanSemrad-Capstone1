@@ -8,10 +8,10 @@ import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
 import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
 import { PreferredPharmacyForm } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyForm";
 import { PreferredPharmacyList } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyList";
-// import { AppointmentBySpecialistList } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistList";
-// import { AppointmentBySpecialistProvider } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistProvider";
-// import { AppointmentBySpecialistForm} from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistForm";
-// import { AppointmentBySpecialistDetail } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistDetail";
+import { AppointmentBySpecialistList } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistList";
+import { AppointmentBySpecialistProvider } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistProvider";
+import { AppointmentBySpecialistForm} from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistForm";
+import { AppointmentBySpecialistDetail } from "./rightsideDashboardSection/appointmentsBySpecialist/AppointmentBySpecialistDetail";
 
 import "./permanentDashboardSection/permanentDashboardSection.css"
 
