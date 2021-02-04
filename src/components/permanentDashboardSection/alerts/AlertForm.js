@@ -32,6 +32,7 @@ export const AlertForm = () => {
                 birthday: basePatientDetails.birthday,
                 conditions: basePatientDetails.conditions,
                 allergies: basePatientDetails.allergies,
+                other: basePatientDetails.other,
                 emergencyContactName: basePatientDetails.emergencyContactName,
                 emergencyContactRelation: basePatientDetails.emergencyContactRelation,
                 emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
@@ -47,6 +48,7 @@ export const AlertForm = () => {
                 birthday: basePatientDetails.birthday,
                 conditions: basePatientDetails.conditions,
                 allergies: basePatientDetails.allergies,
+                other: basePatientDetails.other,
                 emergencyContactName: basePatientDetails.emergencyContactName,
                 emergencyContactRelation: basePatientDetails.emergencyContactRelation,
                 emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
@@ -105,6 +107,17 @@ export const AlertForm = () => {
                         className="form-control"
                         placeholder="Allergies"
                         value={basePatientDetails.allergies} />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="other">Other: </label>
+                    <input type="textarea" id="other"
+                        onChange={handleControlledInputChange}
+                        required autoFocus
+                        className="form-control"
+                        placeholder="Other"
+                        value={basePatientDetails.other} />
                 </div>
             </fieldset>
             <button className="btn btn-primary"

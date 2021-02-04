@@ -26,6 +26,8 @@ export const AlertList = () => {
             <Card.Text>{basePatientDetails.conditions}</Card.Text>
             <Card.Subtitle className="mb-2 text-muted">Allergies</Card.Subtitle>
             <Card.Text>{basePatientDetails.allergies}</Card.Text>
+            <Card.Subtitle className="mb-2 text-muted">Other</Card.Subtitle>
+            <Card.Text>{basePatientDetails.other}</Card.Text>
             <Button onClick={() => { history.push(`/alerts/edit/${basePatientDetails.id}`) }}>
               Edit
             </Button>
