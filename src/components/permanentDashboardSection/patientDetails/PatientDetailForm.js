@@ -36,7 +36,7 @@ export const PatientDetailForm = () => {
                 emergencyContactRelation: basePatientDetails.emergencyContactRelation,
                 emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
                 preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
+                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
                 preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
                 .then(() => history.push("/home"))
@@ -51,7 +51,7 @@ export const PatientDetailForm = () => {
                 emergencyContactRelation: basePatientDetails.emergencyContactRelation,
                 emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
                 preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.referredPharmacyAddress,
+                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
                 preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
                 .then(() => history.push("/home"))
