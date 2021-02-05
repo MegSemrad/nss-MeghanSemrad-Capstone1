@@ -7,14 +7,14 @@ import { useHistory } from 'react-router-dom';
 export const AppointmentBySpecialistDetail = () => {
   const { getAppointmentBySpecialistById, deleteAppointmentBySpecialistById } = useContext(AppointmentBySpecialistContext)
 
-	const [appointmentBySpecialist, setAppointmentsBySpecialist] = useState({})
+	const [appointmentBySpecialist, setAppointmentBySpecialist] = useState({})
 
     const {appointmentBySpecialistId} = useParams();  
 
   useEffect(() => { 
     getAppointmentBySpecialistById(appointmentBySpecialistId)
     .then((response) => {
-        setAppointmentsBySpecialist(response)
+        setAppointmentBySpecialist(response)
     })
     }, [])
 
@@ -30,11 +30,11 @@ const handleRelease = () => {
   return (
     <section className="appointmentBySpecialist">
       <h3 className="appointmentBySpecialist__name">{appointmentBySpecialist.specialistType?.speciality}</h3>
-      <div className="appointmentBySpecialist__breed">Breed: {appointmentBySpecialist.appointmentNote}</div>
-      <div className="appointmentBySpecialist__location">Location: {appointmentBySpecialist.location?.questions}</div>
+      <div className="appointmentBySpecialist__breed">Appointment Note: {appointmentBySpecialist.appointmentNote}</div>
+      <div className="appointmentBySpecialist__location">Questions: {appointmentBySpecialist.location?.questions}</div>
       <button onClick={handleRelease}>Delete</button>
       <button onClick={() => {
-        history.push(`/patientDetails/edit/${appointmentBySpecialist.id}`) 
+        history.push(`/AppointmentBySpecialist/edit/${appointmentBySpecialist.id}`) 
         }}>Edit</button>
     </section>
   )
