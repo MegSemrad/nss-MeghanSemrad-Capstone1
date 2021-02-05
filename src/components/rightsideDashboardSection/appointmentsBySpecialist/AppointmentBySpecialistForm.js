@@ -29,12 +29,14 @@ export const AppointmentBySpecialistForm = () => {
         if (appointmentBySpecialistId){
             updateAppointmentBySpecialist({
               id: appointmentsBySpecialist.id,
+              speciality: appointmentsBySpecialist.specialistType?.speciality,
               appointmentNote: appointmentsBySpecialist.appointmentNote,
               questions: appointmentsBySpecialist.specialistType?.questions
           })
           .then(() => history.push(`/AppointmentBySpecialist/detail/${appointmentsBySpecialist.id}`))
         }else {
             addAppointmentBySpecialist({
+                speciality: appointmentsBySpecialist.specialistType?.speciality,
                 appointmentNote: appointmentsBySpecialist.appointmentNote,
                 questions: appointmentsBySpecialist.specialistType?.questions
           })
@@ -57,6 +59,15 @@ export const AppointmentBySpecialistForm = () => {
     return (
       <form className="appointmentBySpecialistForm">
         <h2 className="appointmentBySpecialistForm__title">Appointment</h2>
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="speciality">Speciality: </label>
+            <input type="text" id="speciality" required autoFocus className="form-control"
+            placeholder="Speciality"
+            onChange={handleControlledInputChange}
+            value={appointmentsBySpecialist.specialistType?.speciality}/>
+          </div>
+        </fieldset>
         <fieldset>
           <div className="form-group">
             <label htmlFor="appointmentNote">Appointment Note: </label>
