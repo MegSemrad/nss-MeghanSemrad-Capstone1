@@ -20,7 +20,7 @@ export const ApplicationViews = () => {
      return (
           <>
                <BasePatientDetailsProvider>
-                    <Route exact path="/home">
+                    <Route path="/home">
                          <PermanentDashboardSection className="leftSideParentCSS"  />
                     </Route>
                </BasePatientDetailsProvider>

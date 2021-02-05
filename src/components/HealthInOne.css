@@ -1,0 +1,9 @@
+.rightSideChildCSS {
+    float: right;
+    width: 62%;
+}
+
+.container--left {
+    float: left;
+    width: 35%;
+}

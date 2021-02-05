@@ -5,10 +5,10 @@ import { PreferredPharmacyList } from "./preferredPharmacies/PreferredPharmacyLi
 import "./permanentDashboardSection.css"
 export const PermanentDashboardSection = (props) => {
     return (
-        <>
+        <section className="container--left">
         <PatientDetailList className="leftSideChildCSS"/>
         <AlertList className="leftSideChildCSS"/>
         <PreferredPharmacyList className="leftSideChildCSS"/>
-        </>
+        </section>
     )
 }; 
