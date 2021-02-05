@@ -9,7 +9,7 @@ export const NavBar = (props) => {
         <>
             <Nav variant="tabs" defaultActiveKey="/home">
                 <Nav.Item>
-                    <Nav.Link href="/home">Home</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/SpecialistType" eventKey="link-1">Appointments by Specialist</Nav.Link>
@@ -20,7 +20,7 @@ export const NavBar = (props) => {
                 <Button id="logout_button" onClick={(e) => {
                         if(e.target.id === "logout_button"){
                             localStorage.removeItem("app_user");
-                            return history.push("/")
+                            return history.push("/loginOrRegister")
                         } else {
                             return false;
                         }
