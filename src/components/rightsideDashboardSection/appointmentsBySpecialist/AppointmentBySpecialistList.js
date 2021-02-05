@@ -8,7 +8,6 @@ export const AppointmentBySpecialistList= () => {
   const history = useHistory()
 
   useEffect(() => {
-      debugger
     getAppointmentsBySpecialist()
     }, []);
 
