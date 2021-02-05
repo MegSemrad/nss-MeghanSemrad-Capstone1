@@ -7,3 +7,10 @@
     float: left;
     width: 35%;
 }
+
+.form--login {
+    border: 2px solid black;
+    margin: 20px;
+    min-height: 16rem;
+    min-width: 35rem;
+}
