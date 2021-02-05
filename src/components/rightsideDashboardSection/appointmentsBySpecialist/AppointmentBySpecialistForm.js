@@ -68,7 +68,7 @@ export const AppointmentBySpecialistForm = () => {
     }, [])
 
     return (
-      <form className="appointmentBySpecialistForm">
+      <form className="appointmentBySpecialistForm rightSideChildCSS">
         <h2 className="appointmentBySpecialistForm__title">Appointment</h2>
         <fieldset>
           <div className="form-group">
