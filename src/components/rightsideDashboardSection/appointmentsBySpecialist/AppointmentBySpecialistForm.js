@@ -65,6 +65,12 @@ export const AppointmentBySpecialistForm = () => {
             onChange={handleControlledInputChange}
             value={appointmentsBySpecialist.appointmentNote}/>
           </div>
+          <div className="form-group">
+            <label htmlFor="appointmentDate">Appointment Date: </label>
+            <input type="date" id="appointmentDate" required autoFocus className="form-control"
+            onChange={handleControlledInputChange}
+            value={appointmentsBySpecialist.appointmentDate}/>
+          </div>
         </fieldset>
         <fieldset>
           <div className="form-group">

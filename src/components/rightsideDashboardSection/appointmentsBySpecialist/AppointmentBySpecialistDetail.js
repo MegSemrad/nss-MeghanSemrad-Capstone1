@@ -30,8 +30,8 @@ const handleRelease = () => {
   return (
     <section className="appointmentBySpecialist">
       <h3 className="appointmentBySpecialist__name">{appointmentBySpecialist.specialistType?.speciality}</h3>
-      <div className="appointmentBySpecialist__breed">Appointment Note: {appointmentBySpecialist.appointmentNote}</div>
-      <div className="appointmentBySpecialist__location">Questions: {appointmentBySpecialist.specialistType?.questions}</div>
+      <div className="appointmentBySpecialist__appointmentNote__and__date">Appointment Note: {appointmentBySpecialist.appointmentNote} {appointmentBySpecialist.appointmentDate}</div>
+      <div className="appointmentBySpecialist__questions">Questions: {appointmentBySpecialist.specialistType?.questions}</div>
       <button onClick={handleRelease}>Delete</button>
       <button onClick={() => {
         history.push(`/AppointmentBySpecialist/edit/${appointmentBySpecialist.id}`) 
