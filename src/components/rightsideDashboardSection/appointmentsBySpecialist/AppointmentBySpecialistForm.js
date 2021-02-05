@@ -30,11 +30,13 @@ export const AppointmentBySpecialistForm = () => {
             updateAppointmentBySpecialist({
               id: appointmentsBySpecialist.id,
               appointmentNote: appointmentsBySpecialist.appointmentNote,
+              questions: appointmentsBySpecialist.specialistType?.questions
           })
           .then(() => history.push(`/AppointmentBySpecialist/detail/${appointmentsBySpecialist.id}`))
         }else {
             addAppointmentBySpecialist({
-                appointmentNote: appointmentsBySpecialist.appointmentNote
+                appointmentNote: appointmentsBySpecialist.appointmentNote,
+                questions: appointmentsBySpecialist.specialistType?.questions
           })
           .then(() => history.push("/AppointmentBySpecialist"))
         }
@@ -62,6 +64,15 @@ export const AppointmentBySpecialistForm = () => {
             placeholder="Appointment Notes"
             onChange={handleControlledInputChange}
             value={appointmentsBySpecialist.appointmentNote}/>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="questions">Questions: </label>
+            <input type="text" id="questions" required autoFocus className="form-control"
+            placeholder="Appointment Notes"
+            onChange={handleControlledInputChange}
+            value={appointmentsBySpecialist.specialistType?.questions}/>
           </div>
         </fieldset>
         <button className="btn btn-primary"
