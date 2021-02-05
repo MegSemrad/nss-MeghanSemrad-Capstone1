@@ -8,13 +8,17 @@ export const AppointmentBySpecialistForm = () => {
   
     const [appointmentsBySpecialist, setAppointmentsBySpecialist] = useState({
         appointmentNote: "",
+        speciality: "",
+        appointmentNote: "",
+        appointmentDate: "",
+        questions: ""
     })
 
     
     const [isLoading, setIsLoading] = useState(true);
 
     
-    const { appointmentBySpecialistId} = useParams();
+    const { appointmentBySpecialistId } = useParams();
 	  const history = useHistory();
 
    
@@ -29,16 +33,23 @@ export const AppointmentBySpecialistForm = () => {
         if (appointmentBySpecialistId){
             updateAppointmentBySpecialist({
               id: appointmentsBySpecialist.id,
+              userID: appointmentsBySpecialist.userId,
               speciality: appointmentsBySpecialist.specialistType?.speciality,
-              appointmentNote: appointmentsBySpecialist.appointmentNote,
-              questions: appointmentsBySpecialist.specialistType?.questions
+              questions: appointmentsBySpecialist.specialistType?.questions,
+              specialistTypeId: appointmentsBySpecialist.specialistTypeId,
+              appointmentDate: appointmentsBySpecialist.appointmentDate,
+              appointmentNote: appointmentsBySpecialist.appointmentNote
           })
           .then(() => history.push(`/AppointmentBySpecialist/detail/${appointmentsBySpecialist.id}`))
         }else {
             addAppointmentBySpecialist({
+                id: appointmentsBySpecialist.id,
+                userID: appointmentsBySpecialist.userId,
                 speciality: appointmentsBySpecialist.specialistType?.speciality,
-                appointmentNote: appointmentsBySpecialist.appointmentNote,
-                questions: appointmentsBySpecialist.specialistType?.questions
+                questions: appointmentsBySpecialist.specialistType?.questions,
+                specialistTypeId: appointmentsBySpecialist.specialistTypeId,
+                appointmentDate: appointmentsBySpecialist.appointmentDate,
+                appointmentNote: appointmentsBySpecialist.appointmentNote
           })
           .then(() => history.push("/AppointmentBySpecialist"))
         }
