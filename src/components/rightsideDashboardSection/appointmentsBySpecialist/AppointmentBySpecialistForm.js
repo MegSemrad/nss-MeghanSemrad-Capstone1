@@ -70,7 +70,7 @@ export const AppointmentBySpecialistForm = () => {
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
             handleSaveAppointmentBySpecialist()
           }}>
-        {appointmentBySpecialistId? "Save" : "Add"}</button>
+        {appointmentBySpecialistId? "Save Changes" : "Save"}</button>
       </form>
     )
 }

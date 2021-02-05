@@ -13,7 +13,7 @@ export const AppointmentBySpecialistProvider = (props) => {
     }
 
     const addAppointmentBySpecialist = appointmentBySpeicalistObj => {
-        return fetch("http://localhost:8090/appointmentsBySpecialist?_expand=specialistType", {
+        return fetch("http://localhost:8090/appointmentsBySpecialist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -31,14 +31,14 @@ export const AppointmentBySpecialistProvider = (props) => {
 
 
     const deleteAppointmentBySpecialistById = appointmentBySpecialistId => {
-        return fetch(`http://localhost:8090/appointmentsBySpecialist/${appointmentBySpecialistId}?_expand=specialistType`, {
+        return fetch(`http://localhost:8090/appointmentsBySpecialist/${appointmentBySpecialistId}`, {
             method: "DELETE"
         })
             .then(getAppointmentsBySpecialist)
     };
   
     const updateAppointmentBySpecialist = appointmentBySpecialist => {
-      return fetch(`http://localhost:8090/appointmentsBySpecialist/${appointmentBySpecialist.id}?_expand=specialistType`, {
+      return fetch(`http://localhost:8090/appointmentsBySpecialist/${appointmentBySpecialist.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

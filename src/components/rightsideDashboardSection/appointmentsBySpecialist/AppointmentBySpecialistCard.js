@@ -6,7 +6,7 @@ export const AppointmentBySpecialistCard = ({ appointmentBySpecialist }) => {
     const history = useHistory()
   return (
     <Button variant="primary" size="lg" block 
-    onClick={() => { history.push(`/AppointmentBySpecialist/edit/${appointmentBySpecialist.id}`)}}>
+    onClick={() => { history.push(`/AppointmentBySpecialist/detail/${appointmentBySpecialist.id}`)}}>
         {appointmentBySpecialist.specialistType?.speciality}
     </Button>
 )}
