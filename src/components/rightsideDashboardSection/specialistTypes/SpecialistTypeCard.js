@@ -10,5 +10,4 @@ export const SpecialistTypeCard = ({ specialistType }) => {
         {specialistType.speciality}
       </Button>
   )
-}
-
+};
