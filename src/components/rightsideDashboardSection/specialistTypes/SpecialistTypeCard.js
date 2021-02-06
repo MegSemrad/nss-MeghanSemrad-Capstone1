@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 import { Button } from "react-bootstrap";
 
 export const SpecialistTypeCard = ({ specialistType }) => {
+  console.log("name?", specialistType)
   const history = useHistory()
   return (
       <Button variant="primary" size="lg" block className="rightSideChildCSS"
