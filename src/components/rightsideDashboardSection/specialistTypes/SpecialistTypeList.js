@@ -7,16 +7,19 @@ export const SpecialistTypeList = () => {
   const { specialistTypes,  getSpecialistTypes } = useContext(SpecialistTypeContext)
   const userId = parseInt(localStorage.getItem("app_user"))
   const history = useHistory()
-
-
+  
+  
   useEffect(() => {
     getSpecialistTypes()
   }, []);
-
-
-const specialistType = specialistTypes.filter(type => {
-  if(userId === type.userId) {
-    return type
+  
+  let specialistsArray = []
+  const specialistType = specialistTypes.filter(type => {
+    if(type.userId === userId) {
+      console.log("empty array?", specialistTypes) //this does not return an empty array
+      console.log("right three objects?", type) //this returns correct userId objects
+      console.log("right id?", type.userId) //this returns correct userId objects
+    specialistsArray.push(type)
   }
 });
 
@@ -26,8 +29,12 @@ const specialistType = specialistTypes.filter(type => {
           <button onClick={() => { history.push("/SpecialistType/create") }}>
             Add
           </button>
-          <SpecialistTypeCard key={specialistType.id} //argument
-              specialistType={specialistType} /> 
+          {
+            specialistsArray.map(specialist => {
+              return <SpecialistTypeCard key={specialist.id} //argument
+                  specialistType={specialist} /> 
+            })
+          }
     </div>
   )
 };
