@@ -40,7 +40,7 @@ export const PatientDetailForm = () => {
                 preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
                 preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push("/home"))
+                .then(() => history.push("/"))
         } else {
             addBasePatientDetails({
                 userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
@@ -56,7 +56,7 @@ export const PatientDetailForm = () => {
                 preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
                 preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push("/home"))
+                .then(() => history.push("/"))
         }
     }
 
