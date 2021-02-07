@@ -13,12 +13,10 @@ export const SpecialistTypeList = () => {
     getSpecialistTypes()
   }, []);
   
+
   let specialistsArray = []
   const specialistType = specialistTypes.filter(type => {
     if(type.userId === userId) {
-      console.log("empty array?", specialistTypes) //this does not return an empty array
-      console.log("right three objects?", type) //this returns correct userId objects
-      console.log("right id?", type.userId) //this returns correct userId objects
     specialistsArray.push(type)
   }
 });
