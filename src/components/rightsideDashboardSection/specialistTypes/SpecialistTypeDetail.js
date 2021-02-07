@@ -35,8 +35,8 @@ export const SpecialistTypeDetail = () => {
 return (
     <section className="specialistType">
       <h3 className="specialistType__name">{specialist.speciality}</h3>
-      <div className="specialistType__appointmentNote__and__date">Appointment Note: {specialist.appointmentsBySpecialist?.appointmentNote} {specialist.appointmentsBySpecialist?.appointmentDate}</div>
-      <div className="specialistType__questions">Questions: {specialist.questions?.questions}</div>
+      <div className="specialistType__appointmentNote__and__date">Appointment Note: {specialist.appointmentsBySpecialist?.map(note => {return note.appointmentNote})} {specialist.appointmentsBySpecialist?.map(date => {return date.appointmentDate})}</div>
+      <div className="specialistType__questions">Questions: {specialist.questions?.map(question => {return question.questions})}</div>
       {/* <button onClick={handleRelease}>Delete</button> */}
       <button onClick={() => {
         history.push(`/SpecialistType/edit/${specialist.id}`) 
