@@ -1,42 +1,47 @@
-// import React, { useContext, useEffect, useState } from "react";
-// import { SpecialistTypeContext } from "./SpecialistTypeProvider";
-// import { useParams } from "react-router-dom";
-// import { useHistory } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from "react";
+import { SpecialistTypeContext } from "./SpecialistTypeProvider";
+import { useParams } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 
-// export const SpecialistTypeDetail = () => {
-//   const { getSpecialistTypesByUserId, deleteSpecialistTypeById } = useContext(SpecialistTypeContext)
+export const SpecialistTypeDetail = () => {
+  const { getSpecialistTypeByIdEmbeddedItems, deleteSpecialistTypeById } = useContext(SpecialistTypeContext)
 
-// 	const [specialistTypesByUserId, setSpecialistTypeByUserId] = useState({})
+  const [specialist, setSpecialist] = useState({})
 
-//     const { specialistTypeId } = useParams();  
+    const { specialistTypeId } = useParams();  
 
-//   useEffect(() => { 
-//     getSpecialistTypesByUserId(specialistTypeId)
-//     .then((response) => {
-//         setSpecialistTypeByUserId(response)
-//     })
-//     }, [])
 
-//     const history = useHistory()
+  useEffect(() => { 
+    getSpecialistTypeByIdEmbeddedItems(specialistTypeId)
+    .then((response) => {
+      console.log("repsonse", response) //undefined
+      setSpecialist(response)
+        
+    })
+    }, [])
 
-// // const handleRelease = () => {
-// //     deleteSpecialistTypeById(specialistType.id)
-// //       .then(() => {
-// //         history.push("/SpecialistType") 
-// //       })
-// //   }
+    const history = useHistory()
 
-//   return (
-//     <section className="specialistType">
-//       <h3 className="specialistType__name">{specialistTypesByUserId.specialistTypes[].speciality}</h3>
-//       <div className="specialistType__appointmentNote__and__date">Appointment Note: {specialistTypesByUserId.appointmentsBySpecialist?.appointmentNote} {specialistTypesByUserId.appointmentsBySpecialist?.appointmentDate}</div>
-//       <div className="specialistType__questions">Questions: {specialistTypesByUserId.questions?.questions}</div>
-//       {/* <button onClick={handleRelease}>Delete</button> */}
-//       <button onClick={() => {
-//         history.push(`/SpecialistType/edit/${specialistTypesByUserId.id}`) 
-//         }}>Edit</button>
-//     </section>
-//   )
+// const handleRelease = () => {
+//     deleteSpecialistTypeById(specialistType.id)
+//       .then(() => {
+//         history.push("/SpecialistType") 
+//       })
+//   }
 
-// }
+
+  
+return (
+    <section className="specialistType">
+      <h3 className="specialistType__name">{specialist.speciality}</h3>
+      <div className="specialistType__appointmentNote__and__date">Appointment Note: {specialist.appointmentsBySpecialist?.appointmentNote} {specialist.appointmentsBySpecialist?.appointmentDate}</div>
+      <div className="specialistType__questions">Questions: {specialist.questions?.questions}</div>
+      {/* <button onClick={handleRelease}>Delete</button> */}
+      <button onClick={() => {
+        history.push(`/SpecialistType/edit/${specialist.id}`) 
+        }}>Edit</button>
+    </section>
+  )
+
+}

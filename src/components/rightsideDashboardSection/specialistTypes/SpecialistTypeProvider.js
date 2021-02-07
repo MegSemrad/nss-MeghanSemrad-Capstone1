@@ -7,11 +7,17 @@ export const SpecialistTypeContext = createContext();
 
 
 export const SpecialistTypeProvider = (props) => {
-    const [specialistType, setSpecialistType] = useState([]);
+    const [specialistType, setSpecialistType] = useState([{
+        speciality: "",
+        questions: "",
+        appointmentNote: "",
+        appointmentDate: ""
+    }]);
+    console.log("specialist object or array?", specialistType) //returns an object
     const [specialistTypes, setSpecialistTypes] = useState([]); 
 
 
-
+// this only returns all specialists regardless of userID but nothing else
     const getSpecialistTypes = () => {
         return fetch (`http://localhost:8090/specialistTypes/`)
         .then(response => response.json())
@@ -21,10 +27,11 @@ export const SpecialistTypeProvider = (props) => {
 
     const getSpecialistTypeByIdEmbeddedItems = (id) => {
         return fetch(`http://localhost:8090/specialistTypes/${id}?_embed=appointmentsBySpecialist&_embed=questions`)
-            .then(res => res.json())
-            .then((specialist) => {
-                setSpecialistType(specialist)
-            })
+        .then(res => res.json())
+        // .then((specialist) => {
+        //         console.log("specialist?", specialist) //specialist is an object
+        //         setSpecialistType(specialist)
+        //     })
     };
 
 
