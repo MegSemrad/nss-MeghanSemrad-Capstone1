@@ -53,7 +53,7 @@ export const SpecialistTypeForm = () => {
           speciality: specialistType.speciality,
           specialistName: specialistType.specialistName,
         })
-        .then((newSpecialistType) => {
+        .then((newSpecialistType) => { //this is the object return after POST-ing to the database 
           addQuestion({
                   id: specialistType.id,
                   userId: userId,
