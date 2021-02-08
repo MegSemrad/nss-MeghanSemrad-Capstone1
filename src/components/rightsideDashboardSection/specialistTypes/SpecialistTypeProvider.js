@@ -7,13 +7,8 @@ export const SpecialistTypeContext = createContext();
 
 
 export const SpecialistTypeProvider = (props) => {
-    const [specialistType, setSpecialistType] = useState([{
-        speciality: "",
-        questions: "",
-        appointmentNote: "",
-        appointmentDate: ""
-    }]);
-    console.log("specialist object or array?", specialistType) //returns an object
+    const [specialistType, setSpecialistType] = useState([]);
+    console.log("specialist?", specialistType) //returns an object
     const [specialistTypes, setSpecialistTypes] = useState([]); 
 
 
@@ -23,28 +18,51 @@ export const SpecialistTypeProvider = (props) => {
         .then(response => response.json())
         .then(setSpecialistTypes)
     };
-   
+    
 
     const getSpecialistTypeByIdEmbeddedItems = (id) => {
         return fetch(`http://localhost:8090/specialistTypes/${id}?_embed=appointmentsBySpecialist&_embed=questions`)
         .then(res => res.json())
-        // .then((specialist) => {
-        //         console.log("specialist?", specialist) //specialist is an object
-        //         setSpecialistType(specialist)
-        //     })
     };
 
 
 
     const addSpecialistType = specialistTypeObj => {
-        return fetch("http://localhost:8090/specialistTypes?_embed=appointmentsBySpecialist&_embed=questions", {
+        return fetch("http://localhost:8090/specialistTypes/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(specialistTypeObj)
         })
-        .then(getSpecialistTypeByIdEmbeddedItems )
+        .then(res => res.json())
+        .then((newSpecialistType) => { 
+            console.log( "new specialit", newSpecialistType)  //returning newly created object that will have id 
+            return newSpecialistType
+        })
+    };
+    
+    const addQuestion = questionObj => {
+        return fetch("http://localhost:8090/questions/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(questionObj)
+        })
+        .then(getSpecialistTypeByIdEmbeddedItems)
+    };
+
+
+    const addAppointmentBySpecialist = appointmentObj => {
+        return fetch("http://localhost:8090/appointmentsBySpecialist/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(appointmentObj)
+        })
+        .then(setSpecialistType)
     };
 
 
@@ -75,7 +93,8 @@ export const SpecialistTypeProvider = (props) => {
     return (
         <SpecialistTypeContext.Provider value={{
             specialistType, specialistTypes, setSpecialistType,  setSpecialistTypes,
-            getSpecialistTypes, getSpecialistTypeByIdEmbeddedItems , addSpecialistType, deleteSpecialistTypeById,
+            getSpecialistTypes, getSpecialistTypeByIdEmbeddedItems , addSpecialistType, 
+            addQuestion, addAppointmentBySpecialist, deleteSpecialistTypeById,
             updateSpecialistType
         }}>
          {props.children}

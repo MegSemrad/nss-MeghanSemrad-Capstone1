@@ -40,7 +40,6 @@ export const BasePatientDetailsProvider = (props) => {
         return fetch(`http://localhost:8090/basePatientDetails/${id}`)
         .then(response => response.json())
         .then((patient) => {
-            console.log("patient?", patient)
             setBasePatientDetails(patient)
         })
     }
