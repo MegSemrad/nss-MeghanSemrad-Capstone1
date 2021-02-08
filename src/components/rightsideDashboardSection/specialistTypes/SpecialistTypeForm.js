@@ -132,7 +132,6 @@ export const SpecialistTypeForm = () => {
         <button className="btn btn-primary"
           disabled={isLoading}
           onClick={event => {
-            console.log("form button clicked?")
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
             handleSaveSpecialistType()
           }}>

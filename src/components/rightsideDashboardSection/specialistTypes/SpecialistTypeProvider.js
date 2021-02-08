@@ -72,7 +72,7 @@ export const SpecialistTypeProvider = (props) => {
         return fetch(`http://localhost:8090/specialistTypes/${specialistTypeId}?_embed=questions`, {
             method: "DELETE"
         })
-            .then(getSpecialistTypeByIdEmbeddedItems )
+            .then(getSpecialistTypeByIdEmbeddedItems)
     };
   
 
@@ -85,7 +85,7 @@ export const SpecialistTypeProvider = (props) => {
         },
         body: JSON.stringify(specialistTypeObject)
       })
-      .then(getSpecialistTypeByIdEmbeddedItems )
+      .then(getSpecialistTypeByIdEmbeddedItems)
     };
 
 
