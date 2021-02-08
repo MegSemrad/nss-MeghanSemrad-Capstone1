@@ -14,11 +14,11 @@ export const FamilyHistoryProvider = (props) => {
 
 
     const getFamilyHistoryById = (id) => {
-        return fetch(`http://localhost:8090/familyHistories${id}`)
+        return fetch(`http://localhost:8090/familyHistories${id}?_expand=relation`) //this is grabbing by the familyHistoryId not userId 
         .then(response => response.json())
         .then((familyHistory) => {
             console.log("family history?", familyHistory)
-            setFamilyHistory
+            setFamilyHistory()
         })
     };
 
@@ -36,7 +36,7 @@ export const FamilyHistoryProvider = (props) => {
 
 
     const updateFamilyHistory = (familyHistory) => {
-        return fetch(`http://localhost:8088/animals/${familyHistoy.id}`, {
+        return fetch(`http://localhost:8088/animals/${familyHistory.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
