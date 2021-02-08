@@ -12,6 +12,8 @@ import { SpecialistTypeProvider } from "./rightsideDashboardSection/specialistTy
 import { SpecialistTypeList } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeList"
 import { SpecialistTypeForm } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeForm";
 import { SpecialistTypeDetail } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeDetail";
+import { FamilyHistoryProvider } from "./rightsideDashboardSection/familyHistories/FamilyHistoryProvider";
+import { FamilyHistoryDetail } from "./rightsideDashboardSection/familyHistories/FamilyHistoryDetail";
 
 import "./permanentDashboardSection/permanentDashboardSection.css"
 
@@ -133,9 +135,12 @@ export const ApplicationViews = () => {
 
 
                <BasePatientDetailsProvider>
+               <FamilyHistoryProvider>
                     <Route exact path="/FamilyHistory">
                          <PermanentDashboardSection  />
+                         <FamilyHistoryDetail />
                     </Route>
+               </FamilyHistoryProvider>
                </BasePatientDetailsProvider>
           </>
      )
