@@ -7,7 +7,7 @@ export const FamilyHistoryProvider = (props) => {
     const [familyHistories, setFamilyHistories] = useState([]) //if ever need all users' family histories
 
     const getFamilyHistories = () => {
-        return fetch("http://localhost:8090/familyHistories")
+        return fetch("http://localhost:8090/familyHistories?_expand=relation")
         .then(response => response.json())
         .then(setFamilyHistories)
     };
@@ -17,7 +17,6 @@ export const FamilyHistoryProvider = (props) => {
         return fetch(`http://localhost:8090/familyHistories${id}?_expand=relation`) //this is grabbing by the familyHistoryId not userId 
         .then(response => response.json())
         .then((familyHistory) => {
-            console.log("family history?", familyHistory)
             setFamilyHistory()
         })
     };
