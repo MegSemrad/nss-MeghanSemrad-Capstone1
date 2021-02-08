@@ -8,7 +8,7 @@ export const SpecialistTypeCard = ({ specialistType }) => {
   return (
       <Button variant="primary" size="lg" block className="rightSideChildCSS"
         onClick={() => { history.push(`/SpecialistType/detail/${specialistType.id}`) }}>
-        {specialistType.speciality}
+        {specialistType.speciality} ({specialistType.specialistName})
       </Button>
   )
 };
