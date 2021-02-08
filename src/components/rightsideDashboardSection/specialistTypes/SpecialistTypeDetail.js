@@ -15,7 +15,6 @@ export const SpecialistTypeDetail = () => {
   useEffect(() => { 
     getSpecialistTypeByIdEmbeddedItems(specialistTypeId)
     .then((response) => {
-      console.log("repsonse", response) //undefined
       setSpecialist(response)
         
     })
