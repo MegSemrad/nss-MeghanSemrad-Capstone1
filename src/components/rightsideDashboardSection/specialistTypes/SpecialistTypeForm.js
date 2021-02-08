@@ -33,7 +33,7 @@ export const SpecialistTypeForm = () => {
        
     const handleSaveSpecialistType = () => {
       setIsLoading(true);
-      if (specialistTypeId){
+      if (specialistTypeId) {
         updateSpecialistType({
           id: specialistType.id,
           userId: userId,
@@ -47,41 +47,27 @@ export const SpecialistTypeForm = () => {
         .then(() => history.push(`/SpecialistType/detail/${specialistType.id}`))
       }
       else {
-        let specialistsArrayByUserId = []
-            addSpecialistType({
-                id: specialistType.id,
-                userId: userId,
-                speciality: specialistType.speciality,
-                specialistName: specialistType.specialistName,
-              })
-              .then(() => {
-                 specialistTypes.filter(sT => {
-                  if(sT.userId === userId) {
-                    specialistsArrayByUserId.push(sT)
-                    return sT
-                    }
-                })
-              })
-              // }
-              .then(() => {
-                getSpecialistTypes()
-              })
-              .then(() => {addQuestion({
+        addSpecialistType({
+          id: specialistType.id,
+          userId: userId,
+          speciality: specialistType.speciality,
+          specialistName: specialistType.specialistName,
+        })
+        .then((newSpecialistType) => {
+          addQuestion({
                   id: specialistType.id,
                   userId: userId,
-                  specialistTypeId: specialistsArrayByUserId.map(specialist => {return specialist.id}),
+                  specialistTypeId: newSpecialistType.id,
                   questions: specialistType.questions
                 })
-              })
-              .then(() => {
                 addAppointmentBySpecialist({
                   id: specialistType.id,
                   userId: userId,
-                  specialistTypeId: specialistsArrayByUserId.map(specialist => {return specialist.id}),
+                  specialistTypeId: newSpecialistType.id,
                   appointmentDate: specialistType.appointmentDate,
                   appointmentNote: specialistType.appointmentNote
+              })
             })
-          })
           .then(() => history.push("/SpecialistType"))
         }
     }
@@ -146,6 +132,7 @@ export const SpecialistTypeForm = () => {
         <button className="btn btn-primary"
           disabled={isLoading}
           onClick={event => {
+            console.log("form button clicked?")
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
             handleSaveSpecialistType()
           }}>

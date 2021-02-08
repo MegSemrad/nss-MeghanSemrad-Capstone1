@@ -35,7 +35,11 @@ export const SpecialistTypeProvider = (props) => {
             },
             body: JSON.stringify(specialistTypeObj)
         })
-        .then(getSpecialistTypeByIdEmbeddedItems)
+        .then(res => res.json())
+        .then((newSpecialistType) => { 
+            console.log( "new specialit", newSpecialistType)  //returning newly created object that will have id 
+            return newSpecialistType
+        })
     };
     
     const addQuestion = questionObj => {
