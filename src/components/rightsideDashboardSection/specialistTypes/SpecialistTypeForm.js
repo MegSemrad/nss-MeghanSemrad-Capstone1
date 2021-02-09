@@ -44,6 +44,12 @@ export const SpecialistTypeForm = () => {
           appointmentDate: specialistType.appointmentsBySpecialist?.appointmentDate,
           appointmentNote: specialistType.appointmentsBySpecialist?.appointmentNote
         })
+        // updateQuestions({
+        //   id: specialistType.id,
+        //   userId:userId,
+        //   specialistTypeId:
+        //   questions:
+        // })
         .then(() => history.push(`/SpecialistType/detail/${specialistType.id}`))
       }
       else {
@@ -55,19 +61,19 @@ export const SpecialistTypeForm = () => {
         })
         .then((newSpecialistType) => { //this is the object return after POST-ing to the database 
           addQuestion({
-                  id: specialistType.id,
-                  userId: userId,
-                  specialistTypeId: newSpecialistType.id,
-                  questions: specialistType.questions
-                })
-                addAppointmentBySpecialist({
-                  id: specialistType.id,
-                  userId: userId,
-                  specialistTypeId: newSpecialistType.id,
-                  appointmentDate: specialistType.appointmentDate,
-                  appointmentNote: specialistType.appointmentNote
-              })
+              id: specialistType.id,
+              userId: userId,
+              specialistTypeId: newSpecialistType.id,
+              questions: specialistType.questions
+          })
+            addAppointmentBySpecialist({
+              id: specialistType.id,
+              userId: userId,
+              specialistTypeId: newSpecialistType.id,
+              appointmentDate: specialistType.appointmentDate,
+              appointmentNote: specialistType.appointmentNote
             })
+          })
           .then(() => history.push("/SpecialistType"))
         }
     }
