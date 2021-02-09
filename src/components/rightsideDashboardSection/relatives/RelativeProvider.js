@@ -5,6 +5,7 @@ export const RelativesContext = createContext();
 export const RelativeProvider = (props) => {
     const [relative, setRelative] = useState([])
     const [relatives, setRelatives] = useState([]) //if ever need all users' family histories
+    const [familyHistories, setFamilyHistories] = useState([])
 
 
     const getRelatives = () => {
@@ -26,7 +27,13 @@ export const RelativeProvider = (props) => {
     const getFamilyHistories = () => {
         return fetch("http://localhost:8090/familyHistories?_expand=relative")
         .then(response => response.json())
-        .then(setRelatives)
+        .then(setFamilyHistories)
+    }
+
+    const getFamilyHistory = (id) => {
+        return fetch(`http://localhost:8090/familyHistories/${id}`)
+        .then(response => response.json())
+        .then(getRelatives) //???
     }
 
     const addRelative = (relativeObject) => {
@@ -42,7 +49,7 @@ export const RelativeProvider = (props) => {
 
 
     const updateRelative = (relative) => {
-        return fetch(`http://localhost:8088/relatives/${relative.id}`, {
+        return fetch(`http://localhost:8090/relatives/${relative.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -53,8 +60,8 @@ export const RelativeProvider = (props) => {
     };
 
 
-    const deleteRelative = (relativeId) => {
-        return fetch(`http://localhost:8090/relatives/${relativeId}`, {
+    const deleteFamilyHistory = (familyHistoryId) => {
+        return fetch(`http://localhost:8090/familyHistories/${familyHistoryId}`, {
         method: "DELETE"
         })
         .then(getRelatives)
@@ -64,8 +71,8 @@ export const RelativeProvider = (props) => {
     return (
         <RelativesContext.Provider value={{
             relative, setRelative, relatives, setRelatives, getRelatives, 
-            getRelativeById, addRelative, updateRelative, deleteRelative,
-            getFamilyHistories
+            getRelativeById, addRelative, updateRelative, deleteFamilyHistory,
+            getFamilyHistories, familyHistories, setFamilyHistories, getFamilyHistory
         }}>
             {props.children}
         </RelativesContext.Provider>
