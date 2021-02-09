@@ -12,10 +12,10 @@ import { SpecialistTypeProvider } from "./rightsideDashboardSection/specialistTy
 import { SpecialistTypeList } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeList"
 import { SpecialistTypeForm } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeForm";
 import { SpecialistTypeDetail } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeDetail";
-import { FamilyHistoryProvider } from "./rightsideDashboardSection/familyHistories/FamilyHistoryProvider";
-import { FamilyHistoryList } from "./rightsideDashboardSection/familyHistories/FamilyHistoryList";
-import { FamilyHistoryForm } from "./rightsideDashboardSection/familyHistories/FamilyHistoryForm";
-import { FamilyHistoryDetail } from "./rightsideDashboardSection/familyHistories/FamilyHistoryDetail";
+import { RelativeProvider } from "./rightsideDashboardSection/relatives/RelativeProvider";
+import { RelativeList } from "./rightsideDashboardSection/relatives/RelativeList";
+import { RelativeForm } from "./rightsideDashboardSection/relatives/RelativeForm";
+import { RelativeDetail } from "./rightsideDashboardSection/relatives/RelativeDetail";
 
 import "./permanentDashboardSection/permanentDashboardSection.css"
 
@@ -137,27 +137,27 @@ export const ApplicationViews = () => {
 
 
                <BasePatientDetailsProvider>
-               <FamilyHistoryProvider>
-                    <Route exact path="/familyHistory">
+               <RelativeProvider>
+                    <Route exact path="/FamilyHistory">
                          <PermanentDashboardSection  />
-                         <FamilyHistoryList />
+                         <RelativeList />
                     </Route>
                     
-                    <Route exact path="/familyHistory/create">
+                    <Route exact path="/relative/create">
                          <PermanentDashboardSection  />
-                         <FamilyHistoryForm />
+                         <RelativeForm />
                     </Route>
                     
-                    <Route exact path="/familyHistory/edit/:familyHistoryId(\d+)">
+                    <Route exact path="/relative/edit/:relativeId(\d+)">
                          <PermanentDashboardSection  />
-                         <FamilyHistoryForm />
+                         <RelativeForm />
                     </Route>
                     
-                    <Route exact path="/familyHistory/detail/:familyHistoryId(\d+)">
+                    <Route exact path="/relative/detail/:relativeId(\d+)">
                          <PermanentDashboardSection  />
-                         <FamilyHistoryDetail />
+                         <RelativeDetail />
                     </Route>
-               </FamilyHistoryProvider>
+               </RelativeProvider>
                </BasePatientDetailsProvider>
           </>
      )
