@@ -15,7 +15,7 @@ import { SpecialistTypeDetail } from "./rightsideDashboardSection/specialistType
 import { RelativeProvider } from "./rightsideDashboardSection/relatives/RelativeProvider";
 import { RelativeList } from "./rightsideDashboardSection/relatives/RelativeList";
 import { RelativeForm } from "./rightsideDashboardSection/relatives/RelativeForm";
-import { RelativeDetail } from "./rightsideDashboardSection/relatives/RelativeDetail";
+
 
 import "./permanentDashboardSection/permanentDashboardSection.css"
 
@@ -151,11 +151,6 @@ export const ApplicationViews = () => {
                     <Route exact path="/relative/edit/:relativeId(\d+)">
                          <PermanentDashboardSection  />
                          <RelativeForm />
-                    </Route>
-                    
-                    <Route exact path="/relative/detail/:relativeId(\d+)">
-                         <PermanentDashboardSection  />
-                         <RelativeDetail />
                     </Route>
                </RelativeProvider>
                </BasePatientDetailsProvider>
