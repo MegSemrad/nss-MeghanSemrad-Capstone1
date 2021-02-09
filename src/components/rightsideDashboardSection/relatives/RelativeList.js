@@ -4,43 +4,40 @@ import { RelativesContext } from "./RelativeProvider";
 import { RelativeCard } from "./RelativeCard";
 
 export const RelativeList = () => {
-    const { relatives, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext)
+    const { familyHistories, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext)
     const history = useHistory()
     const userId = parseInt(localStorage.getItem("app_user"))
-
+    const [matchedRelatives, setMatchedRelatives] = useState([])
 
 useEffect(() => {
   getFamilyHistories()
 }, []);
 
+useEffect( () => {
+  const matchedRelatives = familyHistories.filter(relative => relative.userId === userId)
+  setMatchedRelatives(matchedRelatives)
+}, [familyHistories])
+
 const handleDelete = (id) => {
   deleteFamilyHistory(id)
-.then(() => {
- getFamilyHistories()
-})
+  .then(() => {
+    getFamilyHistories()
+  })
 }
-
-
-let matchedRelativesArray = []
-  const matchedRelatives = relatives.filter(relative => {
-    if(relative.userId === userId) {
-    matchedRelativesArray.push(relative)
-  }
-});
 
   return (
     <div className="relatives">
         <h2 className="titleWord">Family Medical History</h2>
           <button onClick={() => { 
-            history.push("/relative/create") 
-            }}>
+            history.push("/relative/create")
+          }}>
             Add
           </button>
           {
-            matchedRelativesArray.map(matchedRelative => {
+            matchedRelatives.map(matchedRelative => {
               return <RelativeCard key={matchedRelative.id} //argument
-                matchedRelative={matchedRelative} 
-                handleDelete={handleDelete}/> 
+              matchedRelative={matchedRelative} 
+              handleDelete={handleDelete}/> 
             })
           }
     </div>

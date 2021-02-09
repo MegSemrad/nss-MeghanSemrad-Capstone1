@@ -103,10 +103,6 @@ export const ApplicationViews = () => {
                          <PreferredPharmacyList />
                     </Route>
                </BasePatientDetailsProvider>
-              
-
-
-
 
                <BasePatientDetailsProvider>
                <SpecialistTypeProvider>
@@ -131,10 +127,6 @@ export const ApplicationViews = () => {
                     </Route>
                </SpecialistTypeProvider>
                </BasePatientDetailsProvider>
-
-
-
-
 
                <BasePatientDetailsProvider>
                <RelativeProvider>

@@ -20,7 +20,7 @@ export const RelativeProvider = (props) => {
         return fetch(`http://localhost:8090/relatives/${id}?_embed=familyHistories`)
             .then(response => response.json())
             .then((relative) => {
-                setRelative()
+                setRelative(relative)
             })
     };
 
@@ -60,14 +60,13 @@ export const RelativeProvider = (props) => {
     const getFamilyHistories = () => {
         return fetch("http://localhost:8090/familyHistories?_expand=relative")
             .then(response => response.json())
-            .then(setRelatives)
             .then(setFamilyHistories)
     }
 
     const getFamilyHistory = (id) => {
         return fetch(`http://localhost:8090/familyHistories/${id}`)
             .then(response => response.json())
-            .then(setFamilyHistories)
+            .then(setFamilyHistory)
     }
 
     const getFamilyHistoryById = (id) => {
