@@ -5,7 +5,7 @@ import { RelativeCard } from "./RelativeCard";
 
 export const RelativeList = () => {
     const { relatives, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext)
-    const history = useHistory
+    const history = useHistory()
     const userId = parseInt(localStorage.getItem("app_user"))
 
 
@@ -31,7 +31,9 @@ let matchedRelativesArray = []
   return (
     <div className="relatives">
         <h2 className="titleWord">Family Medical History</h2>
-          <button onClick={() => { history.push("/relative/create") }}>
+          <button onClick={() => { 
+            history.push("/relative/create") 
+            }}>
             Add
           </button>
           {
