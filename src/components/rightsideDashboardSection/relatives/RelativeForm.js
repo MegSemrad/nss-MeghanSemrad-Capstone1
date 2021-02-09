@@ -24,9 +24,6 @@ export const RelativeForm = () => {
       }
 
       const handleSaveFamilyHistory = () => {
-        if (parseInt(familyHistory.relativeId) === 0) {
-            window.alert("Please select a relative")
-        } else {
           setIsLoading(true);
           if (matchedRelativeId){
             updateFamilyHistory({
@@ -43,7 +40,7 @@ export const RelativeForm = () => {
             .then(() => history.push("/FamilyHistory"))
           }
         }
-      }
+
   
 
       useEffect(() => {
