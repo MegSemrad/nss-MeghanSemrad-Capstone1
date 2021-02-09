@@ -4,7 +4,7 @@ import { RelativesContext } from "./RelativeProvider";
 import { RelativeCard } from "./RelativeCard";
 
 export const RelativeList = () => {
-    const { relatives, getFamilyHistories } = useContext(RelativesContext)
+    const { relatives, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext)
     const history = useHistory
     const userId = parseInt(localStorage.getItem("app_user"))
 
@@ -12,6 +12,13 @@ export const RelativeList = () => {
 useEffect(() => {
   getFamilyHistories()
 }, []);
+
+const handleDelete = (id) => {
+  deleteFamilyHistory(id)
+.then(() => {
+ getFamilyHistories()
+})
+}
 
 
 let matchedRelativesArray = []
@@ -30,7 +37,8 @@ let matchedRelativesArray = []
           {
             matchedRelativesArray.map(matchedRelative => {
               return <RelativeCard key={matchedRelative.id} //argument
-                matchedRelative={matchedRelative} /> 
+                matchedRelative={matchedRelative} 
+                handleDelete={handleDelete}/> 
             })
           }
     </div>
