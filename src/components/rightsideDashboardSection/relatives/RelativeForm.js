@@ -6,6 +6,7 @@ import { useHistory, useParams } from 'react-router-dom';
 export const RelativeForm = () => {
     const { addFamilyHistory, getFamilyHistoryById, updateFamilyHistory } = useContext(RelativesContext)
     const { relatives, getRelatives } = useContext(RelativesContext) //need relatives for dropdown and getRelatives
+    const userId = parseInt(localStorage.getItem("app_user"))
 
     const [familyHistory, setFamilyHistory] = useState({
         condition: "",
@@ -33,9 +34,11 @@ export const RelativeForm = () => {
             })
             .then(() => history.push("/FamilyHistory"))
           }else {
+              debugger
             addFamilyHistory({
+                userId: userId,
                 condition: familyHistory.condition,
-                relativeId: parseInt(familyHistory.relativeId)
+                relativeId: parseInt(familyHistory.matchedRelativeId)
             })
             .then(() => history.push("/FamilyHistory"))
           }
