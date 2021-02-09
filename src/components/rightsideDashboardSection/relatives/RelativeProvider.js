@@ -27,6 +27,7 @@ export const RelativeProvider = (props) => {
     const getFamilyHistories = () => {
         return fetch("http://localhost:8090/familyHistories?_expand=relative")
         .then(response => response.json())
+        .then(setRelatives)
         .then(setFamilyHistories)
     }
 
