@@ -7,7 +7,7 @@ export const RelativeCard = ({ matchedRelative }) => {
     <section className="relative">
       <h3 className="relative__name">
         <Link to={`/relative/detail/${ matchedRelative.id }`}> 
-          { matchedRelative.relative?.relation }
+          { matchedRelative.relative?.relative }
         </Link>
       </h3>
   </section>

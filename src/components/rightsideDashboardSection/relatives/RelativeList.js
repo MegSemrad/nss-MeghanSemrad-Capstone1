@@ -20,7 +20,7 @@ let matchedRelativesArray = []
     matchedRelativesArray.push(relative)
   }
 });
-console.log(matchedRelativesArray)
+
   return (
     <div className="relatives">
         <h2 className="titleWord">Family Medical History</h2>
