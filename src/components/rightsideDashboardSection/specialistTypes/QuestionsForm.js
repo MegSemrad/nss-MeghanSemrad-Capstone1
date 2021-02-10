@@ -39,19 +39,16 @@ export const QuestionsForm = () => {
         }
     };
 
-    console.log("specialistTypeId?", specialistTypeId)
-
-useEffect(() => {
-    getQuestions() 
-}, [])
 
     useEffect(() => {
-                if(specialistTypeId){
-                const matchedQuestions = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
-                setProviderSpecificQuestions(matchedQuestions)
-                   
-        }
-            
+        getQuestions() 
+    }, [])
+
+    useEffect(() => {
+        if(specialistTypeId){
+            const matchedQuestions = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
+            setProviderSpecificQuestions(matchedQuestions)       
+        }       
     }, [questions]);
 
 
@@ -78,4 +75,4 @@ useEffect(() => {
         </form>
     )
 
-}
+};
