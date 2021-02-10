@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 export const SpecialistTypeForm = () => {
     const {specialistTypes, addSpecialistType, getSpecialistTypes, getSpecialistTypeByIdEmbeddedItems, addQuestion, addAppointmentBySpecialist, updateSpecialistType } = useContext(SpecialistTypeContext)
-
+    // const [fields, setFields] = useState([{ value: null }]);
   
     const [specialistType, setSpecialistType] = useState({
       userId: 0,
@@ -23,6 +23,28 @@ export const SpecialistTypeForm = () => {
     const { specialistTypeId } = useParams(); //recieved this specialistId from URL when user presses "Edit" button
 	  const history = useHistory();
 
+
+
+    //  below is the add another field stuff -- also line 7 above 
+  //   // ______________________________________________________________
+  //   function handleChange(i, event) {
+  //     const values = [...fields];
+  //     values[i].value = event.target.value;
+  //     setFields(values);
+  //   }
+  
+  //   function handleAdd() {
+  //     const values = [...fields];
+  //     values.push({ value: null });
+  //     setFields(values);
+  //   }
+  
+  //   function handleRemove(i) {
+  //     const values = [...fields];
+  //     values.splice(i, 1);
+  //     setFields(values);
+  //   }
+  // // ______________________________________________________________
    
     const handleControlledInputChange = (event) => {
       const newspecialistType = { ...specialistType }
@@ -111,21 +133,50 @@ export const SpecialistTypeForm = () => {
             value={specialistType.specialistName}/>
           </div>
         </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="appointmentNote">Appointment Note: </label>
-            <input type="text" id="appointmentNote" required autoFocus className="form-control"
-            placeholder="Appointment Notes"
-            onChange={handleControlledInputChange}
-            value={specialistType.appointmentsBySpecialist?.appointmentNote}/>
-          </div>
-          <div className="form-group">
-            <label htmlFor="appointmentDate">Appointment Date: </label>
-            <input type="date" id="appointmentDate" required autoFocus className="form-control"
-            onChange={handleControlledInputChange}
-            value={specialistType.appointmentsBySpecialist?.appointmentDate}/>
-          </div>
-        </fieldset>
+
+        <section>
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="appointmentNote">Appointment Note: </label>
+              <input type="text" id="appointmentNote" required autoFocus className="form-control"
+              placeholder="Appointment Notes"
+              onChange={handleControlledInputChange}
+              value={specialistType.appointmentsBySpecialist?.appointmentNote}/>
+            </div>
+            <div className="form-group">
+              <label htmlFor="appointmentDate">Appointment Date: </label>
+              <input type="date" id="appointmentDate" required autoFocus className="form-control"
+              onChange={handleControlledInputChange}
+              value={specialistType.appointmentsBySpecialist?.appointmentDate}/>
+            </div>
+          </fieldset>
+          <button>Add another</button>
+        </section>
+
+
+
+        {/* <button type="button" onClick={() => handleAdd()}>
+          Add another
+        </button>
+          {fields.map((field, idx) => {
+            return (
+            <div key={`${field}-${idx}`}>
+              
+              <input
+                type="text" 
+                value={field.value} 
+                placeholder="Enter text"
+                onChange={e => handleChange(idx, e)}
+              />
+              <button type="button" onClick={() => handleRemove(idx)}>
+                Cancel
+              </button>
+            </div>
+        );
+      })} */}
+
+
+
         <fieldset>
           <div className="form-group">
             <label htmlFor="questions">Questions: </label>
