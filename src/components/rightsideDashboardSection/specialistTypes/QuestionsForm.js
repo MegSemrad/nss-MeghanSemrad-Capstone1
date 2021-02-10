@@ -44,7 +44,6 @@ export const QuestionsForm = () => {
 
     useEffect(() => {
             const matchedQuestions = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
-            console.log("there?", matchedQuestions) // undefined
             setProviderSpecificQuestions(matchedQuestions)
     }, [questions]);
 
