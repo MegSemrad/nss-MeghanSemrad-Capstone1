@@ -31,6 +31,7 @@ export const RelativeForm = () => {
         if (matchedRelativeId){
             updateFamilyHistory({
                 id: familyHistory.id,
+                userId: userId,
                 condition: familyHistory.condition,
                 relativeId: parseInt(familyHistory.relativeId)
             })
