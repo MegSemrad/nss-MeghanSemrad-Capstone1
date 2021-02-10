@@ -113,7 +113,7 @@ export const ApplicationViews = () => {
                     
                     <Route exact path="/SpecialistType/create">
                          <PermanentDashboardSection  />
-                         {/* <SpecialistTypeForm /> */}
+                         <SpecialistTypeForm />
                     </Route>
                     
                     <Route exact path="/Questions/edit/:specialistTypeId(\d+)">
