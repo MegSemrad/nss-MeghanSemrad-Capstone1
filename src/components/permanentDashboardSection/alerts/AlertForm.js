@@ -85,7 +85,7 @@ export const AlertForm = () => {
 
 
     return (
-        <form className="AlertsForm rightSideChildCSS">
+        <form className="AlertsForm  ">
             <h2 className="AlertsForm__title">Alerts</h2>
             <fieldset>
                 <div className="form-group">

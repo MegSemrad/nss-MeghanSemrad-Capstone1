@@ -140,7 +140,7 @@ export const ApplicationViews = () => {
                          <RelativeForm />
                     </Route>
                     
-                    <Route exact path="/relative/edit/:relativeId(\d+)">
+                    <Route exact path="/relative/edit/:matchedRelativeId(\d+)">
                          <PermanentDashboardSection  />
                          <RelativeForm />
                     </Route>

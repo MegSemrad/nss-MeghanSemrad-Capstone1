@@ -1,22 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import { RelativesContext } from "./RelativeProvider";
-
 import { useHistory, useParams } from 'react-router-dom';
+
+
+
 export const RelativeForm = () => {
     const { addFamilyHistory, getFamilyHistoryById, updateFamilyHistory } = useContext(RelativesContext)
     const { relatives, getRelatives } = useContext(RelativesContext) //need relatives for dropdown and getRelatives
     const userId = parseInt(localStorage.getItem("app_user"))
-
+    
     const [familyHistory, setFamilyHistory] = useState({
         condition: "",
         relativeId: 0
     })
-
+    
     const [isLoading, setIsLoading] = useState(true);
-
+    
     const { matchedRelativeId } = useParams();
+    console.log("matched relative?", matchedRelativeId) // undefined
     const history = useHistory();
-
+    
     const handleControlledInputChange = (event) => {
         const newFamilyHistory = { ...familyHistory }
         newFamilyHistory[event.target.id] = event.target.value
@@ -26,39 +29,40 @@ export const RelativeForm = () => {
     const handleSaveFamilyHistory = () => {
         setIsLoading(true);
         if (matchedRelativeId){
-        updateFamilyHistory({
-            id: familyHistory.id,
-            condition: familyHistory.condition,
-            relativeId: parseInt(familyHistory.matchedRelativeId)
-        })
-        .then(() => history.push("/FamilyHistory"))
+            updateFamilyHistory({
+                id: familyHistory.id,
+                condition: familyHistory.condition,
+                relativeId: parseInt(familyHistory.relativeId)
+            })
+            .then(() => history.push("/FamilyHistory"))
         }else {
-        addFamilyHistory({
-            userId: userId,
-            condition: familyHistory.condition,
-            relativeId: parseInt(familyHistory.matchedRelativeId)
-        })
-        .then(() => history.push("/FamilyHistory"))
+            addFamilyHistory({
+                userId: userId,
+                condition: familyHistory.condition,
+                relativeId: parseInt(familyHistory.relativeId)
+            })
+            .then(() => history.push("/FamilyHistory"))
         }
     }
-
-  
-
-      useEffect(() => {
+    
+    
+    
+    useEffect(() => {
         getRelatives()
         .then(() => {
-          if (matchedRelativeId) {
-            getFamilyHistoryById(matchedRelativeId)
-            .then(relativeHistory => {
-                setFamilyHistory(relativeHistory)
+            if (matchedRelativeId) {
+                getFamilyHistoryById(matchedRelativeId)
+                .then(relativeHistory => {
+                    setFamilyHistory(relativeHistory)
+                    setIsLoading(false)
+                })
+            } else {
                 setIsLoading(false)
-            })
-          } else {
-            setIsLoading(false)
-          }
+            }
         })
-      }, [])
-
+    }, [])
+    
+  
       useEffect( () => console.log( "relatives?", relatives), [relatives])
   
       return (
@@ -77,7 +81,7 @@ export const RelativeForm = () => {
           <fieldset>
             <div className="form-group">
               <label htmlFor="condition">Assign to relative: </label>
-              <select value={familyHistory.matchedRelativeId} id="matchedRelativeId" className="form-control" onChange={handleControlledInputChange}>
+              <select value={familyHistory.relativeId} id="relativeId" className="form-control" onChange={handleControlledInputChange}>
                 <option value="0">Select a relative</option>
                 {relatives.map(relative => (
                     <option key={relative.id} value={relative.id}>
