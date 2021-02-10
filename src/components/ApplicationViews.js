@@ -15,7 +15,7 @@ import { SpecialistTypeDetail } from "./rightsideDashboardSection/specialistType
 import { RelativeProvider } from "./rightsideDashboardSection/relatives/RelativeProvider";
 import { RelativeList } from "./rightsideDashboardSection/relatives/RelativeList";
 import { RelativeForm } from "./rightsideDashboardSection/relatives/RelativeForm";
-
+import { QuestionsForm } from "./rightsideDashboardSection/specialistTypes/QuestionsForm";
 
 import "./permanentDashboardSection/permanentDashboardSection.css"
 
@@ -113,12 +113,12 @@ export const ApplicationViews = () => {
                     
                     <Route exact path="/SpecialistType/create">
                          <PermanentDashboardSection  />
-                         <SpecialistTypeForm />
+                         {/* <SpecialistTypeForm /> */}
                     </Route>
                     
-                    <Route exact path="/SpecialistType/edit/:specialistTypeId(\d+)">
+                    <Route exact path="/Questions/edit/:specialistTypeId(\d+)">
                          <PermanentDashboardSection  />
-                         <SpecialistTypeForm />
+                         <QuestionsForm />
                     </Route>
                    
                     <Route exact path="/SpecialistType/detail/:specialistTypeId(\d+)">
