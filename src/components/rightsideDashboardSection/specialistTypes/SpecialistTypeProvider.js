@@ -8,23 +8,23 @@ export const SpecialistTypeContext = createContext();
 
 export const SpecialistTypeProvider = (props) => {
     const [specialistType, setSpecialistType] = useState([]);
-    console.log("specialist?", specialistType) //returns an object
     const [specialistTypes, setSpecialistTypes] = useState([]); 
+    const [questions, setQuestions] = useState([]);
+    const [appointmentBySpecialist, setAppointmentbySpecialist] = useState([]);
 
 
-// this only returns all specialists regardless of userID but nothing else
+
     const getSpecialistTypes = () => {
         return fetch (`http://localhost:8090/specialistTypes/`)
         .then(response => response.json())
         .then(setSpecialistTypes)
     };
-    
+   
 
     const getSpecialistTypeByIdEmbeddedItems = (id) => {
         return fetch(`http://localhost:8090/specialistTypes/${id}?_embed=appointmentsBySpecialist&_embed=questions`)
         .then(res => res.json())
     };
-
 
 
     const addSpecialistType = specialistTypeObj => {
@@ -42,6 +42,38 @@ export const SpecialistTypeProvider = (props) => {
         })
     };
     
+
+    const updateSpecialistType = specialistTypeObject => {
+        return fetch(`http://localhost:8090/specialistTypes/${specialistTypeObject.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(specialistTypeObject)
+        })
+        .then(getSpecialistTypes)
+    };
+    
+
+    const deleteSpecialistTypeById = specialistTypeId => {
+        return fetch(`http://localhost:8090/specialistTypes/${specialistTypeId}?_embed=questions`, {
+            method: "DELETE"
+        })
+            .then(getSpecialistTypeByIdEmbeddedItems)
+    };
+  
+
+
+
+
+
+    const getQuestions = () => {
+        return fetch ("http://localhost:8090/questions/")
+        .then(response => response.json())
+        .then(setQuestions)
+    };
+
+
     const addQuestion = questionObj => {
         return fetch("http://localhost:8090/questions/", {
             method: "POST",
@@ -51,6 +83,28 @@ export const SpecialistTypeProvider = (props) => {
             body: JSON.stringify(questionObj)
         })
         .then(getSpecialistTypeByIdEmbeddedItems)
+    };
+
+
+    const updateQuestions = questionsObject => {
+        return fetch(`http://localhost:8090/questions/${questionsObject.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(questionsObject)
+        })
+        .then(getQuestions)
+      };
+
+
+
+
+
+    const getAppointmentBySpecialist = () => {
+        return fetch (`http://localhost:8090/appointmentsBySpecialist/`)
+        .then(response => response.json())
+        .then(setAppointmentbySpecialist)
     };
 
 
@@ -64,28 +118,17 @@ export const SpecialistTypeProvider = (props) => {
         })
         .then(setSpecialistType)
     };
+   
 
-
-
-
-    const deleteSpecialistTypeById = specialistTypeId => {
-        return fetch(`http://localhost:8090/specialistTypes/${specialistTypeId}?_embed=questions`, {
-            method: "DELETE"
-        })
-            .then(getSpecialistTypeByIdEmbeddedItems)
-    };
-  
-
-
-    const updateSpecialistType = specialistTypeObject => {
-      return fetch(`http://localhost:8090/specialistTypes/${specialistTypeObject.id}?_embed=appointmentsBySpecialist&_embed=questions`, {
+    const updateAppointmentBySpecialist = appointmentBySpecialistObject => {
+      return fetch(`http://localhost:8090/appointmentsBySpecialist/${appointmentBySpecialistObject.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(specialistTypeObject)
+        body: JSON.stringify(appointmentBySpecialistObject)
       })
-      .then(getSpecialistTypeByIdEmbeddedItems)
+      .then(getAppointmentBySpecialist)
     };
 
 
@@ -94,8 +137,9 @@ export const SpecialistTypeProvider = (props) => {
         <SpecialistTypeContext.Provider value={{
             specialistType, specialistTypes, setSpecialistType,  setSpecialistTypes,
             getSpecialistTypes, getSpecialistTypeByIdEmbeddedItems , addSpecialistType, 
-            addQuestion, addAppointmentBySpecialist, deleteSpecialistTypeById,
-            updateSpecialistType
+            addQuestion, addAppointmentBySpecialist, deleteSpecialistTypeById, updateQuestions, 
+            updateSpecialistType, updateAppointmentBySpecialist, getQuestions, getAppointmentBySpecialist, 
+            questions, setQuestions, appointmentBySpecialist, setAppointmentbySpecialist
         }}>
          {props.children}
         </SpecialistTypeContext.Provider>

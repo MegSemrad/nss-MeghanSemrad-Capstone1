@@ -5,26 +5,28 @@ import { useHistory, useParams } from 'react-router-dom';
 
 
 export const RelativeForm = () => {
+    const userId = parseInt(localStorage.getItem("app_user"))
+    const [isLoading, setIsLoading] = useState(true);
+    const { matchedRelativeId } = useParams();
+    const history = useHistory();
+    
+
     const { addFamilyHistory, getFamilyHistoryById, updateFamilyHistory } = useContext(RelativesContext)
     const { relatives, getRelatives } = useContext(RelativesContext) //need relatives for dropdown and getRelatives
-    const userId = parseInt(localStorage.getItem("app_user"))
     
+
     const [familyHistory, setFamilyHistory] = useState({
         condition: "",
         relativeId: 0
     })
     
-    const [isLoading, setIsLoading] = useState(true);
-    
-    const { matchedRelativeId } = useParams();
-    console.log("matched relative?", matchedRelativeId) // undefined
-    const history = useHistory();
     
     const handleControlledInputChange = (event) => {
         const newFamilyHistory = { ...familyHistory }
         newFamilyHistory[event.target.id] = event.target.value
         setFamilyHistory(newFamilyHistory)
       }
+
 
     const handleSaveFamilyHistory = () => {
         setIsLoading(true);
@@ -68,7 +70,6 @@ export const RelativeForm = () => {
   
       return (
         <form className="familMedicalHistoryForm">
-            {console.log("relatives",)}
           <h2 className="familMedicalHistoryForm__title">Family Medical History Form</h2>
           <fieldset>
             <div className="form-group">

@@ -23,7 +23,7 @@ export const SpecialistTypeList = () => {
 
   return (
     <div className="specialistTypesByUserId">
-        <h2 className="titleWord">Appointments</h2>
+        <h2 className="titleWord">Providers</h2>
           <button onClick={() => { history.push("/SpecialistType/create") }}>
             Add
           </button>
