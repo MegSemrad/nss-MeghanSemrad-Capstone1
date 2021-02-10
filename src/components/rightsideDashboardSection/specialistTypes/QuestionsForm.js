@@ -4,7 +4,6 @@ import { useHistory, useParams } from 'react-router-dom';
 
 export const QuestionsForm = () => {
     const userId = parseInt(localStorage.getItem("app_user"))
-    const [isLoading, setIsLoading] = useState(true);
     const { specialistTypeId } = useParams(); 
     const history = useHistory();
 
@@ -27,7 +26,6 @@ export const QuestionsForm = () => {
 
 
     const handleSaveQuestions = () => {
-        setIsLoading(true);
         if(specialistTypeId){
             updateQuestions({
                 id: providerSpecificQuestions.id,
@@ -42,14 +40,12 @@ export const QuestionsForm = () => {
 
     useEffect(() => {
         getQuestions() 
-    }, [])
+    }, []);
 
     useEffect(() => {
-        if(specialistTypeId){
             const matchedQuestions = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
             console.log("there?", matchedQuestions) // undefined
             setProviderSpecificQuestions(matchedQuestions)
-        }
     }, [questions]);
 
 
@@ -68,7 +64,6 @@ export const QuestionsForm = () => {
                 </div>
             </fieldset>
             <button className="btn btn-primary"
-                disabled={isLoading}
                 onClick={event => {
                     event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                     handleSaveQuestions()
