@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 
 export const SpecialistTypeDetail = () => {
-  const { getSpecialistTypeByIdEmbeddedItems, deleteSpecialistTypeById } = useContext(SpecialistTypeContext)
+  const { getSpecialistTypeByIdEmbeddedItems } = useContext(SpecialistTypeContext)
 
   const [specialistType, setSpecialistType] = useState({})
 
@@ -16,7 +16,6 @@ export const SpecialistTypeDetail = () => {
     getSpecialistTypeByIdEmbeddedItems(specialistTypeId)
     .then((response) => {
       setSpecialistType(response)
-        
     })
     }, [])
 
@@ -29,7 +28,9 @@ return (
       <h3 className="specialistType__name">{specialistType.speciality} ({specialistType.specialistName})</h3>
       <h5>Appointment Notes: </h5>
       <div className="specialistType__appointmentNote__and__date">{specialistType.appointmentsBySpecialist?.map(note => {return <p>{note.appointmentNote} {note.appointmentDate}</p>})} </div>
-      <button >Add</button>
+      <button onClick={() => {
+        history.push(`/AppointmentNote/create/${specialistType.id}`) 
+        }}>Add</button>
       <h5>Questions:  </h5>
       <div className="specialistType__questions">{specialistType.questions?.map(question => {return question.questions})}</div>
       <button onClick={() => {
