@@ -4,30 +4,28 @@ import { useHistory, useParams } from 'react-router-dom';
 
 export const QuestionsForm = () => {
     const userId = parseInt(localStorage.getItem("app_user"))
-    const [isLoading, setIsLoading] = useState(true);
     const { specialistTypeId } = useParams(); 
     const history = useHistory();
 
 
-    const {questions, getQuestions, updateQuestions} = useContext(SpecialistTypeContext);
+    const {getQuestions, updateQuestions} = useContext(SpecialistTypeContext);
 
-
+    
     const [providerSpecificQuestions, setProviderSpecificQuestions] = useState({
-      userId: 0,
-      specialistTypeId: 0,
-      questions: ""
+        userId: 0,
+        specialistTypeId: 0,
+        questions: ""
     });
-
-
+    
+    
+    
     const handleControlledInputChange = (event) => {
         const newQuestions = { ...providerSpecificQuestions }
         newQuestions[event.target.id] = event.target.value
         setProviderSpecificQuestions(newQuestions)
     };
-
-
+    
     const handleSaveQuestions = () => {
-        setIsLoading(true);
         if(specialistTypeId){
             updateQuestions({
                 id: providerSpecificQuestions.id,
@@ -38,20 +36,20 @@ export const QuestionsForm = () => {
             .then(() => history.push(`/SpecialistType/detail/${providerSpecificQuestions.id}`))
         }
     };
-
-
+    
+    
+    
     useEffect(() => {
-        getQuestions() 
-    }, [])
+        getQuestions()
+        .then((questions) => {
+            const SelectedQuestionObject = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
+                setProviderSpecificQuestions(SelectedQuestionObject)
 
-    useEffect(() => {
-        if(specialistTypeId){
-            const matchedQuestions = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
-            console.log("there?", matchedQuestions) // undefined
-            setProviderSpecificQuestions(matchedQuestions)
-        }
-    }, [questions]);
-
+        })
+    }, 
+    [])
+    
+            
 
     return (
         <form>
@@ -68,12 +66,12 @@ export const QuestionsForm = () => {
                 </div>
             </fieldset>
             <button className="btn btn-primary"
-                disabled={isLoading}
                 onClick={event => {
                     event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                     handleSaveQuestions()
             }}>Save</button>
         </form>
     )
+
 
 }

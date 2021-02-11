@@ -70,7 +70,10 @@ export const SpecialistTypeProvider = (props) => {
     const getQuestions = () => {
         return fetch ("http://localhost:8090/questions/")
         .then(response => response.json())
-        .then(setQuestions)
+        .then((questions) => {
+            setQuestions(questions)
+            return questions
+        })
     };
 
 

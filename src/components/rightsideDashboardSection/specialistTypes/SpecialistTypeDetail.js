@@ -28,7 +28,7 @@ return (
     <section className="specialistType">
       <h3 className="specialistType__name">{specialistType.speciality} ({specialistType.specialistName})</h3>
       <h5>Appointment Notes: </h5>
-      <div className="specialistType__appointmentNote__and__date">{specialistType.appointmentsBySpecialist?.map(note => {return note.appointmentNote})} {specialistType.appointmentsBySpecialist?.map(date => {return date.appointmentDate})}</div>
+      <div className="specialistType__appointmentNote__and__date">{specialistType.appointmentsBySpecialist?.map(note => {return <p>{note.appointmentNote} {note.appointmentDate}</p>})} </div>
       <button >Add</button>
       <h5>Questions:  </h5>
       <div className="specialistType__questions">{specialistType.questions?.map(question => {return question.questions})}</div>

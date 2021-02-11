@@ -25,6 +25,8 @@ const handleDelete = (id) => {
   })
 }
 
+
+
   return (
     <div className="relatives">
         <h2 className="titleWord">Family Medical History</h2>
