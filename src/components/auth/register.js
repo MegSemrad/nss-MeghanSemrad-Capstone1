@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { basePatientDetailsContext } from "../permanentDashboardSection/permanentDashboardProvider";
 import "./login.css";
 
 export const Register = (props) => {
@@ -7,6 +8,7 @@ export const Register = (props) => {
     const email = useRef()
     const conflictDialog = useRef()
     const history = useHistory()
+    const { addBasePatientDetails } = useContext(basePatientDetailsContext)
 
     const existingUserCheck = () => {
         return fetch(`http://localhost:8090/users?username=${username.current.value}`)
@@ -35,7 +37,23 @@ export const Register = (props) => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("app_user", createdUser.id)
-                                history.push("/")
+                                addBasePatientDetails({
+                                    userId: createdUser.id,
+                                    name: "",
+                                    birthday: "",
+                                    conditions: "",
+                                    allergies: "",
+                                    other: "",
+                                    emergencyContactName: "",
+                                    emergencyContactRelation: "",
+                                    emergencyContactPhoneNumber: "",
+                                    preferredPharmacyName: "",
+                                    preferredPharmacyAddress: "",
+                                    preferredPharmacyPhoneNumber: ""
+                                })
+                                .then(() => {
+                                    history.push("/home")
+                                })
                             }
                         })
                 }
@@ -43,7 +61,7 @@ export const Register = (props) => {
                     conflictDialog.current.showModal()
                 }
             })
-        
+
     }
 
     return (
@@ -58,20 +76,20 @@ export const Register = (props) => {
                 <h1 className="h3 mb-3 font-weight-normal">Register</h1>
                 <fieldset>
                     <label htmlFor="username"> Username </label>
-                    <input ref={username} 
-                        type="text" 
-                        name="username" 
-                        className="form-control" 
-                        placeholder="Username" 
+                    <input ref={username}
+                        type="text"
+                        name="username"
+                        className="form-control"
+                        placeholder="Username"
                         required autoFocus />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
-                    <input ref={email} 
-                        type="email" 
-                        name="email" 
-                        className="form-control" 
-                        placeholder="Email address" 
+                    <input ref={email}
+                        type="email"
+                        name="email"
+                        className="form-control"
+                        placeholder="Email address"
                         required />
                 </fieldset>
                 <fieldset>

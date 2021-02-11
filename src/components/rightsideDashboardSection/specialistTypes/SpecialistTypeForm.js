@@ -103,7 +103,7 @@ export const SpecialistTypeForm = () => {
           <div className="form-group">
             <label htmlFor="questions">Questions: </label>
             <input type="text" id="questions" required autoFocus className="form-control"
-            placeholder="Appointment Notes"
+            placeholder="Questions"
             onChange={handleControlledInputChange}
             value={specialistType.questions}/>
           </div>

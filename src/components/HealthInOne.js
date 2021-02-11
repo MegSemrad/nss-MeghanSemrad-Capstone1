@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { NavBar } from "./NavBar";
 import { ApplicationViews } from "./ApplicationViews";
 import { LoginOrRegister } from "./auth/LoginOrRegister";
+import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import "./HealthInOne.css";
 
 
@@ -23,8 +24,10 @@ export const HealthInOne = (props) => (
             }}
         />
 
-        <Route path="/loginOrRegister">
-            <LoginOrRegister />
-        </Route>
+        <BasePatientDetailsProvider>
+            <Route path="/loginOrRegister">
+                <LoginOrRegister />
+            </Route>
+        </BasePatientDetailsProvider>
     </>
 );
