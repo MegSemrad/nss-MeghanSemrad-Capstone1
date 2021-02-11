@@ -11,13 +11,15 @@ export const QuestionsForm = () => {
     const {questions, getQuestions, updateQuestions} = useContext(SpecialistTypeContext);
 
 
-    const [providerSpecificQuestions, setProviderSpecificQuestions] = useState({
+
+    const [providerSpecificQuestions, setProviderSpecificQuestions] = useState([{
       userId: 0,
-      specialistTypeId: 0,
+      specialistTypeId: specialistTypeId,
       questions: ""
-    });
+    }]);
 
 
+    
     const handleControlledInputChange = (event) => {
         const newQuestions = { ...providerSpecificQuestions }
         newQuestions[event.target.id] = event.target.value
@@ -37,16 +39,17 @@ export const QuestionsForm = () => {
         }
     };
 
-
+    
     useEffect(() => {
         getQuestions() 
-    }, []);
-
-    useEffect(() => {
-            const matchedQuestions = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
-            setProviderSpecificQuestions(matchedQuestions)
+        .then(() => {
+            const SelectedQuestionObject = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
+        })
+        .then(() => {setProviderSpecificQuestions(SelectedQuestionObject)
+        })
     }, [questions]);
-
+    
+    // useEffect( () => console.log( "questions?", questions), [questions])
 
     return (
         <form>
