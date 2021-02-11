@@ -8,25 +8,23 @@ export const QuestionsForm = () => {
     const history = useHistory();
 
 
-    const {questions, getQuestions, updateQuestions} = useContext(SpecialistTypeContext);
+    const {getQuestions, updateQuestions} = useContext(SpecialistTypeContext);
 
-
-
-    const [providerSpecificQuestions, setProviderSpecificQuestions] = useState([{
-      userId: 0,
-      specialistTypeId: specialistTypeId,
-      questions: ""
-    }]);
-
-
+    
+    const [providerSpecificQuestions, setProviderSpecificQuestions] = useState({
+        userId: 0,
+        specialistTypeId: 0,
+        questions: ""
+    });
+    
+    
     
     const handleControlledInputChange = (event) => {
         const newQuestions = { ...providerSpecificQuestions }
         newQuestions[event.target.id] = event.target.value
         setProviderSpecificQuestions(newQuestions)
     };
-
-
+    
     const handleSaveQuestions = () => {
         if(specialistTypeId){
             updateQuestions({
@@ -38,18 +36,20 @@ export const QuestionsForm = () => {
             .then(() => history.push(`/SpecialistType/detail/${providerSpecificQuestions.id}`))
         }
     };
-
+    
+    
     
     useEffect(() => {
-        getQuestions() 
-        .then(() => {
+        getQuestions()
+        .then((questions) => {
             const SelectedQuestionObject = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
+                setProviderSpecificQuestions(SelectedQuestionObject)
+
         })
-        .then(() => {setProviderSpecificQuestions(SelectedQuestionObject)
-        })
-    }, [questions]);
+    }, 
+    [])
     
-    // useEffect( () => console.log( "questions?", questions), [questions])
+            
 
     return (
         <form>
@@ -72,5 +72,6 @@ export const QuestionsForm = () => {
             }}>Save</button>
         </form>
     )
+
 
 }
