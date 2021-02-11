@@ -26,9 +26,9 @@ export const SpecialistTypeForm = () => {
 
 
   const handleControlledInputChange = (event) => {
-    const newspecialistType = { ...specialistType }
-    newspecialistType[event.target.id] = event.target.value
-    setSpecialistType(newspecialistType)
+    const newSpecialistType = { ...specialistType }
+    newSpecialistType[event.target.id] = event.target.value
+    setSpecialistType(newSpecialistType)
   }
 
       
