@@ -28,6 +28,7 @@ export const AlertForm = () => {
         if (basePatientDetailsId) {
             updateBasePatientDetails({
                 id: basePatientDetails.id,
+                userId: userId,
                 name: basePatientDetails.name,
                 birthday: basePatientDetails.birthday,
                 conditions: basePatientDetails.conditions,

@@ -24,6 +24,9 @@ export const ApplicationViews = () => {
      return (
           <>
                <BasePatientDetailsProvider>
+                    <Route exact path="/home">
+                         <PermanentDashboardSection  />
+                    </Route>
                     <Route exact path="/">
                          <PermanentDashboardSection  />
                     </Route>

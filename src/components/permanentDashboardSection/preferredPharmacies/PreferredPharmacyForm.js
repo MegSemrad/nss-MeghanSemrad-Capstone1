@@ -28,6 +28,7 @@ export const PreferredPharmacyForm = () => {
         if (basePatientDetailsId) {
             updateBasePatientDetails({
                 id: basePatientDetails.id,
+                userId: userId,
                 name: basePatientDetails.name,
                 birthday: basePatientDetails.birthday,
                 conditions: basePatientDetails.conditions,
@@ -40,7 +41,7 @@ export const PreferredPharmacyForm = () => {
                 preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
                 preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
             })
-                .then(() => history.push("/"))
+                .then(() => history.push("/home"))
             } else {
                 addBasePatientDetails({
                     userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object

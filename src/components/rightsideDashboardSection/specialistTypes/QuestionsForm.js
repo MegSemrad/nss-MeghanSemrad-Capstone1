@@ -33,7 +33,7 @@ export const QuestionsForm = () => {
                 specialistTypeId: providerSpecificQuestions.specialistTypeId,
                 questions: providerSpecificQuestions.questions
             })
-            .then(() => history.push(`/SpecialistType/detail/${providerSpecificQuestions.id}`))
+            .then(() => history.push(`/SpecialistType/detail/${specialistTypeId}`))
         }
     };
     

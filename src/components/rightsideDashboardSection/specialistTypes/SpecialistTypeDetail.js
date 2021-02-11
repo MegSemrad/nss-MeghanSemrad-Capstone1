@@ -13,6 +13,7 @@ export const SpecialistTypeDetail = () => {
 
 
   useEffect(() => { 
+    console.log("object?", specialistTypeId)
     getSpecialistTypeByIdEmbeddedItems(specialistTypeId)
     .then((response) => {
       setSpecialistType(response)

@@ -15,7 +15,7 @@ export const RelativeCard = ({ matchedRelative, handleDelete }) => {
     <section className="relative rightSideChildCSS">
       <Card style={{ width: '25rem' }}>
         <Card.Body>
-          <Card.Title>{matchedRelative.relative?.relative}</Card.Title>
+          <Card.Title>{matchedRelative.relative?.relative} {matchedRelative.relative?.nickname}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">Conditions</Card.Subtitle>
           <Card.Text>
               {matchedRelative.condition}
