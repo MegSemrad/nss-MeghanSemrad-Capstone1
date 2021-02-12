@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import { basePatientDetailsContext } from "../permanentDashboardProvider"
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
-import "../permanentDashboardSection.css"
+import "../permanentDashboardSection.css";
 
 
 export const AlertList = ( { matchedUser } ) => {
@@ -11,7 +10,6 @@ export const AlertList = ( { matchedUser } ) => {
 
   return (
     <div className="alerts">
-      {matchedUser.hasOwnProperty("id") ?
         <Card style={{ width: '18rem' }}>
           <Card.Body>
             <Card.Title className="alertEmoji">⚠️</Card.Title>
@@ -21,20 +19,11 @@ export const AlertList = ( { matchedUser } ) => {
             <Card.Text>{matchedUser.allergies}</Card.Text>
             <Card.Subtitle className="mb-2 text-muted">Other</Card.Subtitle>
             <Card.Text>{matchedUser.other}</Card.Text>
-            <Button onClick={() => { history.push(`/alerts/edit/${matchedUser.id}`) }}>
+            <Button onClick={() => { history.push("/alerts/edit") }}>
               Edit
             </Button>
           </Card.Body>
         </Card>
-        :
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
-            <Button onClick={() => { history.push("/alertsForm") }}>
-              Add
-            </Button>
-          </Card.Body>
-        </Card>
-      }
     </div>
   )
 };

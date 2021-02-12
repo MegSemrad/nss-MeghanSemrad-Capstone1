@@ -1,79 +1,64 @@
 import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import "../permanentDashboardSection.css"
 
 export const AlertForm = () => {
-    const { basePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
+    const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext)
     const userId = parseInt(localStorage.getItem("app_user"))
-
-    const [isLoading, setIsLoading] = useState(true);
-    const { basePatientDetailsId } = useParams();  //collected from URL the id of the exact basePatientDetails object
     const history = useHistory();
 
- 
+    const [alertSection, setAlertSection] = useState({
+        userId: 0,
+        name: "",
+        birthday: "",
+        conditions: "",
+        allergies: "",
+        other: "",
+        emergencyContactName: "",
+        emergencyContactRelation: "",
+        emergencyContactPhoneNumber: "",
+        preferredPharmacyName: "",
+        preferredPharmacyAddress: "",
+        preferredPharmacyPhoneNumber: ""
+    })
 
 
     const handleControlledInputChange = (event) => {
-        const newPatientDetails = { ...basePatientDetails }
-        newPatientDetails[event.target.id] = event.target.value
-        setBasePatientDetails(newPatientDetails)
+        const newAlerts = { ...alertSection }
+        newAlerts[event.target.id] = event.target.value
+        setAlertSection(newAlerts)
     }
  
 
 
     const handleClickSaveAlerts = () => {
-        setIsLoading(true);
-        if (basePatientDetailsId) {
             updateBasePatientDetails({
-                id: basePatientDetails.id,
+                id: alertSection.id,
                 userId: userId,
-                name: basePatientDetails.name,
-                birthday: basePatientDetails.birthday,
-                conditions: basePatientDetails.conditions,
-                allergies: basePatientDetails.allergies,
-                other: basePatientDetails.other,
-                emergencyContactName: basePatientDetails.emergencyContactName,
-                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
-                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
-                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
-                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
+                name: alertSection.name,
+                birthday: alertSection.birthday,
+                conditions: alertSection.conditions,
+                allergies: alertSection.allergies,
+                other: alertSection.other,
+                emergencyContactName: alertSection.emergencyContactName,
+                emergencyContactRelation: alertSection.emergencyContactRelation,
+                emergencyContactPhoneNumber: alertSection.emergencyContactPhoneNumber,
+                preferredPharmacyName: alertSection.preferredPharmacyName,
+                preferredPharmacyAddress: alertSection.preferredPharmacyAddress,
+                preferredPharmacyPhoneNumber: alertSection.preferredPharmacyPhoneNumber
             })
                 .then(() => history.push("/home"))
-        } else {
-            addBasePatientDetails({
-                userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
-                name: basePatientDetails.name,
-                birthday: basePatientDetails.birthday,
-                conditions: basePatientDetails.conditions,
-                allergies: basePatientDetails.allergies,
-                other: basePatientDetails.other,
-                emergencyContactName: basePatientDetails.emergencyContactName,
-                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
-                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
-                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
-                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
-            })
-                .then(() => history.push("/home"))
-        }
     }
 
 
 
 
-
-
     useEffect(() => {
-        getBasePatientDetails().then(() => {
-            if (basePatientDetailsId) {
-                getBasePatientDetailsById(basePatientDetailsId).then(() => {
-                    setIsLoading(false)
-                })
-            } else {
-                setIsLoading(false)
-            }
+        getBasePatientDetails()
+        .then((details) => {
+            const SelectedAlertSection = details.find(detail => detail.userId === userId)
+            setAlertSection(SelectedAlertSection)
         })
     }, [])
 
@@ -95,7 +80,7 @@ export const AlertForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Conditions"
-                        value={basePatientDetails.conditions} />
+                        value={alertSection.conditions} />
                 </div>
             </fieldset>
             <fieldset>
@@ -106,7 +91,7 @@ export const AlertForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Allergies"
-                        value={basePatientDetails.allergies} />
+                        value={alertSection.allergies} />
                 </div>
             </fieldset>
             <fieldset>
@@ -117,16 +102,15 @@ export const AlertForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Other"
-                        value={basePatientDetails.other} />
+                        value={alertSection.other} />
                 </div>
             </fieldset>
             <button className="btn btn-primary"
-                disabled={isLoading}
                 onClick={event => {
                     event.preventDefault()
                     handleClickSaveAlerts()
                 }}>
-                {basePatientDetails.id ? "Save Changes" : "Save"}
+                Save
             </button>
         </form>
     )
