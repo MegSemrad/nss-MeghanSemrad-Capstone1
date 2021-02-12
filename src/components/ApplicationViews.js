@@ -44,7 +44,7 @@ export const ApplicationViews = () => {
                </BasePatientDetailsProvider>
                
                <BasePatientDetailsProvider>
-                    <Route exact path="/patientDetails/edit/:basePatientDetailsId(\d+)">
+                    <Route exact path="/patientDetails/edit">
                          <PermanentDashboardSection  />
                          <PatientDetailForm />
                     </Route>
@@ -68,7 +68,7 @@ export const ApplicationViews = () => {
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
-                    <Route exact path="/alerts/edit/:basePatientDetailsId(\d+)">
+                    <Route exact path="/alerts/edit">
                          <PermanentDashboardSection  />
                          <AlertForm />
                     </Route>
@@ -93,7 +93,7 @@ export const ApplicationViews = () => {
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
-                    <Route exact path="/preferredPharmacies/edit/:basePatientDetailsId(\d+)">
+                    <Route exact path="/preferredPharmacies/edit">
                          <PermanentDashboardSection  />
                          <PreferredPharmacyForm />
                     </Route>

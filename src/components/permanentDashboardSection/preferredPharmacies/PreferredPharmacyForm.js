@@ -1,64 +1,54 @@
 import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
-// import "./??.css";
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import "../permanentDashboardSection.css"
 
 export const PreferredPharmacyForm = () => {
-    const { basePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
+    const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext)
     const userId = parseInt(localStorage.getItem("app_user"))
-
-    const [isLoading, setIsLoading] = useState(true);
-    const { basePatientDetailsId } = useParams();  //collected from URL the id of the exact basePatientDetails object
     const history = useHistory();
 
  
-
+    const [preferredPharmacySection, setPreferredPharmacySection] = useState({
+        userId: 0,
+        name: "",
+        birthday: "",
+        conditions: "",
+        allergies: "",
+        other: "",
+        emergencyContactName: "",
+        emergencyContactRelation: "",
+        emergencyContactPhoneNumber: "",
+        preferredPharmacyName: "",
+        preferredPharmacyAddress: "",
+        preferredPharmacyPhoneNumber: ""
+    })
 
     const handleControlledInputChange = (event) => {
-        const newPatientDetails = { ...basePatientDetails }
-        newPatientDetails[event.target.id] = event.target.value
-        setBasePatientDetails(newPatientDetails)
+        const newPreferredPharmacyDetails = { ...preferredPharmacySection }
+        newPreferredPharmacyDetails[event.target.id] = event.target.value
+        setPreferredPharmacySection(newPreferredPharmacyDetails)
     }
  
 
 
     const handleClickSavePreferredPharmacy = () => {
-        setIsLoading(true);
-        if (basePatientDetailsId) {
             updateBasePatientDetails({
-                id: basePatientDetails.id,
+                id: preferredPharmacySection.id,
                 userId: userId,
-                name: basePatientDetails.name,
-                birthday: basePatientDetails.birthday,
-                conditions: basePatientDetails.conditions,
-                allergies: basePatientDetails.allergies,
-                other: basePatientDetails.other,
-                emergencyContactName: basePatientDetails.emergencyContactName,
-                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
-                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
-                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
-                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
+                name: preferredPharmacySection.name,
+                birthday: preferredPharmacySection.birthday,
+                conditions: preferredPharmacySection.conditions,
+                allergies: preferredPharmacySection.allergies,
+                other: preferredPharmacySection.other,
+                emergencyContactName: preferredPharmacySection.emergencyContactName,
+                emergencyContactRelation: preferredPharmacySection.emergencyContactRelation,
+                emergencyContactPhoneNumber: preferredPharmacySection.emergencyContactPhoneNumber,
+                preferredPharmacyName: preferredPharmacySection.preferredPharmacyName,
+                preferredPharmacyAddress: preferredPharmacySection.preferredPharmacyAddress,
+                preferredPharmacyPhoneNumber: preferredPharmacySection.preferredPharmacyPhoneNumber
             })
                 .then(() => history.push("/home"))
-            } else {
-                addBasePatientDetails({
-                    userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
-                    name: basePatientDetails.name,
-                    birthday: basePatientDetails.birthday,
-                    conditions: basePatientDetails.conditions,
-                    allergies: basePatientDetails.allergies,
-                    other: basePatientDetails.other,
-                    emergencyContactName: basePatientDetails.emergencyContactName,
-                    emergencyContactRelation: basePatientDetails.emergencyContactRelation,
-                    emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
-                    preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                    preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
-                    preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
-                })
-                    .then(() => history.push("/"))
-            }
         }
 
 
@@ -67,14 +57,10 @@ export const PreferredPharmacyForm = () => {
 
 
         useEffect(() => {
-            getBasePatientDetails().then(() => {
-                if (basePatientDetailsId) {
-                    getBasePatientDetailsById(basePatientDetailsId).then(() => {
-                        setIsLoading(false)
-                    })
-                } else {
-                    setIsLoading(false)
-                }
+            getBasePatientDetails()
+            .then((details) => {
+                const SelectedPreferredPharmacySection = details.find(detail => detail.userId === userId)
+                setPreferredPharmacySection(SelectedPreferredPharmacySection)
             })
         }, [])
 
@@ -96,7 +82,7 @@ export const PreferredPharmacyForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Name"
-                        value={basePatientDetails.preferredPharmacyName} />
+                        value={preferredPharmacySection.preferredPharmacyName} />
                 </div>
             </fieldset>
             <fieldset>
@@ -107,7 +93,7 @@ export const PreferredPharmacyForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Address"
-                        value={basePatientDetails.preferredPharmacyAddress} />
+                        value={preferredPharmacySection.preferredPharmacyAddress} />
                 </div>
             </fieldset>
             <fieldset>
@@ -118,16 +104,15 @@ export const PreferredPharmacyForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Phone Number"
-                        value={basePatientDetails.preferredPharmacyPhoneNumber} />
+                        value={preferredPharmacySection.preferredPharmacyPhoneNumber} />
                 </div>
             </fieldset>
             <button className="btn btn-primary"
-                disabled={isLoading}
                 onClick={event => {
                     event.preventDefault()
                     handleClickSavePreferredPharmacy()
                 }}>
-                {basePatientDetails.id ? "Save Changes" : "Save"}
+                Save
             </button>
         </form>
     )

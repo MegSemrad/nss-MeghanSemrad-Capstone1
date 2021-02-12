@@ -1,64 +1,55 @@
 import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
-// import "./??.css";
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import "../permanentDashboardSection.css"
 
 export const PatientDetailForm = () => {
-    const { basePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetails, getBasePatientDetailsById, updateBasePatientDetails } = useContext(basePatientDetailsContext)
-    const userId = parseInt(localStorage.getItem("app_user"))
-
-    const [isLoading, setIsLoading] = useState(true);
-    const { basePatientDetailsId } = useParams();  //collected from URL the id of the exact basePatientDetails object
+    const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext)
+    const userId = parseInt(localStorage.getItem("app_user"))  
     const history = useHistory();
 
- 
+    const [patientDetailSection, setPatientDetailSection] = useState({
+        userId: 0,
+        name: "",
+        birthday: "",
+        conditions: "",
+        allergies: "",
+        other: "",
+        emergencyContactName: "",
+        emergencyContactRelation: "",
+        emergencyContactPhoneNumber: "",
+        preferredPharmacyName: "",
+        preferredPharmacyAddress: "",
+        preferredPharmacyPhoneNumber: ""
+    })
 
 
     const handleControlledInputChange = (event) => {
-        const newPatientDetails = { ...basePatientDetails }
+        const newPatientDetails = { ...patientDetailSection }
         newPatientDetails[event.target.id] = event.target.value
-        setBasePatientDetails(newPatientDetails)
+        setPatientDetailSection(newPatientDetails)
     }
  
 
 
     const handleClickSavePatientDetails = () => {
-        setIsLoading(true);
-        if (basePatientDetailsId) {
             updateBasePatientDetails({
-                id: basePatientDetails.id,
-                name: basePatientDetails.name,
-                birthday: basePatientDetails.birthday,
-                conditions: basePatientDetails.conditions,
-                allergies: basePatientDetails.allergies,
-                other: basePatientDetails.other,
-                emergencyContactName: basePatientDetails.emergencyContactName,
-                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
-                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
-                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
-                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
+                id: patientDetailSection.id,
+                userId: userId,
+                name: patientDetailSection.name,
+                birthday: patientDetailSection.birthday,
+                conditions: patientDetailSection.conditions,
+                allergies: patientDetailSection.allergies,
+                other: patientDetailSection.other,
+                emergencyContactName: patientDetailSection.emergencyContactName,
+                emergencyContactRelation: patientDetailSection.emergencyContactRelation,
+                emergencyContactPhoneNumber: patientDetailSection.emergencyContactPhoneNumber,
+                preferredPharmacyName: patientDetailSection.preferredPharmacyName,
+                preferredPharmacyAddress: patientDetailSection.preferredPharmacyAddress,
+                preferredPharmacyPhoneNumber: patientDetailSection.preferredPharmacyPhoneNumber
             })
                 .then(() => history.push("/home"))
-        } else {
-            addBasePatientDetails({
-                userId: userId, //what to save the userId who is currently logged in on the new basePatientDetails object
-                name: basePatientDetails.name,
-                birthday: basePatientDetails.birthday,
-                conditions: basePatientDetails.conditions,
-                allergies: basePatientDetails.allergies,
-                other: basePatientDetails.other,
-                emergencyContactName: basePatientDetails.emergencyContactName,
-                emergencyContactRelation: basePatientDetails.emergencyContactRelation,
-                emergencyContactPhoneNumber: basePatientDetails.emergencyContactPhoneNumber,
-                preferredPharmacyName: basePatientDetails.preferredPharmacyName,
-                preferredPharmacyAddress: basePatientDetails.preferredPharmacyAddress,
-                preferredPharmacyPhoneNumber: basePatientDetails.preferredPharmacyPhoneNumber
-            })
-                .then(() => history.push("/"))
-        }
-    }
+}
 
 
 
@@ -66,14 +57,10 @@ export const PatientDetailForm = () => {
 
 
     useEffect(() => {
-        getBasePatientDetails().then(() => {
-            if (basePatientDetailsId) {
-                getBasePatientDetailsById(basePatientDetailsId).then(() => {
-                    setIsLoading(false)
-                })
-            } else {
-                setIsLoading(false)
-            }
+        getBasePatientDetails()
+        .then((details) => {
+            const SelectedPatientDetailSection = details.find(detail => detail.userId === userId)
+            setPatientDetailSection(SelectedPatientDetailSection)
         })
     }, [])
 
@@ -95,7 +82,7 @@ export const PatientDetailForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Patient name"
-                        value={basePatientDetails.name} />
+                        value={patientDetailSection.name} />
                 </div>
             </fieldset>
             <fieldset>
@@ -106,7 +93,7 @@ export const PatientDetailForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Birthday"
-                        value={basePatientDetails.birthday} />
+                        value={patientDetailSection.birthday} />
                 </div>
             </fieldset>
             <h4 className="patientDetailsForm__emergencyContact__title">Emergency Contact</h4>
@@ -118,7 +105,7 @@ export const PatientDetailForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Name"
-                        value={basePatientDetails.emergencyContactName} />
+                        value={patientDetailSection.emergencyContactName} />
                 </div>
             </fieldset>
             <fieldset>
@@ -129,7 +116,7 @@ export const PatientDetailForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Relation"
-                        value={basePatientDetails.emergencyContactRelation} />
+                        value={patientDetailSection.emergencyContactRelation} />
                 </div>
             </fieldset>
             <fieldset>
@@ -140,17 +127,16 @@ export const PatientDetailForm = () => {
                         required autoFocus
                         className="form-control"
                         placeholder="Phone Number"
-                        value={basePatientDetails.emergencyContactPhoneNumber} />
+                        value={patientDetailSection.emergencyContactPhoneNumber} />
                 </div>
             </fieldset>
             <button className="btn btn-primary"
-                disabled={isLoading}
                 onClick={event => {
                     event.preventDefault()
                     handleClickSavePatientDetails()
                 }}>
-                {basePatientDetails.id ? "Save Changes" : "Save"}
+                Save
             </button>
         </form>
     )
-}
+};
