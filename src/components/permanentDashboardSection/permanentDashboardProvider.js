@@ -21,7 +21,10 @@ export const BasePatientDetailsProvider = (props) => {
     const getBasePatientDetails = () => {
         return fetch("http://localhost:8090/basePatientDetails")
         .then(response => response.json())
-        .then(setBasePatientDetailList)
+        .then((details) => {
+            setBasePatientDetailList(details)
+            return details
+        })
     };
 
 
