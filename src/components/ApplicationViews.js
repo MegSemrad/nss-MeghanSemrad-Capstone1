@@ -93,7 +93,7 @@ export const ApplicationViews = () => {
                </BasePatientDetailsProvider>
 
                <BasePatientDetailsProvider>
-                    <Route exact path="/preferredPharmacies/edit/:basePatientDetailsId(\d+)">
+                    <Route exact path="/preferredPharmacies/edit">
                          <PermanentDashboardSection  />
                          <PreferredPharmacyForm />
                     </Route>
