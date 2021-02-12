@@ -1,31 +1,23 @@
-import React, { useContext, useEffect } from "react";
-import { basePatientDetailsContext } from "../permanentDashboardProvider";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import "../permanentDashboardSection.css"
 
 
-export const PreferredPharmacyList = () => {
-  const { basePatientDetails, getBasePatientDetailsById } = useContext(basePatientDetailsContext)
-  const userId = parseInt(localStorage.getItem("app_user"))
+export const PreferredPharmacyList = ( { matchedUser } ) => {
   const history = useHistory()
 
 
-  useEffect(() =>
-    getBasePatientDetailsById(userId)
-    , [])
-
-
 return (
-  <div className="preferredPharmacy leftSideChildCSS">
-    {basePatientDetails.hasOwnProperty("id") ?
+  <div className="preferredPharmacy">
+    {matchedUser.hasOwnProperty("id") ?
   <Card style={{ width: '18rem' }}>
   <Card.Body>
       <Card.Title>Preferred Pharmacy</Card.Title>
-      <Card.Text>{basePatientDetails.preferredPharmacyName}</Card.Text>
-      <Card.Text>{basePatientDetails.preferredPharmacyAddress}</Card.Text>
-      <Card.Text>{basePatientDetails.preferredPharmacyPhoneNumber}</Card.Text>
-      <Button onClick={() => { history.push(`/preferredPharmacies/edit/${basePatientDetails.id}`) }}>
+      <Card.Text>{matchedUser.preferredPharmacyName}</Card.Text>
+      <Card.Text>{matchedUser.preferredPharmacyAddress}</Card.Text>
+      <Card.Text>{matchedUser.preferredPharmacyPhoneNumber}</Card.Text>
+      <Button onClick={() => { history.push(`/preferredPharmacies/edit/${matchedUser.id}`) }}>
         Edit
       </Button>
   </Card.Body>
