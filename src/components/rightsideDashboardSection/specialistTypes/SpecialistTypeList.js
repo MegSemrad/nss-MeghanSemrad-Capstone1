@@ -22,7 +22,7 @@ export const SpecialistTypeList = () => {
 });
 
   return (
-    <div className="specialistTypesByUserId">
+    <section className="specialistTypesByUserId">
         <h2 className="titleWord">Providers</h2>
           <button onClick={() => { history.push("/SpecialistType/create") }}>
             Add
@@ -33,7 +33,7 @@ export const SpecialistTypeList = () => {
                   specialistType={specialist} /> 
             })
           }
-    </div>
+    </section>
   )
 };
 

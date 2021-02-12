@@ -28,7 +28,7 @@ return (
     <section className="specialistType">
       <h3 className="specialistType__name">{specialistType.speciality} ({specialistType.specialistName})</h3>
       <h5>Appointment Notes: </h5>
-      <div className="specialistType__appointmentNote__and__date">{specialistType.appointmentsBySpecialist?.map(note => {return <p>{note.appointmentNote} {note.appointmentDate}</p>})} </div>
+      <div className="specialistType__appointmentNote__and__date">{specialistType.appointmentsBySpecialist?.map(note => {return <p>{note.appointmentDate} {note.appointmentNote}</p>})} </div>
       <button onClick={() => {
         history.push(`/AppointmentNote/create/${specialistType.id}`) 
         }}>Add</button>
