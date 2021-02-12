@@ -44,7 +44,7 @@ export const ApplicationViews = () => {
                </BasePatientDetailsProvider>
                
                <BasePatientDetailsProvider>
-                    <Route exact path="/patientDetails/edit/:basePatientDetailsId(\d+)">
+                    <Route exact path="/patientDetails/edit">
                          <PermanentDashboardSection  />
                          <PatientDetailForm />
                     </Route>

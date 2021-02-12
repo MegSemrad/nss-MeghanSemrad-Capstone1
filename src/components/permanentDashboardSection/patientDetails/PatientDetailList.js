@@ -10,7 +10,6 @@ export const PatientDetailList = ( { matchedUser } ) => {
 
   return (
     <div className="patientDetails">
-      {matchedUser.hasOwnProperty("id") ?
         <Card style={{ width: '18rem' }}>
           <Card.Body>
             <Card.Title>Patient Details</Card.Title>
@@ -20,20 +19,11 @@ export const PatientDetailList = ( { matchedUser } ) => {
             <Card.Text>Name: {matchedUser.emergencyContactName}</Card.Text>
             <Card.Text>Relation: {matchedUser.emergencyContactRelation}</Card.Text>
             <Card.Text>Phone Number: {matchedUser.emergencyContactPhoneNumber}</Card.Text>
-            <Button onClick={() => { history.push(`/patientDetails/edit/${matchedUser.id}`) }}>
+            <Button onClick={() => { history.push("/patientDetails/edit") }}>
               Edit
             </Button>
           </Card.Body>
         </Card>
-        :
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
-            <Button onClick={() => { history.push("/patientDetailsForm") }}>
-              Add
-            </Button>
-          </Card.Body>
-        </Card>
-      }
     </div>
   )
 };

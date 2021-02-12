@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import "../permanentDashboardSection.css"
 
 export const PatientDetailForm = () => {
     const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext)
-    const userId = parseInt(localStorage.getItem("app_user"))
-    
-    // const { basePatientDetailsId } = useParams();  
+    const userId = parseInt(localStorage.getItem("app_user"))  
     const history = useHistory();
 
     const [patientDetailSection, setPatientDetailSection] = useState({
@@ -35,7 +33,6 @@ export const PatientDetailForm = () => {
 
 
     const handleClickSavePatientDetails = () => {
-        if (userId) {
             updateBasePatientDetails({
                 id: patientDetailSection.id,
                 userId: userId,
@@ -50,12 +47,8 @@ export const PatientDetailForm = () => {
                 preferredPharmacyName: patientDetailSection.preferredPharmacyName,
                 preferredPharmacyAddress: patientDetailSection.preferredPharmacyAddress,
                 preferredPharmacyPhoneNumber: patientDetailSection.preferredPharmacyPhoneNumber
-
-               
-               
             })
                 .then(() => history.push("/home"))
-    }
 }
 
 
