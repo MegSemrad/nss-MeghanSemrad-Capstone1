@@ -72,6 +72,4 @@ export const QuestionsForm = () => {
             }}>Save</button>
         </form>
     )
-
-
-}
+};

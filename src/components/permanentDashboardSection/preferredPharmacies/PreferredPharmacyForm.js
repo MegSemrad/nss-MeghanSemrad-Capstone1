@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
-// import "./??.css";
 import { useHistory, useParams } from 'react-router-dom';
 import "../permanentDashboardSection.css"
 
