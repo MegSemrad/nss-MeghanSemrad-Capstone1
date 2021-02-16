@@ -19,11 +19,11 @@ export const RelativeCard = ({ matchedRelative, handleDelete }) => {
           <Card.Text>
               {matchedRelative.condition}
           </Card.Text>
-          <Button onClick={() => { 
+          <Button id="app_button" onClick={() => { 
             history.push(`/relative/edit/${matchedRelative.id}`)}}>
             Edit
           </Button >
-          <Button onClick={() => { handleDelete(matchedRelative.id) }}>
+          <Button id="app_button" onClick={() => { handleDelete(matchedRelative.id) }}>
             Delete
           </Button>
         </Card.Body>

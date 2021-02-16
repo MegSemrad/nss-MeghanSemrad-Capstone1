@@ -10,7 +10,7 @@ export const PatientDetailList = ( { matchedUser } ) => {
 
   return (
     <div className="patientDetails">
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '20rem' }}>
           <Card.Body>
             <Card.Title>Patient Details</Card.Title>
             <Card.Text>Name: {matchedUser.name}</Card.Text>
@@ -19,7 +19,7 @@ export const PatientDetailList = ( { matchedUser } ) => {
             <Card.Text>Name: {matchedUser.emergencyContactName}</Card.Text>
             <Card.Text>Relation: {matchedUser.emergencyContactRelation}</Card.Text>
             <Card.Text>Phone Number: {matchedUser.emergencyContactPhoneNumber}</Card.Text>
-            <Button onClick={() => { history.push("/patientDetails/edit") }}>
+            <Button id="app_button" onClick={() => { history.push("/patientDetails/edit") }}>
               Edit
             </Button>
           </Card.Body>

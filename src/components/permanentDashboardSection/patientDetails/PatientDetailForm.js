@@ -130,7 +130,7 @@ export const PatientDetailForm = () => {
                         value={patientDetailSection.emergencyContactPhoneNumber} />
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
+            <button id="app_button" className="btn btn-primary"
                 onClick={event => {
                     event.preventDefault()
                     handleClickSavePatientDetails()

@@ -10,13 +10,13 @@ export const PreferredPharmacyList = ({ matchedUser }) => {
 
   return (
     <div className="preferredPharmacy">
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '20rem' }}>
           <Card.Body>
             <Card.Title>Preferred Pharmacy</Card.Title>
             <Card.Text>{matchedUser.preferredPharmacyName}</Card.Text>
             <Card.Text>{matchedUser.preferredPharmacyAddress}</Card.Text>
             <Card.Text>{matchedUser.preferredPharmacyPhoneNumber}</Card.Text>
-            <Button onClick={() => { history.push("/preferredPharmacies/edit") }}>
+            <Button id="app_button" onClick={() => { history.push("/preferredPharmacies/edit") }}>
               Edit
             </Button>
           </Card.Body>

@@ -109,6 +109,7 @@ export const SpecialistTypeForm = () => {
           </div>
         </fieldset>
         <button className="btn btn-primary"
+          id="app_button"
           onClick={event => {
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
             handleSaveSpecialistType()

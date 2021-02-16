@@ -1,6 +1,7 @@
 .rightSideChildCSS {
     float: right;
     width: 62%;
+    margin-right: 40px;
 }
 
 .container--left {
@@ -18,5 +19,12 @@
 
 
 .alertEmoji {
+    color: #386771;
     font-size: 50px;
+    text-align: center;
+}
+
+
+.nav-link {
+   margin-left: 1.0rem;
 }
