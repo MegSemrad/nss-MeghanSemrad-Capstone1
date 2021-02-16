@@ -65,7 +65,7 @@ export const QuestionsForm = () => {
                     value={providerSpecificQuestions.questions}/>
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
+            <button id="app_button" className="btn btn-primary"
                 onClick={event => {
                     event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                     handleSaveQuestions()

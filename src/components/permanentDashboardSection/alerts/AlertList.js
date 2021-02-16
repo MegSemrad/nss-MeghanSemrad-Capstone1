@@ -19,7 +19,7 @@ export const AlertList = ( { matchedUser } ) => {
             <Card.Text>{matchedUser.allergies}</Card.Text>
             <Card.Subtitle className="mb-2 text-muted">Other</Card.Subtitle>
             <Card.Text>{matchedUser.other}</Card.Text>
-            <Button onClick={() => { history.push("/alerts/edit") }}>
+            <Button id="app_button" onClick={() => { history.push("/alerts/edit") }}>
               Edit
             </Button>
           </Card.Body>

@@ -19,6 +19,7 @@ code {
   margin: 20px;
 }
 
+
 .logo {
   display: block;
   margin-left: auto;
@@ -30,14 +31,25 @@ code {
   width: 62%;
 }
 
+
 #navbar {
   background-color: #386771;
-  color: white;
 }
 
 
-.btn-primary {
-    color: #fff;
-    background-color: #809DA4;
-    border-color: #809DA4;
+#app_button {
+  background-color: #809DA4;
+  border-color: #809DA4;
+  margin: 5px;
+}
+
+
+.card-title{
+  text-align: center;
+}
+
+
+.alertEmoji {
+  text-align: center;
+  color: #386771;
 }

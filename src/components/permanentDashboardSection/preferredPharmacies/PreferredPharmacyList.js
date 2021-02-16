@@ -16,7 +16,7 @@ export const PreferredPharmacyList = ({ matchedUser }) => {
             <Card.Text>{matchedUser.preferredPharmacyName}</Card.Text>
             <Card.Text>{matchedUser.preferredPharmacyAddress}</Card.Text>
             <Card.Text>{matchedUser.preferredPharmacyPhoneNumber}</Card.Text>
-            <Button onClick={() => { history.push("/preferredPharmacies/edit") }}>
+            <Button id="app_button" onClick={() => { history.push("/preferredPharmacies/edit") }}>
               Edit
             </Button>
           </Card.Body>
