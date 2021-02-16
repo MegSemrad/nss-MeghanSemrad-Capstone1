@@ -10,7 +10,7 @@ export const AlertList = ( { matchedUser } ) => {
 
   return (
     <div className="alerts">
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '20rem' }}>
           <Card.Body>
             <Card.Title className="alertEmoji">⚠️</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">Conditions</Card.Subtitle>

@@ -10,7 +10,7 @@ export const PreferredPharmacyList = ({ matchedUser }) => {
 
   return (
     <div className="preferredPharmacy">
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '20rem' }}>
           <Card.Body>
             <Card.Title>Preferred Pharmacy</Card.Title>
             <Card.Text>{matchedUser.preferredPharmacyName}</Card.Text>

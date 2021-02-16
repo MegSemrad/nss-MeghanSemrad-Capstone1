@@ -10,7 +10,7 @@ export const PatientDetailList = ( { matchedUser } ) => {
 
   return (
     <div className="patientDetails">
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '20rem' }}>
           <Card.Body>
             <Card.Title>Patient Details</Card.Title>
             <Card.Text>Name: {matchedUser.name}</Card.Text>

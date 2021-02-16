@@ -22,13 +22,13 @@ code {
 
 .logo {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5px;
+  margin-right: 230px;
   width: 20%;
   margin-top: 20px;
   margin-bottom: 20px;
   float: right;
-  width: 62%;
+  width: 45%;
 }
 
 
@@ -46,10 +46,4 @@ code {
 
 .card-title{
   text-align: center;
-}
-
-
-.alertEmoji {
-  text-align: center;
-  color: #386771;
 }
