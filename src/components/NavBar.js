@@ -1,33 +1,30 @@
 import React from "react";
 import { useHistory } from "react-router-dom"
-import { Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 
 
 export const NavBar = (props) => {
     const history = useHistory()
     return (
         <>
-            <Nav variant="tabs" defaultActiveKey="/home">
-                <Nav.Item>
+            <Navbar id="navbar">
+                <Nav className="mr-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/SpecialistType" eventKey="link-1">Providers</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/FamilyHistory" eventKey="link-2">Family Medical History</Nav.Link>
-                </Nav.Item>
-                <Button id="logout_button" onClick={(e) => {
-                        if(e.target.id === "logout_button"){
+                    <Nav.Link href="/SpecialistType">Providers</Nav.Link>
+                    <Nav.Link href="/FamilyHistory">Family Medical History</Nav.Link>
+
+                </Nav>
+                    <Button id="app_button" onClick={(e) => {
+                        if (e.target.id === "logout_button") {
                             localStorage.removeItem("app_user");
                             return history.push("/loginOrRegister")
                         } else {
                             return false;
                         }
                     }
-                }>Logout
-                </Button>
-            </Nav>
+                    }>Logout
+                     </Button>
+            </Navbar>
         </>
     )
 };

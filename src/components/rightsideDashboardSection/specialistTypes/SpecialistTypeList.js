@@ -28,7 +28,7 @@ export const SpecialistTypeList = () => {
             Add
           </button>
           {
-            specialistsArray.map(specialist => {
+            specialistsArray.map(specialist => { //this .ap returns an new array that is an array of HTML strings
               return <SpecialistTypeCard key={specialist.id} //argument
                   specialistType={specialist} /> 
             })

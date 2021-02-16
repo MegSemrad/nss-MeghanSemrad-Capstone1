@@ -95,6 +95,7 @@ export const RelativeForm = () => {
             </div>
           </fieldset>
           <button className="btn btn-primary"
+            id="app_button"
             disabled={isLoading}
             onClick={event => {
               event.preventDefault() // Prevent browser from submitting the form and refreshing the page

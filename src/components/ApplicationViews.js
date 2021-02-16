@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { HeaderLogo} from "./HeaderLogo"
 import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/PatientDetailForm";
@@ -26,9 +27,11 @@ export const ApplicationViews = () => {
                <BasePatientDetailsProvider>
                     <Route exact path="/home">
                          <PermanentDashboardSection  />
+                         <HeaderLogo />
                     </Route>
                     <Route exact path="/">
                          <PermanentDashboardSection  />
+                         <HeaderLogo />
                     </Route>
                </BasePatientDetailsProvider>
                
