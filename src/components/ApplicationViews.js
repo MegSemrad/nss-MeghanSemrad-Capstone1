@@ -9,15 +9,15 @@ import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
 import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
 import { PreferredPharmacyForm } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyForm";
 import { PreferredPharmacyList } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyList";
-import { SpecialistTypeProvider } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeProvider";
-import { SpecialistTypeList } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeList"
-import { SpecialistTypeForm } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeForm";
-import { SpecialistTypeDetail } from "./rightsideDashboardSection/specialistTypes/SpecialistTypeDetail";
+import { ProviderDataProvider } from "./rightsideDashboardSection/providers/ProviderDataProvider";
+import { ProviderList } from "./rightsideDashboardSection/providers/ProviderList"
+import { ProviderForm } from "./rightsideDashboardSection/providers/ProviderForm";
+import { ProviderDetail } from "./rightsideDashboardSection/providers/ProviderDetail";
 import { RelativeProvider } from "./rightsideDashboardSection/relatives/RelativeProvider";
 import { RelativeList } from "./rightsideDashboardSection/relatives/RelativeList";
 import { RelativeForm } from "./rightsideDashboardSection/relatives/RelativeForm";
-import { QuestionsForm } from "./rightsideDashboardSection/specialistTypes/QuestionsForm";
-import { AppointmentNoteForm } from "./rightsideDashboardSection/specialistTypes/NotesForm";
+import { QuestionsForm } from "./rightsideDashboardSection/providers/QuestionsForm";
+import { AppointmentNoteForm } from "./rightsideDashboardSection/providers/NotesForm";
 import "./permanentDashboardSection/permanentDashboardSection.css"
 
 
@@ -59,6 +59,7 @@ export const ApplicationViews = () => {
                          <PatientDetailList />
                     </Route>
                </BasePatientDetailsProvider>
+
 
 
 
@@ -109,34 +110,42 @@ export const ApplicationViews = () => {
                     </Route>
                </BasePatientDetailsProvider>
 
+
+
+
+
                <BasePatientDetailsProvider>
-               <SpecialistTypeProvider>
-                    <Route exact path="/SpecialistType">
+               <ProviderDataProvider>
+                    <Route exact path="/Providers">
                          <PermanentDashboardSection  />
-                         <SpecialistTypeList />
+                         <ProviderList />
                     </Route>
                     
-                    <Route exact path="/SpecialistType/create">
+                    <Route exact path="/Provider/create">
                          <PermanentDashboardSection  />
-                         <SpecialistTypeForm />
+                         <ProviderForm />
                     </Route>
                     
-                    <Route exact path="/AppointmentNote/create/:specialistTypeId(\d+)">
+                    <Route exact path="/AppointmentNote/create/:providerId(\d+)">
                          <PermanentDashboardSection  />
                          <AppointmentNoteForm />
                     </Route>
                     
-                    <Route exact path="/Questions/edit/:specialistTypeId(\d+)">
+                    <Route exact path="/Questions/edit/:providerId(\d+)">
                          <PermanentDashboardSection  />
                          <QuestionsForm />
                     </Route>
                    
-                    <Route exact path="/SpecialistType/detail/:specialistTypeId(\d+)">
+                    <Route exact path="/Provider/detail/:providerId(\d+)">
                          <PermanentDashboardSection  />
-                         <SpecialistTypeDetail />
+                         <ProviderDetail />
                     </Route>
-               </SpecialistTypeProvider>
+               </ProviderDataProvider>
                </BasePatientDetailsProvider>
+
+
+
+
 
                <BasePatientDetailsProvider>
                <RelativeProvider>

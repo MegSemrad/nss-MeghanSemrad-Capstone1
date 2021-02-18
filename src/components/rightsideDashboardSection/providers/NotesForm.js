@@ -1,20 +1,20 @@
 import React, { useContext, useState } from "react"
-import { SpecialistTypeContext } from "./SpecialistTypeProvider";
+import { ProviderContext } from "./ProviderDataProvider";
 import { useHistory, useParams } from 'react-router-dom';
 
 
 export const AppointmentNoteForm = () => {
     const userId = parseInt(localStorage.getItem("app_user"))
-    const { specialistTypeId } = useParams();
+    const { providerId } = useParams();
     const history = useHistory();
     
     
-    const { addAppointmentBySpecialist } = useContext(SpecialistTypeContext)
+    const { addAppointmentByProvider } = useContext(ProviderContext)
   
   
     const [appointmentNote, setAppointmentNote] = useState({
       userId: 0,
-      specialistTypeId: 0,
+      providerId: 0,
       appointmentNote: "",
       appointmentDate: ""
     }); 
@@ -28,19 +28,19 @@ export const AppointmentNoteForm = () => {
 
 
     const handleSaveAppointmentNote = () => {
-        addAppointmentBySpecialist({
+        addAppointmentByProvider({
             id: appointmentNote.id,
             userId: userId,
-            specialistTypeId: parseInt(specialistTypeId),
+            providerId: parseInt(providerId),
             appointmentNote: appointmentNote.appointmentNote,
             appointmentDate: appointmentNote.appointmentDate
         })
-        .then(() => history.push(`/SpecialistType/detail/${specialistTypeId}`))
+        .then(() => history.push(`/Provider/detail/${providerId}`))
     }
 
     return (
-        <form className="SpecialistTypeForm rightSideChildCSS">
-          <h2 className="SpecialistTypeForm__title">Appointment</h2>
+        <form className="ProviderForm rightSideChildCSS">
+          <h2 className="ProviderForm__title">Appointment</h2>
             <fieldset>
               <div className="form-group">
                 <label htmlFor="appointmentNote">Appointment Note: </label>
