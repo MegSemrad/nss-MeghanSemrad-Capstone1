@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SpecialistTypeContext } from "./SpecialistTypeProvider";
+import { ProviderContext } from "./ProviderDataProvider";
 import { useHistory, useParams } from 'react-router-dom';
 
 export const QuestionsForm = () => {
     const userId = parseInt(localStorage.getItem("app_user"))
-    const { specialistTypeId } = useParams(); 
+    const { providerId } = useParams(); 
     const history = useHistory();
 
 
-    const {getQuestions, updateQuestions} = useContext(SpecialistTypeContext);
+    const {getQuestions, updateQuestions} = useContext(ProviderContext);
 
     
     const [providerSpecificQuestions, setProviderSpecificQuestions] = useState({
         userId: 0,
-        specialistTypeId: 0,
+        providerId: 0,
         questions: ""
     });
     
@@ -26,14 +26,14 @@ export const QuestionsForm = () => {
     };
     
     const handleSaveQuestions = () => {
-        if(specialistTypeId){
+        if(providerId){
             updateQuestions({
                 id: providerSpecificQuestions.id,
                 userId: userId,
-                specialistTypeId: providerSpecificQuestions.specialistTypeId,
+                providerId: providerSpecificQuestions.providerId,
                 questions: providerSpecificQuestions.questions
             })
-            .then(() => history.push(`/SpecialistType/detail/${specialistTypeId}`))
+            .then(() => history.push(`/Provider/detail/${providerId}`))
         }
     };
     
@@ -42,12 +42,12 @@ export const QuestionsForm = () => {
     useEffect(() => {
         getQuestions()
         .then((questions) => {
-            const SelectedQuestionObject = questions.find(question => question.specialistTypeId === parseInt(specialistTypeId))
+            const SelectedQuestionObject = questions.find(question => question.providerId === parseInt(providerId))
                 setProviderSpecificQuestions(SelectedQuestionObject)
 
         })
     }, 
-    [])
+    []);
     
             
 

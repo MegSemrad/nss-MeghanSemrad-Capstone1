@@ -2,12 +2,12 @@ import React from "react";
 import { useHistory } from "react-router-dom"
 import { Button } from "react-bootstrap";
 
-export const SpecialistTypeCard = ({ specialistType }) => {
+export const ProviderCard = ({ provider }) => {
   const history = useHistory()
   return (
       <Button variant="primary" size="lg" block className="rightSideChildCSS"
-        onClick={() => { history.push(`/SpecialistType/detail/${specialistType.id}`) }}>
-        {specialistType.speciality} ({specialistType.specialistName})
+        onClick={() => { history.push(`/Provider/detail/${provider.id}`) }}>
+        {provider.speciality} ({provider.providerName})
       </Button>
   )
 };

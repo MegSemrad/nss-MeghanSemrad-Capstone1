@@ -10,7 +10,7 @@ export const NavBar = (props) => {
             <Navbar id="navbar">
                 <Nav className="mr-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link href="/SpecialistType">Providers</Nav.Link>
+                    <Nav.Link href="/Providers">Providers</Nav.Link>
                     <Nav.Link href="/FamilyHistory">Family Medical History</Nav.Link>
 
                 </Nav>

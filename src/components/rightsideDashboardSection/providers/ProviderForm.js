@@ -1,23 +1,23 @@
-import React, { useContext, useState } from "react"
-import { SpecialistTypeContext } from "./SpecialistTypeProvider";
+import React, { useContext, useState } from "react";
+import { ProviderContext } from "./ProviderDataProvider";
 import { useHistory } from 'react-router-dom';
 
 
-export const SpecialistTypeForm = () => {
+export const ProviderForm = () => {
   const userId = parseInt(localStorage.getItem("app_user"))
   const history = useHistory();
   
   
-  const { addSpecialistType } = useContext(SpecialistTypeContext)
-  const {addQuestion} = useContext(SpecialistTypeContext)
-  const { addAppointmentBySpecialist } = useContext(SpecialistTypeContext)
+  const { addProvider } = useContext(ProviderContext);
+  const {addQuestion} = useContext(ProviderContext);
+  const { addAppointmentByProvider } = useContext(ProviderContext);
 
 
-  const [specialistType, setSpecialistType] = useState({
+  const [provider, setProvider] = useState({
     userId: 0,
-    specialistTypeId: 0,
+    providerId: 0,
     speciality: "",
-    specialistName: "",
+    providerName: "",
     questions: "",
     appointmentNote: "",
     appointmentDate: ""
@@ -26,57 +26,57 @@ export const SpecialistTypeForm = () => {
 
 
   const handleControlledInputChange = (event) => {
-    const newSpecialistType = { ...specialistType }
-    newSpecialistType[event.target.id] = event.target.value
-    setSpecialistType(newSpecialistType)
-  }
+    const newProvider = { ...provider }
+    newProvider[event.target.id] = event.target.value
+    setProvider(newProvider)
+  };
 
       
-  const handleSaveSpecialistType = () => {
-      addSpecialistType({
-        id: specialistType.id,
+  const handleSaveProvider = () => {
+      addProvider({
+        id: provider.id,
         userId: userId,
-        speciality: specialistType.speciality,
-        specialistName: specialistType.specialistName,
+        speciality: provider.speciality,
+        providerName: provider.providerName,
       })
-      .then((newSpecialistType) => { //this is the object return after POST-ing to the database 
+      .then((newProvider) => { //this is the object return after POST-ing to the database 
         addQuestion({
-          id: specialistType.id,
+          id: provider.id,
           userId: userId,
-          specialistTypeId: newSpecialistType.id,
-          questions: specialistType.questions
+          providerId: newProvider.id,
+          questions: provider.questions
         })
-        addAppointmentBySpecialist({
-          id: specialistType.id,
+        addAppointmentByProvider({
+          id: provider.id,
           userId: userId,
-          specialistTypeId: newSpecialistType.id,
-          appointmentDate: specialistType.appointmentDate,
-          appointmentNote: specialistType.appointmentNote
+          providerId: newProvider.id,
+          appointmentDate: provider.appointmentDate,
+          appointmentNote: provider.appointmentNote
         })
       })
-      .then(() => history.push("/SpecialistType"))
-}
+      .then(() => history.push("/Providers"))
+};
 
 
     return (
-      <form className="SpecialistTypeForm rightSideChildCSS">
-        <h2 className="SpecialistTypeForm__title">Appointment</h2>
+      <form className="ProviderForm rightSideChildCSS">
+        <h2 className="ProviderForm__title">Appointment</h2>
         <fieldset>
           <div className="form-group">
             <label htmlFor="speciality">Speciality: </label>
             <input type="text" id="speciality" required autoFocus className="form-control"
             placeholder="Speciality"
             onChange={handleControlledInputChange}
-            value={specialistType.speciality}/>
+            value={provider.speciality}/>
           </div>
         </fieldset>
         <fieldset>
           <div className="form-group">
-            <label htmlFor="specialistName">Specialist Name: </label>
-            <input type="text" id="specialistName" required autoFocus className="form-control"
-            placeholder="Specialist Name"
+            <label htmlFor="providerName">Provider Name: </label>
+            <input type="text" id="providerName" required autoFocus className="form-control"
+            placeholder="Provider Name"
             onChange={handleControlledInputChange}
-            value={specialistType.specialistName}/>
+            value={provider.providerName}/>
           </div>
         </fieldset>
         
@@ -87,13 +87,13 @@ export const SpecialistTypeForm = () => {
               <input type="text" id="appointmentNote" required autoFocus className="form-control"
               placeholder="Appointment Notes"
               onChange={handleControlledInputChange}
-              value={specialistType.appointmentsBySpecialist?.appointmentNote}/>
+              value={provider.appointmentsByProvider?.appointmentNote}/>
             </div>
             <div className="form-group">
               <label htmlFor="appointmentDate">Appointment Date: </label>
               <input type="date" id="appointmentDate" required autoFocus className="form-control"
               onChange={handleControlledInputChange}
-              value={specialistType.appointmentsBySpecialist?.appointmentDate}/>
+              value={provider.appointmentsByProvider?.appointmentDate}/>
             </div>
           </fieldset>
         </section>
@@ -105,15 +105,15 @@ export const SpecialistTypeForm = () => {
             <input type="text" id="questions" required autoFocus className="form-control"
             placeholder="Questions"
             onChange={handleControlledInputChange}
-            value={specialistType.questions}/>
+            value={provider.questions}/>
           </div>
         </fieldset>
         <button className="btn btn-primary"
           id="app_button"
           onClick={event => {
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-            handleSaveSpecialistType()
+            handleSaveProvider()
           }}>Save</button>
       </form>
     )
-}
+};
