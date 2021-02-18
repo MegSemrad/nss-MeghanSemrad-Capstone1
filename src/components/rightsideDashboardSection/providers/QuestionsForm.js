@@ -8,10 +8,10 @@ export const QuestionsForm = () => {
     const history = useHistory();
 
 
-    const {getQuestions, updateQuestions} = useContext(ProviderContext);
+    const { addQuestion } = useContext(ProviderContext);
 
     
-    const [providerSpecificQuestions, setProviderSpecificQuestions] = useState({
+    const [providerSpecificQuestion, setProviderSpecificQuestion] = useState({
         userId: 0,
         providerId: 0,
         questions: ""
@@ -20,35 +20,22 @@ export const QuestionsForm = () => {
     
     
     const handleControlledInputChange = (event) => {
-        const newQuestions = { ...providerSpecificQuestions }
-        newQuestions[event.target.id] = event.target.value
-        setProviderSpecificQuestions(newQuestions)
+        const newQuestion = { ...providerSpecificQuestion }
+        newQuestion[event.target.id] = event.target.value
+        setProviderSpecificQuestion(newQuestion)
     };
     
     const handleSaveQuestions = () => {
-        if(providerId){
-            updateQuestions({
-                id: providerSpecificQuestions.id,
+            addQuestion({
+                id: providerSpecificQuestion.id,
                 userId: userId,
-                providerId: providerSpecificQuestions.providerId,
-                questions: providerSpecificQuestions.questions
+                providerId: parseInt(providerId),
+                questions: providerSpecificQuestion.questions
             })
             .then(() => history.push(`/Provider/detail/${providerId}`))
-        }
     };
     
-    
-    
-    useEffect(() => {
-        getQuestions()
-        .then((questions) => {
-            const SelectedQuestionObject = questions.find(question => question.providerId === parseInt(providerId))
-                setProviderSpecificQuestions(SelectedQuestionObject)
 
-        })
-    }, 
-    []);
-    
             
 
     return (
@@ -62,7 +49,7 @@ export const QuestionsForm = () => {
                     className="form-control"
                     placeholder="Appointment Notes"
                     onChange={handleControlledInputChange}
-                    value={providerSpecificQuestions.questions}/>
+                    value={providerSpecificQuestion.questions}/>
                 </div>
             </fieldset>
             <button id="app_button" className="btn btn-primary"

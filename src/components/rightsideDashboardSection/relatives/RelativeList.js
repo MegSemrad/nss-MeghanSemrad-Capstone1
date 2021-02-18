@@ -16,14 +16,15 @@ useEffect(() => {
 useEffect( () => {
   const matchedRelatives = familyHistories.filter(relative => relative.userId === userId)
   setMatchedRelatives(matchedRelatives)
-}, [familyHistories])
+}, [familyHistories]);
+
 
 const handleDelete = (id) => {
   deleteFamilyHistory(id)
   .then(() => {
     getFamilyHistories()
   })
-}
+};
 
 
 

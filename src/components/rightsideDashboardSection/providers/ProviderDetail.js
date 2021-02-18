@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProviderContext } from "./ProviderDataProvider";
-import { useParams } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+import { useParams, useHistory } from "react-router-dom";
 
 
 export const ProviderDetail = () => {
@@ -22,6 +21,8 @@ export const ProviderDetail = () => {
     const history = useHistory()
 
 
+
+
   
 return (
     <section className="provider">
@@ -32,10 +33,15 @@ return (
         history.push(`/AppointmentNote/create/${provider.id}`) 
         }}>Add</button>
       <h5>Questions:  </h5>
-      <div className="provider__questions">{provider.questions?.map(question => {return question.questions})}</div>
+      <div className="provider__questions">{provider.questions?.map(question => {
+        return <p>
+          {question.questions}
+        </p>
+      })}
+      </div>
       <button onClick={() => {
-        history.push(`/Questions/edit/${provider.id}`) 
-        }}>Edit</button>
+        history.push(`/Questions/add/${provider.id}`) 
+        }}>Add</button>
     </section>
   )
 

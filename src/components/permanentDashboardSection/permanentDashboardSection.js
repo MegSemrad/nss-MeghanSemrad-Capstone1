@@ -12,12 +12,7 @@ export const PermanentDashboardSection = (props) => {
     const userId = parseInt(localStorage.getItem("app_user"))
     const [matchedUser, setMatchedUser] = useState([])
 
-    /*
-      - useEffect...
-      - it is a function that takes 2 arguments (anonymous function and an 
-        empty array into which we are passing the patient details retrieved by id)
-      - more or less setting up an event listener
-    */
+
     useEffect(() =>
         getBasePatientDetails()
         .then((details) => {

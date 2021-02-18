@@ -131,7 +131,7 @@ export const ApplicationViews = () => {
                          <AppointmentNoteForm />
                     </Route>
                     
-                    <Route exact path="/Questions/edit/:providerId(\d+)">
+                    <Route exact path="/Questions/add/:providerId(\d+)">
                          <PermanentDashboardSection  />
                          <QuestionsForm />
                     </Route>
