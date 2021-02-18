@@ -100,6 +100,12 @@ export const ProviderDataProvider = (props) => {
       };
 
 
+      const deleteQuestion = questionId => {
+        return fetch(`http://localhost:8090/questions/${questionId}`, {
+            method: "DELETE"
+        })
+            .then(getProviderByIdEmbeddedItems)
+    };
 
 
 
@@ -141,7 +147,7 @@ export const ProviderDataProvider = (props) => {
             getProviders, getProviderByIdEmbeddedItems , addProvider, 
             addQuestion, addAppointmentByProvider, deleteProviderById, updateQuestions, 
             updateProvider, updateAppointmentByProvider, getQuestions, getAppointmentByProvider, 
-            questions, setQuestions, appointmentByProvider, setAppointmentbyProvider
+            questions, setQuestions, appointmentByProvider, setAppointmentbyProvider, deleteQuestion
         }}>
          {props.children}
         </ProviderContext.Provider>

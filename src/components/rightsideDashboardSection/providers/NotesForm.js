@@ -34,7 +34,7 @@ export const AppointmentNoteForm = () => {
             providerId: parseInt(providerId),
             appointmentNote: appointmentNote.appointmentNote,
             appointmentDate: appointmentNote.appointmentDate
-        })
+        }) 
         .then(() => history.push(`/Provider/detail/${providerId}`))
     }
 
