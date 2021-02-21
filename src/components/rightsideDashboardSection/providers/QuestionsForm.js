@@ -3,7 +3,7 @@ import { ProviderContext } from "./ProviderDataProvider";
 import { useHistory, useParams } from 'react-router-dom';
 
 export const QuestionsForm = () => {
-    const userId = parseInt(localStorage.getItem("app_user"))
+    const userId = parseInt(localStorage.getItem("app_user"));
     const { providerId } = useParams(); 
     const history = useHistory();
 
@@ -54,7 +54,7 @@ export const QuestionsForm = () => {
             </fieldset>
             <button id="app_button" className="btn btn-primary"
                 onClick={event => {
-                    event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                    event.preventDefault() 
                     handleSaveQuestions()
             }}>Save</button>
         </form>

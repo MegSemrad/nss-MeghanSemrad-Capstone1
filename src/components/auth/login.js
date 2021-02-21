@@ -1,18 +1,23 @@
 import React, { useRef } from "react";
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./login.css";
 
 
-export const Login = props => {
-    const username = useRef()
-    const existDialog = useRef()
-    const history = useHistory()
+
+export const Login = (props) => {
+    const username = useRef();
+    const existDialog = useRef();
+    const history = useHistory();
+
+
 
     const existingUserCheck = () => {
         return fetch(`http://localhost:8090/users?username=${username.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
-    }
+    };
+
+
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -26,8 +31,10 @@ export const Login = props => {
                     existDialog.current.showModal()
                 }
             })
-    }
+    };
 
+
+    
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>

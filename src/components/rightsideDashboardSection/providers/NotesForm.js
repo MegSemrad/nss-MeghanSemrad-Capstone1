@@ -1,15 +1,13 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState } from "react";
 import { ProviderContext } from "./ProviderDataProvider";
 import { useHistory, useParams } from 'react-router-dom';
 
 
 export const AppointmentNoteForm = () => {
-    const userId = parseInt(localStorage.getItem("app_user"))
+    const userId = parseInt(localStorage.getItem("app_user"));
     const { providerId } = useParams();
     const history = useHistory();
-    
-    
-    const { addAppointmentByProvider } = useContext(ProviderContext)
+    const { addAppointmentByProvider } = useContext(ProviderContext);
   
   
     const [appointmentNote, setAppointmentNote] = useState({
@@ -24,7 +22,7 @@ export const AppointmentNoteForm = () => {
         const newAppointmentNote = { ...appointmentNote }
         newAppointmentNote[event.target.id] = event.target.value
         setAppointmentNote(newAppointmentNote)
-      }
+      };
 
 
     const handleSaveAppointmentNote = () => {
@@ -36,7 +34,7 @@ export const AppointmentNoteForm = () => {
             appointmentDate: appointmentNote.appointmentDate
         }) 
         .then(() => history.push(`/Provider/detail/${providerId}`))
-    }
+    };
 
     return (
         <form className="ProviderForm rightSideChildCSS">
@@ -59,10 +57,9 @@ export const AppointmentNoteForm = () => {
 
           <button id="app_button" className="btn btn-primary"
             onClick={event => {
-              event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+              event.preventDefault()
               handleSaveAppointmentNote()
             }}>Save</button>
         </form>
       )
-
-}
+};

@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
 import { useHistory } from 'react-router-dom';
-import "../permanentDashboardSection.css"
+
+
 
 export const AlertForm = () => {
-    const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext)
-    const userId = parseInt(localStorage.getItem("app_user"))
+    const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext);
+    const userId = parseInt(localStorage.getItem("app_user"));
     const history = useHistory();
 
     const [alertSection, setAlertSection] = useState({
@@ -21,14 +22,14 @@ export const AlertForm = () => {
         preferredPharmacyName: "",
         preferredPharmacyAddress: "",
         preferredPharmacyPhoneNumber: ""
-    })
+    });
 
 
     const handleControlledInputChange = (event) => {
         const newAlerts = { ...alertSection }
         newAlerts[event.target.id] = event.target.value
         setAlertSection(newAlerts)
-    }
+    };
  
 
 
@@ -49,7 +50,7 @@ export const AlertForm = () => {
                 preferredPharmacyPhoneNumber: alertSection.preferredPharmacyPhoneNumber
             })
                 .then(() => history.push("/home"))
-    }
+    };
 
 
 
@@ -60,7 +61,7 @@ export const AlertForm = () => {
             const SelectedAlertSection = details.find(detail => detail.userId === userId)
             setAlertSection(SelectedAlertSection)
         })
-    }, [])
+    }, []);
 
 
 
@@ -114,4 +115,4 @@ export const AlertForm = () => {
             </button>
         </form>
     )
-}
+};

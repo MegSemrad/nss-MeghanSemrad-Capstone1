@@ -3,18 +3,24 @@ import { useHistory } from "react-router-dom";
 import { basePatientDetailsContext } from "../permanentDashboardSection/permanentDashboardProvider";
 import "./login.css";
 
+
+
 export const Register = (props) => {
-    const username = useRef()
-    const email = useRef()
-    const conflictDialog = useRef()
-    const history = useHistory()
-    const { addBasePatientDetails } = useContext(basePatientDetailsContext)
+    const username = useRef();
+    const email = useRef();
+    const conflictDialog = useRef();
+    const history = useHistory();
+    const { addBasePatientDetails } = useContext(basePatientDetailsContext);
+
+
 
     const existingUserCheck = () => {
         return fetch(`http://localhost:8090/users?username=${username.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
-    }
+    };
+
+
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -62,7 +68,9 @@ export const Register = (props) => {
                 }
             })
 
-    }
+    };
+
+
 
     return (
         <main style={{ textAlign: "center" }}>

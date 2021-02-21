@@ -4,11 +4,10 @@ import { useParams, useHistory } from "react-router-dom";
 
 
 export const ProviderDetail = () => {
-  const { getProviderByIdEmbeddedItems } = useContext(ProviderContext)
-
-  const [provider, setProvider] = useState({})
-
-    const { providerId } = useParams();  
+  const { getProviderByIdEmbeddedItems } = useContext(ProviderContext);
+  const [provider, setProvider] = useState({});
+  const { providerId } = useParams();  
+  const history = useHistory();
 
 
   useEffect(() => { 
@@ -16,11 +15,7 @@ export const ProviderDetail = () => {
     .then((response) => {
       setProvider(response)
     })
-    }, [])
-
-    const history = useHistory()
-
-
+    }, []);
 
 
   
@@ -44,5 +39,4 @@ return (
         }}>Add</button>
     </section>
   )
-
 };

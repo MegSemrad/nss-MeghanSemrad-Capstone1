@@ -9,23 +9,21 @@ export const RelativeForm = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { matchedRelativeId } = useParams();
     const history = useHistory();
-    
-
-    const { addFamilyHistory, getFamilyHistoryById, updateFamilyHistory } = useContext(RelativesContext)
-    const { relatives, getRelatives } = useContext(RelativesContext) //need relatives for dropdown and getRelatives
+    const { addFamilyHistory, getFamilyHistoryById, updateFamilyHistory } = useContext(RelativesContext);
+    const { relatives, getRelatives } = useContext(RelativesContext);
     
 
     const [familyHistory, setFamilyHistory] = useState({
         condition: "",
         relativeId: 0
-    })
+    });
     
     
     const handleControlledInputChange = (event) => {
         const newFamilyHistory = { ...familyHistory }
         newFamilyHistory[event.target.id] = event.target.value
         setFamilyHistory(newFamilyHistory)
-      }
+    };
 
 
     const handleSaveFamilyHistory = () => {
@@ -46,7 +44,7 @@ export const RelativeForm = () => {
             })
             .then(() => history.push("/FamilyHistory"))
         }
-    }
+    };
     
     
     
@@ -63,7 +61,7 @@ export const RelativeForm = () => {
                 setIsLoading(false)
             }
         })
-    }, [])
+    }, []);
     
   
       useEffect( () => console.log( "relatives?", relatives), [relatives])
@@ -98,12 +96,10 @@ export const RelativeForm = () => {
             id="app_button"
             disabled={isLoading}
             onClick={event => {
-              event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+              event.preventDefault() 
               handleSaveFamilyHistory()
             }}>
           {matchedRelativeId ? "Save" : "Add"}</button>
         </form>
       )
-
-
-}
+};

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 
 export const ProviderForm = () => {
-  const userId = parseInt(localStorage.getItem("app_user"))
+  const userId = parseInt(localStorage.getItem("app_user"));
   const history = useHistory();
   
   
@@ -111,7 +111,7 @@ export const ProviderForm = () => {
         <button className="btn btn-primary"
           id="app_button"
           onClick={event => {
-            event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+            event.preventDefault() 
             handleSaveProvider()
           }}>Save</button>
       </form>

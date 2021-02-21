@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import { ProviderContext } from "./ProviderDataProvider";
 import { ProviderCard } from "./ProviderCard";
 
 export const ProviderList = () => {
-  const { providers,  getProviders } = useContext(ProviderContext)
-  const userId = parseInt(localStorage.getItem("app_user"))
-  const history = useHistory()
+  const { providers,  getProviders } = useContext(ProviderContext);
+  const userId = parseInt(localStorage.getItem("app_user"));
+  const history = useHistory();
   
   
   useEffect(() => {
@@ -28,9 +28,9 @@ export const ProviderList = () => {
             Add
           </button>
           {
-            providersArray.map(provider => { //this .ap returns an new array that is an array of HTML strings
-              return <ProviderCard key={provider.id} //argument
-                  provider={provider} /> //argument
+            providersArray.map(provider => { 
+              return <ProviderCard key={provider.id} 
+                  provider={provider} /> 
             })
           }
     </section>

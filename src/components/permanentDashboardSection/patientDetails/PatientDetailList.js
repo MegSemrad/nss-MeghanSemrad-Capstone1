@@ -1,11 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
-import "../permanentDashboardSection.css"
 
 
 export const PatientDetailList = ( { matchedUser } ) => {
-  const history = useHistory()
+  const history = useHistory();
 
 
   return (

@@ -4,10 +4,10 @@ import { RelativesContext } from "./RelativeProvider";
 import { RelativeCard } from "./RelativeCard";
 
 export const RelativeList = () => {
-    const { familyHistories, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext)
-    const history = useHistory()
-    const userId = parseInt(localStorage.getItem("app_user"))
-    const [matchedRelatives, setMatchedRelatives] = useState([])
+    const { familyHistories, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext);
+    const history = useHistory();
+    const userId = parseInt(localStorage.getItem("app_user"));
+    const [matchedRelatives, setMatchedRelatives] = useState([]);
 
 useEffect(() => {
   getFamilyHistories()
@@ -38,7 +38,7 @@ const handleDelete = (id) => {
           </button>
           {
             matchedRelatives.map(matchedRelative => {
-              return <RelativeCard key={matchedRelative.id} //argument
+              return <RelativeCard key={matchedRelative.id} 
               matchedRelative={matchedRelative} 
               handleDelete={handleDelete}/> 
             })

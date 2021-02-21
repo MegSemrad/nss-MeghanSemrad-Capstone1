@@ -15,8 +15,8 @@ export const BasePatientDetailsProvider = (props) => {
         preferredPharmacyName: "",
         preferredPharmacyAddress: "",
         preferredPharmacyPhoneNumber: "",
-    }) // if need only basePatientDetails specific to single user
-    const [basePatientDetailList, setBasePatientDetailList] = useState([]) //if ever need all basePatientDetails of all users
+    }); 
+    const [basePatientDetailList, setBasePatientDetailList] = useState([]); 
 
     const getBasePatientDetails = () => {
         return fetch("http://localhost:8090/basePatientDetails")
@@ -68,7 +68,8 @@ export const BasePatientDetailsProvider = (props) => {
       };
     return (
         <basePatientDetailsContext.Provider value={{
-            basePatientDetails, basePatientDetailList, getBasePatientDetails, setBasePatientDetails, addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
+            basePatientDetails, basePatientDetailList, getBasePatientDetails, setBasePatientDetails, 
+            addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
         }}>
             {props.children}
         </basePatientDetailsContext.Provider>

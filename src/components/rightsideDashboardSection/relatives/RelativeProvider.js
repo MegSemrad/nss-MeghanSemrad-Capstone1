@@ -3,10 +3,10 @@ import React, { useState, createContext } from "react";
 export const RelativesContext = createContext();
 
 export const RelativeProvider = (props) => {
-    const [relative, setRelative] = useState([])
-    const [relatives, setRelatives] = useState([]) //if ever need all users' family histories
-    const [familyHistories, setFamilyHistories] = useState([])
-    const [familyHistory, setFamilyHistory] = useState([])
+    const [relative, setRelative] = useState([]);
+    const [relatives, setRelatives] = useState([]);
+    const [familyHistories, setFamilyHistories] = useState([]);
+    const [familyHistory, setFamilyHistory] = useState([]);
 
 
     const getRelatives = () => {
