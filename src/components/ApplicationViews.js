@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { HeaderLogo} from "./HeaderLogo";
+
 import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/PatientDetailForm";
@@ -9,6 +10,7 @@ import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
 import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
 import { PreferredPharmacyForm } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyForm";
 import { PreferredPharmacyList } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyList";
+
 import { ProviderDataProvider } from "./rightsideDashboardSection/providers/ProviderDataProvider";
 import { ProviderList } from "./rightsideDashboardSection/providers/ProviderList";
 import { ProviderForm } from "./rightsideDashboardSection/providers/ProviderForm";

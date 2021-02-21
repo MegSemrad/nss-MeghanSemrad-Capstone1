@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 
 
 export const AlertList = ( { matchedUser } ) => {
-    const history = useHistory();
+  const history = useHistory();
   
 
   return (

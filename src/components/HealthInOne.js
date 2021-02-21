@@ -24,6 +24,7 @@ export const HealthInOne = (props) => (
             }}
         />
 
+
         <BasePatientDetailsProvider>
             <Route path="/loginOrRegister">
                 <LoginOrRegister />

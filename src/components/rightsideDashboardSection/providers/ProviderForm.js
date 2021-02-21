@@ -10,7 +10,7 @@ export const ProviderForm = () => {
   
   const { addProvider } = useContext(ProviderContext);
   const {addQuestion} = useContext(ProviderContext);
-  const { addAppointmentByProvider } = useContext(ProviderContext);
+  const { addAppointment } = useContext(ProviderContext);
 
 
   const [provider, setProvider] = useState({
@@ -46,7 +46,7 @@ export const ProviderForm = () => {
           providerId: newProvider.id,
           questions: provider.questions
         })
-        addAppointmentByProvider({
+        addAppointment({
           id: provider.id,
           userId: userId,
           providerId: newProvider.id,
@@ -87,13 +87,13 @@ export const ProviderForm = () => {
               <input type="text" id="appointmentNote" required autoFocus className="form-control"
               placeholder="Appointment Notes"
               onChange={handleControlledInputChange}
-              value={provider.appointmentsByProvider?.appointmentNote}/>
+              value={provider.appointmentNotes?.appointmentNote}/>
             </div>
             <div className="form-group">
               <label htmlFor="appointmentDate">Appointment Date: </label>
               <input type="date" id="appointmentDate" required autoFocus className="form-control"
               onChange={handleControlledInputChange}
-              value={provider.appointmentsByProvider?.appointmentDate}/>
+              value={provider.appointmentNotes?.appointmentDate}/>
             </div>
           </fieldset>
         </section>

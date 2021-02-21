@@ -9,7 +9,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { HealthInOne } from "./components/HealthInOne";
 
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>

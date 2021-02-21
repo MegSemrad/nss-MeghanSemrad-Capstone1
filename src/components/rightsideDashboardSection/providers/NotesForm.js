@@ -7,7 +7,7 @@ export const AppointmentNoteForm = () => {
     const userId = parseInt(localStorage.getItem("app_user"));
     const { providerId } = useParams();
     const history = useHistory();
-    const { addAppointmentByProvider } = useContext(ProviderContext);
+    const { addAppointmentNote } = useContext(ProviderContext);
   
   
     const [appointmentNote, setAppointmentNote] = useState({
@@ -26,7 +26,7 @@ export const AppointmentNoteForm = () => {
 
 
     const handleSaveAppointmentNote = () => {
-        addAppointmentByProvider({
+        addAppointmentNote({
             id: appointmentNote.id,
             userId: userId,
             providerId: parseInt(providerId),
@@ -35,6 +35,7 @@ export const AppointmentNoteForm = () => {
         }) 
         .then(() => history.push(`/Provider/detail/${providerId}`))
     };
+
 
     return (
         <form className="ProviderForm rightSideChildCSS">

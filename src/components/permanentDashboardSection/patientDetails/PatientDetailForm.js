@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
 import { useHistory } from 'react-router-dom';
 
+
 export const PatientDetailForm = () => {
     const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext);
     const userId = parseInt(localStorage.getItem("app_user"));  
     const history = useHistory();
+
 
     const [patientDetailSection, setPatientDetailSection] = useState({
         userId: 0,
@@ -30,7 +32,6 @@ export const PatientDetailForm = () => {
     };
  
 
-
     const handleClickSavePatientDetails = () => {
             updateBasePatientDetails({
                 id: patientDetailSection.id,
@@ -51,10 +52,6 @@ export const PatientDetailForm = () => {
     };
 
 
-
-
-
-
     useEffect(() => {
         getBasePatientDetails()
         .then((details) => {
@@ -62,12 +59,6 @@ export const PatientDetailForm = () => {
             setPatientDetailSection(SelectedPatientDetailSection)
         })
     }, []);
-
-
-
-
-
-
 
 
     return (

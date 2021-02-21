@@ -10,13 +10,11 @@ export const Login = (props) => {
     const history = useHistory();
 
 
-
     const existingUserCheck = () => {
         return fetch(`http://localhost:8090/users?username=${username.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     };
-
 
 
     const handleLogin = (e) => {
@@ -33,8 +31,7 @@ export const Login = (props) => {
             })
     };
 
-
-    
+ 
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>

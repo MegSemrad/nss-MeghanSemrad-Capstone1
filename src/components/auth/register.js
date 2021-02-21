@@ -4,7 +4,6 @@ import { basePatientDetailsContext } from "../permanentDashboardSection/permanen
 import "./login.css";
 
 
-
 export const Register = (props) => {
     const username = useRef();
     const email = useRef();
@@ -13,13 +12,11 @@ export const Register = (props) => {
     const { addBasePatientDetails } = useContext(basePatientDetailsContext);
 
 
-
     const existingUserCheck = () => {
         return fetch(`http://localhost:8090/users?username=${username.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     };
-
 
 
     const handleRegister = (e) => {
@@ -69,7 +66,6 @@ export const Register = (props) => {
             })
 
     };
-
 
 
     return (

@@ -5,13 +5,12 @@ import { AlertList } from "./alerts/AlertList";
 import { PreferredPharmacyList } from "./preferredPharmacies/PreferredPharmacyList";
 
 
-
 export const PermanentDashboardSection = (props) => {
     const { getBasePatientDetails } = useContext(basePatientDetailsContext);
     const userId = parseInt(localStorage.getItem("app_user"));
     const [matchedUser, setMatchedUser] = useState([]);
 
-
+    
     useEffect(() =>
         getBasePatientDetails()
         .then((details) => {
@@ -19,7 +18,6 @@ export const PermanentDashboardSection = (props) => {
             setMatchedUser(selectedUser)
         })
         , []);
-
 
 
     return (

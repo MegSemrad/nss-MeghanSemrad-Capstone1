@@ -1,6 +1,8 @@
 import React, { useState, createContext } from "react";
 
+
 export const basePatientDetailsContext = createContext();
+
 
 export const BasePatientDetailsProvider = (props) => {
     const [basePatientDetails, setBasePatientDetails] = useState({
@@ -17,6 +19,7 @@ export const BasePatientDetailsProvider = (props) => {
         preferredPharmacyPhoneNumber: "",
     }); 
     const [basePatientDetailList, setBasePatientDetailList] = useState([]); 
+
 
     const getBasePatientDetails = () => {
         return fetch("http://localhost:8090/basePatientDetails")
@@ -38,23 +41,7 @@ export const BasePatientDetailsProvider = (props) => {
         })
         .then(getBasePatientDetails)
     };
-
-    const getBasePatientDetailsById = (id) => {
-        return fetch(`http://localhost:8090/basePatientDetails/${id}`)
-        .then(response => response.json())
-        .then((patient) => {
-            setBasePatientDetails(patient)
-        })
-    }
     
-    
-    const deleteBasePatientDetailsById = (id) => {
-        return fetch(`http://localhost:8090/basePatientDetails/${id}`, {
-            method: "DELETE"
-        })
-            .then(getBasePatientDetails)
-    }
-
 
     const updateBasePatientDetails = (basePatientDetails) => {
         return fetch(`http://localhost:8090/basePatientDetails/${basePatientDetails.id}`, {
@@ -66,10 +53,13 @@ export const BasePatientDetailsProvider = (props) => {
         })
           .then(getBasePatientDetails)
       };
+
+
     return (
         <basePatientDetailsContext.Provider value={{
-            basePatientDetails, basePatientDetailList, getBasePatientDetails, setBasePatientDetails, 
-            addBasePatientDetails, getBasePatientDetailsById, deleteBasePatientDetailsById, updateBasePatientDetails
+            basePatientDetails, setBasePatientDetails, 
+            basePatientDetailList, setBasePatientDetailList, 
+            getBasePatientDetails, addBasePatientDetails, updateBasePatientDetails
         }}>
             {props.children}
         </basePatientDetailsContext.Provider>

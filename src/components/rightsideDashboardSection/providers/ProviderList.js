@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { ProviderContext } from "./ProviderDataProvider";
 import { ProviderCard } from "./ProviderCard";
 
+
 export const ProviderList = () => {
   const { providers,  getProviders } = useContext(ProviderContext);
   const userId = parseInt(localStorage.getItem("app_user"));
@@ -20,6 +21,7 @@ export const ProviderList = () => {
     providersArray.push(p)
   }
 });
+
 
   return (
     <section className="providersByUserId">

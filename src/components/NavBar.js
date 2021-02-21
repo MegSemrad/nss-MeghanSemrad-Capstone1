@@ -6,6 +6,8 @@ import "./NavBar.css";
 
 export const NavBar = (props) => {
     const history = useHistory()
+
+
     return (
         <>
             <Navbar id="navbar">

@@ -3,29 +3,31 @@ import { useHistory } from "react-router-dom";
 import { RelativesContext } from "./RelativeProvider";
 import { RelativeCard } from "./RelativeCard";
 
+
 export const RelativeList = () => {
-    const { familyHistories, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext);
-    const history = useHistory();
-    const userId = parseInt(localStorage.getItem("app_user"));
-    const [matchedRelatives, setMatchedRelatives] = useState([]);
-
-useEffect(() => {
-  getFamilyHistories()
-}, []);
-
-useEffect( () => {
-  const matchedRelatives = familyHistories.filter(relative => relative.userId === userId)
-  setMatchedRelatives(matchedRelatives)
-}, [familyHistories]);
+  const { familyHistories, getFamilyHistories, deleteFamilyHistory } = useContext(RelativesContext);
+  const history = useHistory();
+  const userId = parseInt(localStorage.getItem("app_user"));
+  const [matchedRelatives, setMatchedRelatives] = useState([]);
 
 
-const handleDelete = (id) => {
-  deleteFamilyHistory(id)
-  .then(() => {
+  useEffect(() => {
     getFamilyHistories()
-  })
-};
+  }, []);
 
+
+  useEffect( () => {
+    const matchedRelatives = familyHistories.filter(relative => relative.userId === userId)
+    setMatchedRelatives(matchedRelatives)
+  }, [familyHistories]);
+
+
+  const handleDelete = (id) => {
+    deleteFamilyHistory(id)
+    .then(() => {
+      getFamilyHistories()
+    })
+  };
 
 
   return (

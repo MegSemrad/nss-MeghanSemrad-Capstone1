@@ -3,11 +3,11 @@ import { basePatientDetailsContext } from "../permanentDashboardProvider";
 import { useHistory } from 'react-router-dom';
 
 
-
 export const AlertForm = () => {
     const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext);
     const userId = parseInt(localStorage.getItem("app_user"));
     const history = useHistory();
+
 
     const [alertSection, setAlertSection] = useState({
         userId: 0,
@@ -32,7 +32,6 @@ export const AlertForm = () => {
     };
  
 
-
     const handleClickSaveAlerts = () => {
             updateBasePatientDetails({
                 id: alertSection.id,
@@ -53,8 +52,6 @@ export const AlertForm = () => {
     };
 
 
-
-
     useEffect(() => {
         getBasePatientDetails()
         .then((details) => {
@@ -62,12 +59,6 @@ export const AlertForm = () => {
             setAlertSection(SelectedAlertSection)
         })
     }, []);
-
-
-
-
-
-
 
 
     return (
