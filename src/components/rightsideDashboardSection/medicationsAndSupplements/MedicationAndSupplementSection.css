@@ -1,3 +1,19 @@
-.medsAndSupplementSection {
+.medsSection {
     border: black 2px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.supplementSection {
+    border: black 2px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.medsSection__title {
+    text-align: center;
+}
+
+.supplementSection__title {
+    text-align: center;
 }
