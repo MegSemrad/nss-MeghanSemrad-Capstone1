@@ -35,9 +35,17 @@
     width: 300px;
 }
 
-.medicationForm__button {
+.medication {
+    display: flex;
+    flex-direction: row;
 }
 
+.medication__DeleteButton {
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+    margin-right: 4px;
+}
 
 
 
@@ -79,6 +87,14 @@
     width: 300px;
 }
 
-.supplementForm__button {
-    
+.supplement {
+    display: flex;
+    flex-direction: row;
+}
+
+.supplement__DeleteButton {
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+    margin-right: 4px;
 }
