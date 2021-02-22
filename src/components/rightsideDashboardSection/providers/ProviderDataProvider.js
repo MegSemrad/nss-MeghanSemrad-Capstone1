@@ -63,21 +63,9 @@ export const ProviderDataProvider = (props) => {
     };
 
 
-    const updateQuestions = questionsObject => {
-        return fetch(`http://localhost:8090/questions/${questionsObject.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(questionsObject)
-        })
-        .then(getQuestions)
-      };
 
 
-
-
-
+    
     const addAppointmentNote = appointmentObj => {
         return fetch("http://localhost:8090/appointmentNotes/", {
             method: "POST",
@@ -100,7 +88,7 @@ export const ProviderDataProvider = (props) => {
             getProviders, getProviderByIdEmbeddedItems, addProvider, addAppointmentNote,
 
             questions, setQuestions, 
-            getQuestions, addQuestion, updateQuestions
+            getQuestions, addQuestion
         }}>
          {props.children}
         </ProviderContext.Provider>

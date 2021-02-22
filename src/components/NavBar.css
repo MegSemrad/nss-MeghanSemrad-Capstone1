@@ -14,3 +14,9 @@
 .navbar-light .navbar-nav .nav-link {
     color: white;
 }
+
+#logout_button {
+    background-color: #809DA4;
+    border-color: #809DA4;
+    margin: 5px;
+}
