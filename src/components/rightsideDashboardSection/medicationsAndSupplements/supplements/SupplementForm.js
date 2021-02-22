@@ -38,17 +38,15 @@ export const SupplementForm = () => {
 
 
     return (
-        <form className="SupplementForm rightSideChildCSS">
-            <fieldset>
-              <div className="form-group">
-                <label htmlFor="supplement">Supplement: </label>
+        <form className="supplementForm rightSideChildCSS">
+            <fieldset className="supplementForm__input__areas">
+              <div className="form-group supplementForm__input__area__supplement">
                 <input type="text" id="supplement" required autoFocus className="form-control"
                 placeholder="Supplement"
                 onChange={handleControlledInputChange}
                 value={supplement.supplement}/>
               </div>
-              <div className="form-group">
-                <label htmlFor="supplementDosage">Supplement Dosage: </label>
+              <div className="form-group supplementForm__input__area__supplementDosage">
                 <input type="text" id="supplementDosage" required autoFocus className="form-control"
                 placeholder="Dosage"
                 onChange={handleControlledInputChange}
@@ -56,9 +54,8 @@ export const SupplementForm = () => {
               </div>
             </fieldset>
 
-          <button id="app_button" className="btn btn-primary" type="reset"
+          <button id="app_button" className="btn btn-primary supplementForm__button"
             onClick={event => {
-                // make it clear fields on click
               event.preventDefault()
               handleSaveSupplement()
             }}>Save</button>

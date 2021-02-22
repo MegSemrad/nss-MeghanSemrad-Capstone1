@@ -38,17 +38,15 @@ export const MedicationForm = () => {
 
 
     return (
-        <form className="MedicationForm rightSideChildCSS">
-            <fieldset>
-              <div className="form-group">
-                <label htmlFor="medication">Medication: </label>
+        <form className="medicationForm rightSideChildCSS">
+            <fieldset className="medicationForm__input__areas">
+              <div className="form-group medicationForm__input__area__medication">
                 <input type="text" id="medication" required autoFocus className="form-control"
                 placeholder="Medication"
                 onChange={handleControlledInputChange}
                 value={medication.medication}/>
               </div>
-              <div className="form-group">
-                <label htmlFor="medicationDosage">Medication Dosage: </label>
+              <div className="form-group medicationForm__input__area__medicationDosage">
                 <input type="text" id="medicationDosage" required autoFocus className="form-control"
                 placeholder="Dosage"
                 onChange={handleControlledInputChange}
@@ -56,7 +54,7 @@ export const MedicationForm = () => {
               </div>
             </fieldset>
 
-          <button id="app_button" className="btn btn-primary"
+          <button id="app_button" className="btn btn-primary medicationForm__button"
             onClick={event => {
               event.preventDefault()
               handleSaveMedication()

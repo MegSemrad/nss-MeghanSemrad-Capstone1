@@ -8,7 +8,7 @@ export const ProviderCard = ({ provider }) => {
 
   
   return (
-      <Button variant="primary" size="lg" block className="rightSideChildCSS"
+      <Button id="app_button" variant="primary" size="lg" block className="rightSideChildCSS"
         onClick={() => { history.push(`/Provider/detail/${provider.id}`) }}>
         {provider.speciality} ({provider.providerName})
       </Button>
