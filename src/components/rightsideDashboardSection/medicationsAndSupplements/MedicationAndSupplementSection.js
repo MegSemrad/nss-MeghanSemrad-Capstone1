@@ -10,7 +10,7 @@ import "./MedicationAndSupplementSection.css";
 
 export const MedicationAndSupplementSection = (props) => {
     const { supplements, getSupplements, deleteSupplement } = useContext(supplementContext);
-    const { medications, getMedications } = useContext(medicationContext);
+    const { medications, getMedications, deleteMedication } = useContext(medicationContext);
     const userId = parseInt(localStorage.getItem("app_user"));
     const [matchedSupplements, setMatchedSupplements] = useState([]);
     const [matchedMedications, setMatchedMedications] = useState([]);
@@ -23,22 +23,33 @@ export const MedicationAndSupplementSection = (props) => {
         })
     }, []);
 
+
     useEffect(() => {
         const matchedSupplements = supplements.filter(s => s.userId === userId)
             setMatchedSupplements(matchedSupplements)
         }, 
         [supplements]);
    
+
     useEffect(() => {
         const matchedMedications = medications.filter(m => m.userId === userId)
             setMatchedMedications(matchedMedications)
         }, 
         [medications]);
 
-    const  handleDeleteSupplement = (id) => {
+
+    const handleDeleteSupplement = (id) => {
         deleteSupplement(id)
         .then(() => {
             getSupplements()
+        })
+    };
+    
+    
+    const handleDeleteMedication = (id) => {
+        deleteMedication(id)
+        .then(() => {
+            getMedications()
         })
     };
 
@@ -51,7 +62,8 @@ export const MedicationAndSupplementSection = (props) => {
                 {matchedMedications.map(matchedMedication => {
                     return <div className="medsSection__list">
                         <MedicationList 
-                            matchedMedication={matchedMedication}/>
+                            matchedMedication={matchedMedication}
+                            handleDeleteMedication={handleDeleteMedication}/>
                     </div>
                 })}
             </div>

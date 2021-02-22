@@ -1,12 +1,10 @@
 import React from "react";
-// import { useHistory } from "react-router-dom";
-
-export const MedicationList = ( { matchedMedication } ) => {
-    // const history = useHistory();
 
 
+export const MedicationList = ( { matchedMedication, handleDeleteMedication } ) => {
     return(
         <div>
+             <button id="medicationDeleteButton" onClick={() => { handleDeleteMedication(matchedMedication.id)}}>✕</button>
             <div>{matchedMedication.medication} {matchedMedication.medicationDosage}</div>
         </div>
     )
