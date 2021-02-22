@@ -27,10 +27,18 @@ export const SupplementProvider = (props) => {
     };
 
 
+    const deleteSupplement = (supplementId) => {
+        return fetch(`http://localhost:8090/supplements/${supplementId}`, {
+            method: "DELETE"
+        })
+            .then(getSupplements)
+    };
+
+
     return (
         <supplementContext.Provider value={{
             supplements, setSupplements, 
-            getSupplements, addSupplement
+            getSupplements, addSupplement, deleteSupplement
         }}>
             {props.children}
         </supplementContext.Provider>
