@@ -6,9 +6,9 @@ export const SupplementList = ( { matchedSupplements } ) => {
 
 
     return(
-        <section>
+        <div>
             <div>{matchedSupplements.supplement}</div>
             <div>{matchedSupplements.supplementDosage}</div>
-        </section>
+        </div>
     )
 };

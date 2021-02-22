@@ -22,6 +22,7 @@ import { QuestionsForm } from "./rightsideDashboardSection/providers/QuestionsFo
 import { AppointmentNoteForm } from "./rightsideDashboardSection/providers/NotesForm";
 
 import { SupplementProvider } from "./rightsideDashboardSection/medicationsAndSupplements/supplements/SupplementProvider";
+import { MedicationProvider } from "./rightsideDashboardSection/medicationsAndSupplements/medications/MedicationProvider";
 import { MedicationAndSupplementSection } from "./rightsideDashboardSection/medicationsAndSupplements/MedicationAndSupplementSection";
 
 
@@ -170,19 +171,19 @@ export const ApplicationViews = () => {
                     </Route>
                </RelativeProvider>
                </BasePatientDetailsProvider>
-               
-               
-               
+                              
                
              
 
-{/* will eventually wrap this with medication provider as well -- do not forget to import that */}
+
                <BasePatientDetailsProvider>
                <SupplementProvider>
+               <MedicationProvider>
                     <Route exact path="/MedicationsAndSupplements">
                          <PermanentDashboardSection  />
                          <MedicationAndSupplementSection />
                     </Route>
+               </MedicationProvider>
                </SupplementProvider>
                </BasePatientDetailsProvider> 
           </>
