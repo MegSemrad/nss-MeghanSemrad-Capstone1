@@ -9,7 +9,7 @@ import "./MedicationAndSupplementSection.css";
 
 
 export const MedicationAndSupplementSection = (props) => {
-    const { supplements, getSupplements } = useContext(supplementContext);
+    const { supplements, getSupplements, deleteSupplement } = useContext(supplementContext);
     const { medications, getMedications } = useContext(medicationContext);
     const userId = parseInt(localStorage.getItem("app_user"));
     const [matchedSupplements, setMatchedSupplements] = useState([]);
@@ -35,6 +35,13 @@ export const MedicationAndSupplementSection = (props) => {
         }, 
         [medications]);
 
+    const  handleDeleteSupplement = (id) => {
+        deleteSupplement(id)
+        .then(() => {
+            getSupplements()
+        })
+    };
+
 
     return (
         <section>
@@ -44,7 +51,7 @@ export const MedicationAndSupplementSection = (props) => {
                 {matchedMedications.map(matchedMedication => {
                     return <div className="medsSection__list">
                         <MedicationList 
-                            matchedMedications={matchedMedication}/>
+                            matchedMedication={matchedMedication}/>
                     </div>
                 })}
             </div>
@@ -53,7 +60,8 @@ export const MedicationAndSupplementSection = (props) => {
                 <h3 className="supplementSection__title">Supplements</h3>
                 <SupplementForm />
                 {matchedSupplements.map(matchedSupplement => {
-                    return <SupplementList matchedSupplements={matchedSupplement}/>
+                    return <SupplementList matchedSupplement={matchedSupplement}
+                    handleDeleteSupplement={handleDeleteSupplement}/>
                 })}
             </div>
         </section>

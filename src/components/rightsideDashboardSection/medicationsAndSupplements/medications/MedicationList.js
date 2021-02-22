@@ -1,13 +1,13 @@
 import React from "react";
 // import { useHistory } from "react-router-dom";
 
-export const MedicationList = ( { matchedMedications } ) => {
+export const MedicationList = ( { matchedMedication } ) => {
     // const history = useHistory();
 
 
     return(
         <div>
-            <div>{matchedMedications.medication} {matchedMedications.medicationDosage}</div>
+            <div>{matchedMedication.medication} {matchedMedication.medicationDosage}</div>
         </div>
     )
 };
