@@ -18,7 +18,7 @@ export const NavBar = (props) => {
                     <Nav.Link href="/MedicationsAndSupplements">Medications and Supplements</Nav.Link>
 
                 </Nav>
-                    <Button id="app_button" onClick={(e) => {
+                    <Button id="logout_button" onClick={(e) => {
                         if (e.target.id === "logout_button") {
                             localStorage.removeItem("app_user");
                             return history.push("/loginOrRegister")
