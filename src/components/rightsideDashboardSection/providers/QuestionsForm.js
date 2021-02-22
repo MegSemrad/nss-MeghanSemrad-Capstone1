@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ProviderContext } from "./ProviderDataProvider";
 import { useHistory, useParams } from 'react-router-dom';
 
+
 export const QuestionsForm = () => {
-    const userId = parseInt(localStorage.getItem("app_user"))
+    const userId = parseInt(localStorage.getItem("app_user"));
     const { providerId } = useParams(); 
     const history = useHistory();
 
@@ -18,13 +19,13 @@ export const QuestionsForm = () => {
     });
     
     
-    
     const handleControlledInputChange = (event) => {
         const newQuestion = { ...providerSpecificQuestion }
         newQuestion[event.target.id] = event.target.value
         setProviderSpecificQuestion(newQuestion)
     };
     
+
     const handleSaveQuestions = () => {
             addQuestion({
                 id: providerSpecificQuestion.id,
@@ -35,8 +36,6 @@ export const QuestionsForm = () => {
             .then(() => history.push(`/Provider/detail/${providerId}`))
     };
     
-
-            
 
     return (
         <form>
@@ -54,7 +53,7 @@ export const QuestionsForm = () => {
             </fieldset>
             <button id="app_button" className="btn btn-primary"
                 onClick={event => {
-                    event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                    event.preventDefault() 
                     handleSaveQuestions()
             }}>Save</button>
         </form>

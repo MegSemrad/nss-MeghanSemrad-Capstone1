@@ -1,17 +1,13 @@
 import React, { useState, createContext } from "react";
 
 
-
 export const ProviderContext = createContext();
-
 
 
 export const ProviderDataProvider = (props) => {
     const [provider, setProvider] = useState([]);
     const [providers, setProviders] = useState([]); 
     const [questions, setQuestions] = useState([]);
-    const [appointmentByProvider, setAppointmentbyProvider] = useState([]);
-
 
 
     const getProviders = () => {
@@ -22,7 +18,7 @@ export const ProviderDataProvider = (props) => {
    
 
     const getProviderByIdEmbeddedItems = (id) => {
-        return fetch(`http://localhost:8090/providers/${id}?_embed=appointmentsByProvider&_embed=questions`)
+        return fetch(`http://localhost:8090/providers/${id}?_embed=appointmentNotes&_embed=questions`)
         .then(res => res.json())
     };
 
@@ -41,27 +37,6 @@ export const ProviderDataProvider = (props) => {
         })
     };
     
-
-    const updateProvider = providerObject => {
-        return fetch(`http://localhost:8090/providers/${providerObject.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(providerObject)
-        })
-        .then(getProviders)
-    };
-    
-
-    const deleteProviderById = providerId => {
-        return fetch(`http://localhost:8090/providers/${providerId}?_embed=questions`, {
-            method: "DELETE"
-        })
-            .then(getProviderByIdEmbeddedItems)
-    };
-  
-
 
 
 
@@ -100,24 +75,11 @@ export const ProviderDataProvider = (props) => {
       };
 
 
-      const deleteQuestion = questionId => {
-        return fetch(`http://localhost:8090/questions/${questionId}`, {
-            method: "DELETE"
-        })
-            .then(getProviderByIdEmbeddedItems)
-    };
 
 
 
-    const getAppointmentByProvider = () => {
-        return fetch (`http://localhost:8090/appointmentsByProvider/`)
-        .then(response => response.json())
-        .then(setAppointmentbyProvider)
-    };
-
-
-    const addAppointmentByProvider = appointmentObj => {
-        return fetch("http://localhost:8090/appointmentsByProvider/", {
+    const addAppointmentNote = appointmentObj => {
+        return fetch("http://localhost:8090/appointmentNotes/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -128,26 +90,17 @@ export const ProviderDataProvider = (props) => {
     };
    
 
-    const updateAppointmentByProvider = appointmentByProviderObject => {
-      return fetch(`http://localhost:8090/appointmentsByProvider/${appointmentByProviderObject.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(appointmentByProviderObject)
-      })
-      .then(getAppointmentByProvider)
-    };
 
 
 
     return (
         <ProviderContext.Provider value={{
-            provider, providers, setProvider, setProviders,
-            getProviders, getProviderByIdEmbeddedItems , addProvider, 
-            addQuestion, addAppointmentByProvider, deleteProviderById, updateQuestions, 
-            updateProvider, updateAppointmentByProvider, getQuestions, getAppointmentByProvider, 
-            questions, setQuestions, appointmentByProvider, setAppointmentbyProvider, deleteQuestion
+            provider, setProvider, 
+            providers, setProviders,
+            getProviders, getProviderByIdEmbeddedItems, addProvider, addAppointmentNote,
+
+            questions, setQuestions, 
+            getQuestions, addQuestion, updateQuestions
         }}>
          {props.children}
         </ProviderContext.Provider>

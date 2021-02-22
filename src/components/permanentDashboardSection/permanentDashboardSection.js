@@ -3,24 +3,21 @@ import { basePatientDetailsContext } from "./permanentDashboardProvider";
 import { PatientDetailList } from "./patientDetails/PatientDetailList";
 import { AlertList } from "./alerts/AlertList";
 import { PreferredPharmacyList } from "./preferredPharmacies/PreferredPharmacyList";
-import "./permanentDashboardSection.css";
-
 
 
 export const PermanentDashboardSection = (props) => {
-    const { getBasePatientDetails } = useContext(basePatientDetailsContext)
-    const userId = parseInt(localStorage.getItem("app_user"))
-    const [matchedUser, setMatchedUser] = useState([])
+    const { getBasePatientDetails } = useContext(basePatientDetailsContext);
+    const userId = parseInt(localStorage.getItem("app_user"));
+    const [matchedUser, setMatchedUser] = useState([]);
 
-
+    
     useEffect(() =>
         getBasePatientDetails()
         .then((details) => {
             const selectedUser = details.find(detail => detail.userId === userId)
             setMatchedUser(selectedUser)
         })
-        , [])
-
+        , []);
 
 
     return (

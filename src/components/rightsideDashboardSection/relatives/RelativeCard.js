@@ -4,13 +4,10 @@ import { Card, Button } from "react-bootstrap";
 
 
 export const RelativeCard = ({ matchedRelative, handleDelete }) => {
-  const history = useHistory()
-
-
+  const history = useHistory();
 
 
   return (
-
     <section className="relative rightSideChildCSS">
       <Card style={{ width: '25rem' }}>
         <Card.Body>
@@ -28,7 +25,6 @@ export const RelativeCard = ({ matchedRelative, handleDelete }) => {
           </Button>
         </Card.Body>
       </Card>
-
     </section>
   )
 };

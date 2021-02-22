@@ -1,10 +1,13 @@
 import React from "react";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
+import "./NavBar.css";
 
 
 export const NavBar = (props) => {
     const history = useHistory()
+
+
     return (
         <>
             <Navbar id="navbar">
@@ -12,6 +15,7 @@ export const NavBar = (props) => {
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/Providers">Providers</Nav.Link>
                     <Nav.Link href="/FamilyHistory">Family Medical History</Nav.Link>
+                    <Nav.Link href="/MedicationsAndSupplements">Medications and Supplements</Nav.Link>
 
                 </Nav>
                     <Button id="app_button" onClick={(e) => {

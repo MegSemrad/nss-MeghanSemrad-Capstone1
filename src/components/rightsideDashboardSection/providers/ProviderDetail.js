@@ -4,11 +4,10 @@ import { useParams, useHistory } from "react-router-dom";
 
 
 export const ProviderDetail = () => {
-  const { getProviderByIdEmbeddedItems } = useContext(ProviderContext)
-
-  const [provider, setProvider] = useState({})
-
-    const { providerId } = useParams();  
+  const { getProviderByIdEmbeddedItems } = useContext(ProviderContext);
+  const [provider, setProvider] = useState({});
+  const { providerId } = useParams();  
+  const history = useHistory();
 
 
   useEffect(() => { 
@@ -16,19 +15,14 @@ export const ProviderDetail = () => {
     .then((response) => {
       setProvider(response)
     })
-    }, [])
-
-    const history = useHistory()
-
-
-
+    }, []);
 
   
 return (
     <section className="provider">
       <h3 className="provider__name">{provider.speciality} ({provider.providerName})</h3>
       <h5>Appointment Notes: </h5>
-      <div className="provider__appointmentNote__and__date">{provider.appointmentsByProvider?.map(note => {return <p>{note.appointmentDate} {note.appointmentNote}</p>})} </div>
+      <div className="provider__appointmentNote__and__date">{provider.appointmentNotes?.map(note => {return <p>{note.appointmentDate} {note.appointmentNote}</p>})} </div>
       <button onClick={() => {
         history.push(`/AppointmentNote/create/${provider.id}`) 
         }}>Add</button>
@@ -44,5 +38,4 @@ return (
         }}>Add</button>
     </section>
   )
-
 };

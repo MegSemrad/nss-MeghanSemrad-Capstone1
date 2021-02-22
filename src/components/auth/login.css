@@ -2,6 +2,7 @@
     font-size: 2.5rem;
 }
 
+
 fieldset {
     min-width: 0;
     padding: 1rem 0;
@@ -9,21 +10,25 @@ fieldset {
     border: 0;
 }
 
+
 .form--login {
     display: inline-block;
     margin: 0 auto;
     text-align: left;
 }
 
+
 .form--login > fieldset > input[type="email"],
 .form--login > fieldset > input[type="text"] {
     width: 25em;
 }
 
+
 .label--login {
     width: 8rem;
     display: inline-block;
 }
+
 
 .form-control {
     display: block;
@@ -42,9 +47,11 @@ fieldset {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+
 .container--login {
     text-align: center;
 }
+
 
 .form--login {
     background-position-x: right;
@@ -56,13 +63,14 @@ fieldset {
     background-repeat: no-repeat;
 }
 
+
 .button--close {
     position: relative;
     bottom: -2rem;
 }
 
+
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
 }
-

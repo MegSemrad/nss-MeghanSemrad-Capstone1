@@ -4,13 +4,13 @@ import { useHistory } from 'react-router-dom';
 
 
 export const ProviderForm = () => {
-  const userId = parseInt(localStorage.getItem("app_user"))
+  const userId = parseInt(localStorage.getItem("app_user"));
   const history = useHistory();
   
   
   const { addProvider } = useContext(ProviderContext);
   const {addQuestion} = useContext(ProviderContext);
-  const { addAppointmentByProvider } = useContext(ProviderContext);
+  const { addAppointment } = useContext(ProviderContext);
 
 
   const [provider, setProvider] = useState({
@@ -46,7 +46,7 @@ export const ProviderForm = () => {
           providerId: newProvider.id,
           questions: provider.questions
         })
-        addAppointmentByProvider({
+        addAppointment({
           id: provider.id,
           userId: userId,
           providerId: newProvider.id,
@@ -87,13 +87,13 @@ export const ProviderForm = () => {
               <input type="text" id="appointmentNote" required autoFocus className="form-control"
               placeholder="Appointment Notes"
               onChange={handleControlledInputChange}
-              value={provider.appointmentsByProvider?.appointmentNote}/>
+              value={provider.appointmentNotes?.appointmentNote}/>
             </div>
             <div className="form-group">
               <label htmlFor="appointmentDate">Appointment Date: </label>
               <input type="date" id="appointmentDate" required autoFocus className="form-control"
               onChange={handleControlledInputChange}
-              value={provider.appointmentsByProvider?.appointmentDate}/>
+              value={provider.appointmentNotes?.appointmentDate}/>
             </div>
           </fieldset>
         </section>
@@ -111,7 +111,7 @@ export const ProviderForm = () => {
         <button className="btn btn-primary"
           id="app_button"
           onClick={event => {
-            event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+            event.preventDefault() 
             handleSaveProvider()
           }}>Save</button>
       </form>

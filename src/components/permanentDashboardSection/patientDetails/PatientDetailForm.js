@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { basePatientDetailsContext } from "../permanentDashboardProvider";
 import { useHistory } from 'react-router-dom';
-import "../permanentDashboardSection.css"
+
 
 export const PatientDetailForm = () => {
-    const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext)
-    const userId = parseInt(localStorage.getItem("app_user"))  
+    const { getBasePatientDetails, updateBasePatientDetails } = useContext(basePatientDetailsContext);
+    const userId = parseInt(localStorage.getItem("app_user"));  
     const history = useHistory();
+
 
     const [patientDetailSection, setPatientDetailSection] = useState({
         userId: 0,
@@ -21,16 +22,15 @@ export const PatientDetailForm = () => {
         preferredPharmacyName: "",
         preferredPharmacyAddress: "",
         preferredPharmacyPhoneNumber: ""
-    })
+    });
 
 
     const handleControlledInputChange = (event) => {
         const newPatientDetails = { ...patientDetailSection }
         newPatientDetails[event.target.id] = event.target.value
         setPatientDetailSection(newPatientDetails)
-    }
+    };
  
-
 
     const handleClickSavePatientDetails = () => {
             updateBasePatientDetails({
@@ -49,11 +49,7 @@ export const PatientDetailForm = () => {
                 preferredPharmacyPhoneNumber: patientDetailSection.preferredPharmacyPhoneNumber
             })
                 .then(() => history.push("/home"))
-}
-
-
-
-
+    };
 
 
     useEffect(() => {
@@ -62,13 +58,7 @@ export const PatientDetailForm = () => {
             const SelectedPatientDetailSection = details.find(detail => detail.userId === userId)
             setPatientDetailSection(SelectedPatientDetailSection)
         })
-    }, [])
-
-
-
-
-
-
+    }, []);
 
 
     return (

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { HeaderLogo} from "./HeaderLogo"
+import { HeaderLogo} from "./HeaderLogo";
+
 import { BasePatientDetailsProvider } from "./permanentDashboardSection/permanentDashboardProvider";
 import { PermanentDashboardSection } from "./permanentDashboardSection/permanentDashboardSection";
 import { PatientDetailForm } from "./permanentDashboardSection/patientDetails/PatientDetailForm";
@@ -9,8 +10,9 @@ import { AlertForm } from "./permanentDashboardSection/alerts/AlertForm";
 import { AlertList } from "./permanentDashboardSection/alerts/AlertList";
 import { PreferredPharmacyForm } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyForm";
 import { PreferredPharmacyList } from "./permanentDashboardSection/preferredPharmacies/PreferredPharmacyList";
+
 import { ProviderDataProvider } from "./rightsideDashboardSection/providers/ProviderDataProvider";
-import { ProviderList } from "./rightsideDashboardSection/providers/ProviderList"
+import { ProviderList } from "./rightsideDashboardSection/providers/ProviderList";
 import { ProviderForm } from "./rightsideDashboardSection/providers/ProviderForm";
 import { ProviderDetail } from "./rightsideDashboardSection/providers/ProviderDetail";
 import { RelativeProvider } from "./rightsideDashboardSection/relatives/RelativeProvider";
@@ -18,7 +20,10 @@ import { RelativeList } from "./rightsideDashboardSection/relatives/RelativeList
 import { RelativeForm } from "./rightsideDashboardSection/relatives/RelativeForm";
 import { QuestionsForm } from "./rightsideDashboardSection/providers/QuestionsForm";
 import { AppointmentNoteForm } from "./rightsideDashboardSection/providers/NotesForm";
-import "./permanentDashboardSection/permanentDashboardSection.css"
+
+import { SupplementProvider } from "./rightsideDashboardSection/medicationsAndSupplements/supplements/SupplementProvider";
+import { MedicationAndSupplementSection } from "./rightsideDashboardSection/medicationsAndSupplements/MedicationAndSupplementSection";
+
 
 
 export const ApplicationViews = () => {
@@ -165,6 +170,21 @@ export const ApplicationViews = () => {
                     </Route>
                </RelativeProvider>
                </BasePatientDetailsProvider>
+               
+               
+               
+               
+             
+
+{/* will eventually wrap this with medication provider as well -- do not forget to import that */}
+               <BasePatientDetailsProvider>
+               <SupplementProvider>
+                    <Route exact path="/MedicationsAndSupplements">
+                         <PermanentDashboardSection  />
+                         <MedicationAndSupplementSection />
+                    </Route>
+               </SupplementProvider>
+               </BasePatientDetailsProvider> 
           </>
      )
 };
