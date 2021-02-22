@@ -15,6 +15,7 @@ export const NavBar = (props) => {
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/Providers">Providers</Nav.Link>
                     <Nav.Link href="/FamilyHistory">Family Medical History</Nav.Link>
+                    <Nav.Link href="/MedicationsAndSupplements">Medications and Supplements</Nav.Link>
 
                 </Nav>
                     <Button id="app_button" onClick={(e) => {
