@@ -37,8 +37,8 @@ export const MedicationAndSupplementSection = (props) => {
 
 
     return (
-        <section className="medsAndSupplementSection rightSideChildCSS">
-            <div>
+        <section>
+            <div className="medsAndSupplementSection rightSideChildCSS">
                 <h3>Medications</h3>
                 <MedicationForm />
                 {matchedMedications.map(matchedMedication => {
@@ -46,7 +46,7 @@ export const MedicationAndSupplementSection = (props) => {
                 })}
             </div>
 
-            <div>
+            <div className="medsAndSupplementSection rightSideChildCSS">
                 <h3>Supplements</h3>
                 <SupplementForm />
                 {matchedSupplements.map(matchedSupplement => {
