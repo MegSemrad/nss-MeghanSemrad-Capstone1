@@ -28,6 +28,12 @@ export const SupplementForm = () => {
             supplement: supplement.supplement,
             supplementDosage: supplement.supplementDosage
         }) 
+        .then(() => {
+          setSupplement({
+            supplement: "",
+            supplementDosage: ""
+          })
+        })
     };
 
 
@@ -50,7 +56,7 @@ export const SupplementForm = () => {
               </div>
             </fieldset>
 
-          <button id="app_button" className="btn btn-primary"
+          <button id="app_button" className="btn btn-primary" type="reset"
             onClick={event => {
                 // make it clear fields on click
               event.preventDefault()

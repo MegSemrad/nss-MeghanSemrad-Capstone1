@@ -27,6 +27,12 @@ export const MedicationForm = () => {
             userId: userId,
             medication: medication.medication,
             medicationDosage: medication.medicationDosage
+        })
+        .then(() => {
+          setMedication({
+            medication: "",
+            medicationDosage: ""
+          })
         }) 
     };
 
