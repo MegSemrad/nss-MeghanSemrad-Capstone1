@@ -42,8 +42,10 @@ export const MedicationAndSupplementSection = (props) => {
                 <h3 className="medsSection__title">Medications</h3>
                 <MedicationForm className="medsSection__form" />
                 {matchedMedications.map(matchedMedication => {
-                    return <MedicationList className="medsSection__list" 
-                    matchedMedications={matchedMedication}/>
+                    return <div className="medsSection__list">
+                        <MedicationList 
+                            matchedMedications={matchedMedication}/>
+                    </div>
                 })}
             </div>
 
