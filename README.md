@@ -66,7 +66,7 @@
  
   ### Wireframe
  <img src="./src/images/Wireframe1.png" width="150%"></img>
- <img src="./src/images/Wireframe2.png" width="120%"></img>
+ <img src="./src/images/Wireframe2.png" width="80%"></img>
  
  _____________________________________
 &copy; 2021   | Web app designed by Meghan Semrad
