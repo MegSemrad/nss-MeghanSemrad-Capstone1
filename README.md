@@ -11,8 +11,10 @@
 * List of current medications and supplements along with dosages for each
 
 
-## Table of Contents
 
+
+
+## Table of Contents
   * [Project Requirements and Features List](#project-requirements-and-features-list)
   * [Technologies Used](#technologies-used)
   * [Setup](#setup)
@@ -23,12 +25,16 @@
 
 
 
+
 ## Technologies Used
   ### Development Languages and Libraries
   <img src="./src/images/react.png" width="10%"></img> <img src="./src/images/reactBootstrap.png" width="10%"></img> <img src="./src/images/css.png" width="10%"> </img> <img src="./src/images/json.png" width="10%"></img>
 
   ### Development Tools
   <img src="./src/images/github.png" width="10%"></img> <img src="./src/images/dbdiagram.png" width="10%"></img> <img src="./src/images/sketchboard.jpeg" width="10%"></img> <img src="./src/images/vscode.jpeg" width="10%"></img>
+
+
+
 
 
 ## Setup
