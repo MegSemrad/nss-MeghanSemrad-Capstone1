@@ -62,7 +62,7 @@
   
 ## Appendix 1: Planning Documentation
  ### ERD
- <img src="./src/images/ERD.png" width="50%"></img>
+ <img src="./src/images/ERD.png" width="100%"></img>
  
  _____________________________________
 &copy; 2021   | Web app designed by Meghan Semrad
