@@ -58,5 +58,11 @@
   ```sh
     json-server -p 8090 -w database.json
   ```
+  
+  
+## Appendix 1: Planning Documentation
+ ### ERD
+ <img src="./src/images/ERD.png" width="50%"></img>
+ 
  _____________________________________
 &copy; 2021   | Web app designed by Meghan Semrad
