@@ -12,7 +12,7 @@
   * [Setup](#setup)
   * [Appendix 1: Planning Documentation](#appendix-1-planning-documentation)
     * [ERD](#erd)
-    * [Wireframes](#wireframes)
+    * [Wireframe](#wireframe)
 
 
 
