@@ -7,7 +7,6 @@
 
 
 ## Table of Contents
-  * [About](#about)
   * [Features](#features)
   * [Technologies Used](#technologies-used)
   * [Setup](#setup)
