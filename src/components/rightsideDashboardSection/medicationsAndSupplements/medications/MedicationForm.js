@@ -58,7 +58,7 @@ export const MedicationForm = () => {
             onClick={event => {
               event.preventDefault()
               handleSaveMedication()
-            }}>Save</button>
+            }}>Add</button>
         </form>
       )
 };
