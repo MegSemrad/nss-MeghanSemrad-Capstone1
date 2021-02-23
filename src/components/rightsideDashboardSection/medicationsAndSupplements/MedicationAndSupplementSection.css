@@ -8,6 +8,7 @@
 
 .medsSection__title {
     text-align: center;
+    margin: 15px 0px;
 }
 
 .medicationForm {
@@ -59,6 +60,7 @@
 
 .supplementSection__title {
     text-align: center;
+    margin: 15px 0px;
 }
 
 .supplementForm {

@@ -58,7 +58,7 @@ export const SupplementForm = () => {
             onClick={event => {
               event.preventDefault()
               handleSaveSupplement()
-            }}>Save</button>
+            }}>Add</button>
         </form>
       )
 };
