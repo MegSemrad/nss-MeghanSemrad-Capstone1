@@ -15,13 +15,13 @@
 
 
 ## Table of Contents
-  * [About]
-  * [Features]
-  * [Technologies Used]
-  * [Setup]
-  * [Appendix 1: Planning Documentation]
-    * [ERD]
-    * [Wireframes]
+  * [About] (#about)
+  * [Features] (#features)
+  * [Technologies Used] (#technologies-used)
+  * [Setup] (#setup)
+  * [Appendix 1: Planning Documentation] (#appendix-1-planning-documentation)
+    * [ERD] (#erd)
+    * [Wireframes] (#wireframes)
 
 
 
