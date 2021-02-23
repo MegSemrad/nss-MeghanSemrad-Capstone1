@@ -1,11 +1,12 @@
 <img src="./src/images/logo2.png" width="30%"> </img>
 
 ---
-## About
-***Health In One*** is an app which allows users to store in one place all of their relevant health data. Visiting your health care providers often entails filling out paperwork and answer questions that require medical information one may find difficult to remember entirely. This app, therefore, was designed to help minimize the risk of a patient walking into a health appointment unprepared. Additionally, this app may be used to keep track of a user previous appointments.
+## About 
+***Health In One*** is an app which allows users to store in one place all of their relevant health data. Visiting your health care providers often entails filling out paperwork and answer questions that require medical information one may find difficult to remember entirely. This app, therefore, was designed to help minimize the risk of a patient walking into a health appointment unprepared. Additionally, this app may be used to keep track of a user previous appointments. 
 
 
-### Features include:
+
+## Features
 * Basic user details such as emergency contact details, allergy and condition alerts, and preferred pharmacy information
 * Place to keep track of past appointments, when they occured with personal notes, and a section to jot down questions for future appointments
 * Record of family medical history
@@ -13,30 +14,25 @@
 
 
 
-
-
 ## Table of Contents
-  * [About and Features List](#about-and-features-list)
-  * [Technologies Used](#technologies-used)
-  * [Setup](#setup)
-  * [Appendix 1: Planning Documentation](#appendix-1-planning-documentation)
-    * [ERD](#entity-relationship-diagram)
-    * [Wireframes](#wireframes)
-
-
+  * [About]
+  * [Features]
+  * [Technologies Used]
+  * [Setup]
+  * [Appendix 1: Planning Documentation]
+    * [ERD]
+    * [Wireframes]
 
 
 
 ## Technologies Used
   ### Development Languages and Libraries
-  <img src="./src/images/css.png" width="10%"></img>   <img src="./src/images/react.png" width="10%"></img> 
-  <img src="./src/images/reactBootstrap.png" width="10%"></img>   <img src="./src/images/json.png" width="10%"></img>
+  <img src="./src/images/css.png" width="10%"></img>   <img src="./src/images/react.png" width="20%"></img> 
+  <img src="./src/images/reactBootstrap.png" width="15%"></img>   <img src="./src/images/json.png" width="15%"></img>
 
   ### Development Tools
   <img src="./src/images/github.png" width="10%"></img>   <img src="./src/images/vscode.jpeg" width="10%"></img>
   <img src="./src/images/dbdiagram.png" width="10%" heigh="10%"></img>   <img src="./src/images/sketchboard.jpeg" width="10%"></img> 
-
-
 
 
 
