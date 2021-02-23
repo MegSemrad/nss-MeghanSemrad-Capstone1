@@ -65,8 +65,8 @@
  <img src="./src/images/ERD.png" width="180%"></img>
  
   ### Wireframe
- <img src="./src/images/Wireframe1.png" width="200%"></img>
- <img src="./src/images/Wireframe2.png" width="180%"></img>
+ <img src="./src/images/Wireframe1.png" width="150%"></img>
+ <img src="./src/images/Wireframe2.png" width="120%"></img>
  
  _____________________________________
 &copy; 2021   | Web app designed by Meghan Semrad
