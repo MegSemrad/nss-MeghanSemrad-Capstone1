@@ -6,14 +6,6 @@
 
 
 
-## Features
-* Basic user details such as emergency contact details, allergy and condition alerts, and preferred pharmacy information
-* Place to keep track of past appointments, when they occured with personal notes, and a section to jot down questions for future appointments
-* Record of family medical history
-* List of current medications and supplements along with dosages for each
-
-
-
 ## Table of Contents
   * [About](#about)
   * [Features](#features)
@@ -22,6 +14,14 @@
   * [Appendix 1: Planning Documentation](#appendix-1-planning-documentation)
     * [ERD](#erd)
     * [Wireframes](#wireframes)
+
+
+
+## Features
+* Basic user details such as emergency contact details, allergy and condition alerts, and preferred pharmacy information
+* Place to keep track of past appointments, when they occured with personal notes, and a section to jot down questions for future appointments
+* Record of family medical history
+* List of current medications and supplements along with dosages for each
 
 
 
