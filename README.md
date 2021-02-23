@@ -61,4 +61,4 @@
     json-server -p 8090 -w database.json
   ```
  _____________________________________
-&copy; 2020   | Web app designed by Meghan Semrad
+&copy; 2021   | Web app designed by Meghan Semrad
