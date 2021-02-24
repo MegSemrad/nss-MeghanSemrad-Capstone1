@@ -74,7 +74,7 @@ export const ProviderDataProvider = (props) => {
             },
             body: JSON.stringify(appointmentObj)
         })
-        .then(setProvider)
+        .then(getProviderByIdEmbeddedItems)
     };
    
 

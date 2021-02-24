@@ -10,7 +10,7 @@ export const ProviderForm = () => {
   
   const { addProvider } = useContext(ProviderContext);
   const {addQuestion} = useContext(ProviderContext);
-  const { addAppointment } = useContext(ProviderContext);
+  const { addAppointmentNote } = useContext(ProviderContext);
 
 
   const [provider, setProvider] = useState({
@@ -39,14 +39,14 @@ export const ProviderForm = () => {
         speciality: provider.speciality,
         providerName: provider.providerName,
       })
-      .then((newProvider) => { //this is the object return after POST-ing to the database 
+      .then((newProvider) => {
         addQuestion({
           id: provider.id,
           userId: userId,
           providerId: newProvider.id,
           questions: provider.questions
         })
-        addAppointment({
+        addAppointmentNote({
           id: provider.id,
           userId: userId,
           providerId: newProvider.id,
